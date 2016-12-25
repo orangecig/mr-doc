@@ -275,9 +275,9 @@
 <p>This guide focuses on migrating from Nova Classic to Nova Apollo. If you’re still on the Legacy version, I’m afraid there isn’t really an easy migration path and you’re probably best off starting a new codebase from scratch. </p>
 <h2 id="Git-Merging"><a href="#Git-Merging" class="headerlink" title="Git Merging"></a>Git Merging</h2><p>The first step will be merging in the latest commits from the <code>apollo</code> branch. I personally use <a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">SourceTree</a> to help manage Git repos, but any good Git app (or even the command line) should work just fine. </p>
 <p>I would suggest creating a new local <code>apollo</code> branch (so you can easily go back to your last working version if things don’t work out) first with:</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> checkout -<span class="keyword">B </span>apollo</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> checkout -<span class="keyword">B </span>devel-apollo</span><br></pre></td></tr></table></figure>
 <p>And then pulling in the changes:</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git pull origin apollo</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git pull origin devel</span></span><br></pre></td></tr></table></figure>
 <p>This will probably result in at least a few Git conflicts between the old and new versions of the same files. Here are some of the most commonly affected files:</p>
 <ul>
 <li><code>package.json</code>: fix any conflicts by keeping the most recent version of each package. You can always use a tool like <a href="https://www.npmjs.com/package/depcheck" target="_blank" rel="external">depcheck</a> later to remove unused packages.</li>
