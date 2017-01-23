@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Introduction | Nova Docs</title>
+    <title>Deployment Guide | Nova Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="https://www.meteor.com/favicon.png" sizes="16x16 32x32 64x64">
@@ -12,12 +12,12 @@
     <!-- Social -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="http://nova-docs.telescopeapp.org">
-    <meta property="og:title" content="Introduction | Nova Docs">
+    <meta property="og:title" content="Deployment Guide | Nova Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Introduction | Nova Docs">
+    <meta name="twitter:title" content="Deployment Guide | Nova Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -99,8 +99,8 @@
           <ul class="list-toc">
             
               
-              <li class="item-toc  current">
-                <a href="" class="sidebar-link  current">
+              <li class="item-toc ">
+                <a href="index.html" class="sidebar-link ">
                   <span>Introduction</span>
                 </a>
               </li>
@@ -268,8 +268,8 @@
               </li>
             
               
-              <li class="item-toc ">
-                <a href="deployment.html" class="sidebar-link ">
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
                   <span>Deployment Guide</span>
                 </a>
               </li>
@@ -284,33 +284,34 @@
 <div class="content">
   <div class="content-wrapper">
     <div class="header-content">
-      <h1 class="title-page">Introduction</h1>
+      <h1 class="title-page">Deployment Guide</h1>
       
 
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/index.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/deployment.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
           
         </div>
       </div>
     </div>
 
     <div class="document-formatting">
-      <h2 id="What’s-Nova"><a href="#What’s-Nova" class="headerlink" title="What’s Nova?"></a>What’s Nova?</h2><p>Nova is a framework that gives you a set of tools for quickly building React-based web applications. Out of the box, it can handle data loading, automatically generate forms, handle email notifications, and much more. </p>
-<p>You can get a good overview of what Nova can do in the <a href="features.html">Features</a> section. </p>
-<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>Install the latest version of Node and NPM. We recommend the usage of <a href="http://nvm.sh" target="_blank" rel="external">NVM</a>.</p>
-<p>Clone the <a href="https://github.com/TelescopeJS/Telescope/" target="_blank" rel="external">Nova repo</a> locally, then:</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout devel</span><br><span class="line">npm <span class="keyword">install</span></span><br><span class="line">meteor</span><br></pre></td></tr></table></figure>
-<p>And open <code>http://localhost:3000/</code> in your browser.</p>
-<h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><p>There are two main ways of using Nova: you can use the features it provides out of the box such as posts, comments, a newsletter, and so on. Or, you can use the underlying <em>framework</em> that powers all these features. </p>
-<p>In either case, you should start by reading the <a href="architecture.html">Architecture</a> section to understand how Nova’s codebase is organized. </p>
-<p>Once you’ve done that, depending on which path you’re interested in you can refer to either one of these two tutorials:</p>
-<ol>
-<li><a href="tutorial-customizing.html">Customizing &amp; Extending Nova</a> will take you through the code of the included <code>customization-demo</code> package and show you how to adapt Nova to your needs by tweaking styles, overriding components, and inserting your own logic in Nova’s back-end. </li>
-<li><a href="tutorial-framework.html">Understanding the Nova Framework</a> on the other hand will teach you how to use Nova’s core data management features to display a list of movies, complete with pagination and a data insertion form. </li>
-</ol>
-<p>If you’re not sure which one is for you, I recommend starting with the first tutorial, as the second one covers more advanced concepts.</p>
-<h2 id="Contribute"><a href="#Contribute" class="headerlink" title="Contribute"></a>Contribute</h2><p>We’re looking for contributors! If you’re interested in this project, come say hello in the <a href="http://slack.telescopeapp.org" target="_blank" rel="external">Nova Slack chatroom</a>.</p>
+      <p>The recommended way to deploy Nova is by using <a href="https://github.com/kadirahq/meteor-up/" target="_blank" rel="external">Mup</a>, at least v1.0.3.</p>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>You should have a Linux server online, for instance <a href="https://www.digitalocean.com" target="_blank" rel="external">a Digital Ocean droplet running with Ubuntu</a>.</p>
+<p>Install globally the latest <code>kadirahq/meteor-up</code>.</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> -g mup</span><br></pre></td></tr></table></figure>
+<p>Create Meteor Up configuration files in your project directory with <code>mup init</code>. In the example below, the configuration files are created in a <code>.deploy</code> directory at the root of your app.</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> my-<span class="keyword">app</span>-folder</span><br><span class="line"><span class="keyword">mkdir</span> .deploy</span><br><span class="line"><span class="keyword">cd</span> .deploy</span><br><span class="line">mup init</span><br></pre></td></tr></table></figure>
+<p>This will create two files :</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mup<span class="selector-class">.js</span> - Meteor Up configuration file</span><br><span class="line">settings<span class="selector-class">.json</span> - Settings <span class="keyword">for</span> Meteor<span class="string">'s settings API</span></span><br></pre></td></tr></table></figure>
+<p>Then, replace the content of the newly created <code>settings.json</code> with your own settings (you can use the content of <code>sample_settings.json</code> as a starter).</p>
+<p>Fill <code>mup.js</code> with your credentials and optional settings (check the <a href="https://github.com/kadirahq/meteor-up" target="_blank" rel="external">Mup repo</a> for additional docs).</p>
+<p><strong>Note:</strong> the <code>ROOT_URL</code> field should be the absolute url of your deploy ; and you need to explicitly point out to use <code>abernix/meteord:base</code> docker image with a <code>docker</code> field within the <code>meteor</code> object.</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">meteor: &#123;</span><br><span class="line">  ...</span><br><span class="line">  path: <span class="string">'../'</span> <span class="comment">// relative path of the app considering your mup config files</span></span><br><span class="line">  env: &#123;</span><br><span class="line">        ROOT_URL: <span class="string">'http://nova-app.com'</span>, <span class="comment">// absolute url of your deploy</span></span><br><span class="line">        ...</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">  docker: &#123;</span><br><span class="line">        image:<span class="string">'abernix/meteord:base'</span> <span class="comment">// docker image working with meteor 1.4 &amp; node 4</span></span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>You can take inspiration (or copy/paste) on this <a href="https://gist.github.com/xavcz/6ddc2bb6f67fe0936c8328ab3314641d" target="_blank" rel="external"><code>mup.js</code> example</a>.</p>
+<h2 id="Setup-your-server"><a href="#Setup-your-server" class="headerlink" title="Setup your server"></a>Setup your server</h2><p>From this folder, you can now setup Docker &amp; Mongo your server with:<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mup <span class="built_in">setup</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Deploy-your-app-to-your-server"><a href="#Deploy-your-app-to-your-server" class="headerlink" title="Deploy your app to your server"></a>Deploy your app to your server</h2><p>Still in the same folder, to deploy your app with your settings file:</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mup deploy <span class="comment">--settings settings.json</span></span><br></pre></td></tr></table></figure>
 
     </div>
   </div>
@@ -319,19 +320,19 @@
     <div class="content-wrapper">
       
       
-      
-        <a class="link primary next"
-          href="features.html">
-          <span class="subtitle-pagination">Next</span>
-          Features
-          <span class="icon-arrow-right-alt"></span>
+        <a class="link primary prev"
+          href="migration.html">
+          <span class="icon-arrow-left-alt"></span>
+          <span class="subtitle-pagination">Previous</span>
+          Migration Guide
         </a>
+      
       
     </div>
   </div>
 
   <div class="github">
-    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/index.md" target="_blank">
+    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/deployment.md" target="_blank">
       <span class="icon-github"></span>Edit on GitHub</a>
   </div>
 
