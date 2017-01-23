@@ -219,6 +219,29 @@
       
         <li>
           
+            <div class="heading-toc">Resources</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="learn.html" class="sidebar-link ">
+                  <span>Learn More</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="plugins.html" class="sidebar-link ">
+                  <span>Plugins</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
             <div class="heading-toc">Tutorials</div>
           
           <ul class="list-toc">
@@ -266,8 +289,14 @@
     </div>
 
     <div class="document-formatting">
-      <h2 id="Registering-Components"><a href="#Registering-Components" class="headerlink" title="Registering Components"></a>Registering Components</h2><p>Nova components are all listed in <code>nova:core</code>‘s <code>Components</code> object. You can add new ones with the ‘registerComponent` method:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Logo = <span class="function"><span class="params">props</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>/* component code */<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line">registerComponent(<span class="string">'Logo'</span>, Logo);</span><br></pre></td></tr></table></figure>
+      <h2 id="Using-Components"><a href="#Using-Components" class="headerlink" title="Using Components"></a>Using Components</h2><p>There are two ways to use components.</p>
+<ul>
+<li>Outisde a compomnent, you can call <code>getComponent(&#39;Foo&#39;)</code>.</li>
+<li>Inside a component, you can simply use <code>&lt;Components.Foo/&gt;</code>.</li>
+</ul>
+<p>The advantage of calling the <code>getComponent</code> function instead of using <code>Components.Foo</code> directly, is that you can ensure that the <code>Foo</code> component is only resolved when the function is called, which in turns makes it possible to override them anywhere in your code. </p>
+<h2 id="Registering-Components"><a href="#Registering-Components" class="headerlink" title="Registering Components"></a>Registering Components</h2><p>Nova components are all listed in <code>nova:core</code>‘s <code>Components</code> object. You can add new ones with the ‘registerComponent` method:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Logo = <span class="function"><span class="params">props</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;/* component code */&lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line">registerComponent(<span class="string">'Logo'</span>, Logo);</span><br></pre></td></tr></table></figure>
 <p>The first argument of <code>registerComponent</code> is the component’s name, the second is the component itself, and any successive arguments will be interpreted as higher-order components and wrapped around the component:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">registerComponent(<span class="string">'Logo'</span>, Logo, withCurrentUser, withRouter);</span><br></pre></td></tr></table></figure>
 <h2 id="Components-amp-HoCs"><a href="#Components-amp-HoCs" class="headerlink" title="Components &amp; HoCs"></a>Components &amp; HoCs</h2><p>To understand how theming works in Nova, it’s important to understand how components and higher-order components (HoCs) interact. </p>

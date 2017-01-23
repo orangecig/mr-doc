@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Schema | Nova Docs</title>
+    <title>Plugins | Nova Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="https://www.meteor.com/favicon.png" sizes="16x16 32x32 64x64">
@@ -12,12 +12,12 @@
     <!-- Social -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="http://nova-docs.telescopeapp.org">
-    <meta property="og:title" content="Schema | Nova Docs">
+    <meta property="og:title" content="Plugins | Nova Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Schema | Nova Docs">
+    <meta name="twitter:title" content="Plugins | Nova Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -152,8 +152,8 @@
               </li>
             
               
-              <li class="item-toc  current">
-                <a href="" class="sidebar-link  current">
+              <li class="item-toc ">
+                <a href="schema.html" class="sidebar-link ">
                   <span>Schema</span>
                 </a>
               </li>
@@ -231,8 +231,8 @@
               </li>
             
               
-              <li class="item-toc ">
-                <a href="plugins.html" class="sidebar-link ">
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
                   <span>Plugins</span>
                 </a>
               </li>
@@ -277,35 +277,24 @@
 <div class="content">
   <div class="content-wrapper">
     <div class="header-content">
-      <h1 class="title-page">Schema</h1>
+      <h1 class="title-page">Plugins</h1>
       
 
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/schema.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/plugins.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
           
         </div>
       </div>
     </div>
 
     <div class="document-formatting">
-      <h2 id="Default-Properties"><a href="#Default-Properties" class="headerlink" title="Default Properties"></a>Default Properties</h2><p>See the <a href="https://github.com/aldeed/meteor-simple-schema#schema-rules" target="_blank" rel="external">SimpleSchema documentation</a>.</p>
-<h2 id="Data-Layer-Properties"><a href="#Data-Layer-Properties" class="headerlink" title="Data Layer Properties"></a>Data Layer Properties</h2><h4 id="viewableBy"><a href="#viewableBy" class="headerlink" title="viewableBy"></a><code>viewableBy</code></h4><p>Can either be an array of group names or a function.</p>
-<p>If it’s a function, it’ll be called on the <code>user</code> viewing the document, and should return <code>true</code> or <code>false</code>. When generating a form for inserting new documents, the form will contain all the fields that return <code>true</code> for the current user. </p>
-<h4 id="insertableBy"><a href="#insertableBy" class="headerlink" title="insertableBy"></a><code>insertableBy</code></h4><p>Can either be an array of group names or a function.</p>
-<p>If it’s a function, it’ll be called on the <code>user</code> performing the operation, and should return <code>true</code> or <code>false</code>. When generating a form for inserting new documents, the form will contain all the fields that return <code>true</code> for the current user. </p>
-<h4 id="editableBy"><a href="#editableBy" class="headerlink" title="editableBy"></a><code>editableBy</code></h4><p>Can either be an array of group names or a function.</p>
-<p>If it’s a function, it’ll be called on the <code>user</code> performing the operation, and the <code>document</code> being operated on, and should return <code>true</code> or <code>false</code>. When generating a form for editing existing documents, the form will contain all the fields that return <code>true</code> for the current user. </p>
-<h2 id="Forms-Properties"><a href="#Forms-Properties" class="headerlink" title="Forms Properties"></a>Forms Properties</h2><h4 id="label"><a href="#label" class="headerlink" title="label"></a><code>label</code></h4><p>The form label. If not provided, the label will be generated based on the field name and the available language strings data. </p>
-<h4 id="control"><a href="#control" class="headerlink" title="control"></a><code>control</code></h4><p>Either a text string (one of <code>text</code>, <code>textarea</code>, <code>checkbox</code>, <code>checkboxgroup</code>, <code>radiogroup</code>, or <code>select</code>) or a React component. </p>
-<h4 id="order"><a href="#order" class="headerlink" title="order"></a><code>order</code></h4><p>A number corresponding to the position of the property’s field inside the form. </p>
-<h4 id="group"><a href="#group" class="headerlink" title="group"></a><code>group</code></h4><p>An optional object containing the group/section/fieldset in which to include the form element. Groups have <code>name</code>, <code>label</code>, and <code>order</code> properties.</p>
-<p>For example:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">postedAt: &#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="built_in">Date</span>,</span><br><span class="line">  <span class="attr">optional</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">insertableBy</span>: Users.isAdmin,</span><br><span class="line">  <span class="attr">editableBy</span>: Users.isAdmin,</span><br><span class="line">  <span class="attr">publish</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">control</span>: <span class="string">"datetime"</span>,</span><br><span class="line">  <span class="attr">group</span>: &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">"admin"</span>,</span><br><span class="line">    <span class="attr">label</span>: <span class="string">"Admin Options"</span>,</span><br><span class="line">    <span class="attr">order</span>: <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>Note that fields with no groups are always rendered first in the form. </p>
-<h4 id="placeholder"><a href="#placeholder" class="headerlink" title="placeholder"></a><code>placeholder</code></h4><p>A placeholder value for the form field. </p>
-<h4 id="beforeComponent"><a href="#beforeComponent" class="headerlink" title="beforeComponent"></a><code>beforeComponent</code></h4><p>A React component that will be inserted just before the form component itself.</p>
-<h4 id="afterComponent"><a href="#afterComponent" class="headerlink" title="afterComponent"></a><code>afterComponent</code></h4><p>A React component that will be inserted just after the form component itself.</p>
+      <ul>
+<li><a href="https://github.com/xavcz/nova-social-share" target="_blank" rel="external">Social Share</a></li>
+<li><a href="https://github.com/xavcz/nova-forms-upload" target="_blank" rel="external">Forms Upload</a></li>
+<li><a href="https://github.com/xavcz/nova-post-by-feed" target="_blank" rel="external">Post by Feed</a></li>
+<li><a href="https://github.com/xavcz/nova-slack" target="_blank" rel="external">Slack</a></li>
+</ul>
 
     </div>
   </div>
@@ -315,17 +304,17 @@
       
       
         <a class="link primary prev"
-          href="custom-fields.html">
+          href="learn.html">
           <span class="icon-arrow-left-alt"></span>
           <span class="subtitle-pagination">Previous</span>
-          Custom Fields
+          Learn More
         </a>
       
       
         <a class="link primary next"
-          href="data-layer.html">
+          href="tutorial-framework.html">
           <span class="subtitle-pagination">Next</span>
-          Data Layer
+          Understanding the Nova Framework
           <span class="icon-arrow-right-alt"></span>
         </a>
       
@@ -333,7 +322,7 @@
   </div>
 
   <div class="github">
-    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/schema.md" target="_blank">
+    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/plugins.md" target="_blank">
       <span class="icon-github"></span>Edit on GitHub</a>
   </div>
 
