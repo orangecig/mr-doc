@@ -146,13 +146,6 @@
             
               
               <li class="item-toc ">
-                <a href="custom-fields.html" class="sidebar-link ">
-                  <span>Custom Fields</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
                 <a href="schema.html" class="sidebar-link ">
                   <span>Schema</span>
                 </a>
@@ -232,8 +225,36 @@
             
               
               <li class="item-toc ">
+                <a href="examples.html" class="sidebar-link ">
+                  <span>Examples</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
                 <a href="plugins.html" class="sidebar-link ">
                   <span>Plugins</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="themes.html" class="sidebar-link ">
+                  <span>Themes</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="tutorials.html" class="sidebar-link ">
+                  <span>Tutorials</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="videos.html" class="sidebar-link ">
+                  <span>Videos</span>
                 </a>
               </li>
             
@@ -362,7 +383,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; newMutation, editMutation, removeMutation &#125; <span class="keyword">from</span> <span class="string">'meteor/nova:lib'</span>;</span><br></pre></td></tr></table></figure>
 <p>They take the following arguments:</p>
 <ul>
-<li><code>collection</code>: the collectin affected.</li>
+<li><code>collection</code>: the collection affected.</li>
 <li><code>document</code> (new) or <code>documentId</code> (edit, remove): the document or document ID.</li>
 <li><code>set</code>, <code>unset</code> (edit only): the <code>set</code> and <code>unset</code> objects. </li>
 <li><code>currentUser</code>: the user performing the operation.</li>
@@ -392,7 +413,7 @@
 <ul>
 <li><code>queryName</code>: an arbitrary name for the query.</li>
 <li><code>collection</code>: the collection on which to look for the <code>list</code> resolver.</li>
-<li><code>fragment</code>: the fragment to use (see below).</li>
+<li><code>fragment</code> or <code>fragmentName</code>: the fragment to use. If you pass <code>fragmentName</code> instead of <code>fragment</code>, the name you passed will be used to look up a fragment registered with <code>registerFragment</code>. </li>
 </ul>
 <p>For example:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> listOptions = &#123;</span><br><span class="line">  <span class="attr">collection</span>: Movies,</span><br><span class="line">  <span class="attr">queryName</span>: <span class="string">'moviesListQuery'</span>,</span><br><span class="line">  <span class="attr">fragment</span>: MoviesItem.fragment,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> withList(listOptions)(MoviesList);</span><br></pre></td></tr></table></figure>
@@ -417,24 +438,22 @@
 <li><code>loading</code>: <code>true</code> while the data is loading.</li>
 <li><code>document</code>: the loaded document.</li>
 </ul>
-<h3 id="withNew"><a href="#withNew" class="headerlink" title="withNew"></a>withNew</h3><p>This HoC takes the following four options:</p>
+<h3 id="withNew"><a href="#withNew" class="headerlink" title="withNew"></a>withNew</h3><p>This HoC takes the following two options:</p>
 <ul>
 <li><code>collection</code>: the collection to operate on.</li>
-<li><code>queryName</code>: the name of the query to update on the client.</li>
 <li><code>fragment</code>: specifies the data to ask for as a return value.</li>
 </ul>
 <p>And passes on a <code>newMutation</code> function to the wrapped component, which takes a single <code>document</code> argument.</p>
 <h3 id="withEdit"><a href="#withEdit" class="headerlink" title="withEdit"></a>withEdit</h3><p>Same options as <code>withNew</code>. The returned <code>editMutation</code> mutation takes three arguments: <code>documentId</code>, <code>set</code>, and <code>unset</code>. </p>
-<h3 id="withRemove"><a href="#withRemove" class="headerlink" title="withRemove"></a>withRemove</h3><p>Same options as <code>withNew</code>. The returned <code>removeMutation</code> mutation takes a single <code>documentId</code> argument. </p>
+<h3 id="withRemove"><a href="#withRemove" class="headerlink" title="withRemove"></a>withRemove</h3><p>A single <code>collection</code> option. The returned <code>removeMutation</code> mutation takes a single <code>documentId</code> argument. </p>
 <p>Note that when using the <a href="forms.html">Forms</a> module, all three mutation HoCs are automatically added for you. </p>
-<h2 id="fragments">Fragments</h2>
-
-<p>A fragment is a piece of schema, usually used to define what data you want to query for. </p>
-<p>A good practice is defining the fragment wherever the data will actually be used. Note that this doesn’t have to be the component that directly receives this data. </p>
-<p>For example, you could define a fragment in one component:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MoviesItem</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">MoviesItem.fragment = gql<span class="string">`</span><br><span class="line">  fragment moviesItemFragment on Movie &#123;</span><br><span class="line">    _id</span><br><span class="line">    name</span><br><span class="line">    year</span><br><span class="line">    user &#123;</span><br><span class="line">      __displayName</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> MoviesItem;</span><br></pre></td></tr></table></figure>
-<p>And reuse it in another:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> listOptions = &#123;</span><br><span class="line">  <span class="attr">collection</span>: Movies,</span><br><span class="line">  <span class="attr">queryName</span>: <span class="string">'moviesListQuery'</span>,</span><br><span class="line">  <span class="attr">fragment</span>: MoviesItem.fragment,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> withList(listOptions)(MoviesList);</span><br></pre></td></tr></table></figure>
+<h2 id="Fragments"><a href="#Fragments" class="headerlink" title="Fragments"></a>Fragments</h2><p>A fragment is a piece of schema, usually used to define what data you want to query for. </p>
+<h3 id="Registering-Fragments"><a href="#Registering-Fragments" class="headerlink" title="Registering Fragments"></a>Registering Fragments</h3><p>You can use the <code>registerFragment</code> to register a fragment (under its fragment name, in this case <code>PostsList</code>) to be used at a later date.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; registerFragment &#125; <span class="keyword">from</span> <span class="string">'meteor/nova:lib'</span>;</span><br><span class="line"><span class="keyword">import</span> gql <span class="keyword">from</span> <span class="string">'graphql-tag'</span>;</span><br><span class="line"></span><br><span class="line">registerFragment(gql<span class="string">`</span><br><span class="line">  fragment PostsList on Post &#123;</span><br><span class="line">    _id</span><br><span class="line">    title</span><br><span class="line">    url</span><br><span class="line">  &#125;</span><br><span class="line">`</span>);</span><br></pre></td></tr></table></figure>
+<p>You can also pass a second <code>name</code> argument to <code>registerFragment</code> if you’d like to specify the name under which the fragment will be registered explicitly. </p>
+<h3 id="Using-Fragments"><a href="#Using-Fragments" class="headerlink" title="Using Fragments"></a>Using Fragments</h3><p>You can get a fragment with:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; getFragment &#125; <span class="keyword">from</span> <span class="string">'meteor/nova:lib'</span>;</span><br><span class="line"></span><br><span class="line">getFragment(<span class="string">'PostsList'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="Replacing-Fragments"><a href="#Replacing-Fragments" class="headerlink" title="Replacing Fragments"></a>Replacing Fragments</h3><p>To replace a fragment, you can just register it again under the same name. </p>
 <h2 id="Terms"><a href="#Terms" class="headerlink" title="Terms"></a>Terms</h2>
     </div>
   </div>

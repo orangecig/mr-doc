@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Email | Nova Docs</title>
+    <title>Examples | Nova Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="https://www.meteor.com/favicon.png" sizes="16x16 32x32 64x64">
@@ -12,12 +12,12 @@
     <!-- Social -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="http://nova-docs.telescopeapp.org">
-    <meta property="og:title" content="Email | Nova Docs">
+    <meta property="og:title" content="Examples | Nova Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Email | Nova Docs">
+    <meta name="twitter:title" content="Examples | Nova Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -173,8 +173,8 @@
               </li>
             
               
-              <li class="item-toc  current">
-                <a href="" class="sidebar-link  current">
+              <li class="item-toc ">
+                <a href="email.html" class="sidebar-link ">
                   <span>Email</span>
                 </a>
               </li>
@@ -224,8 +224,8 @@
               </li>
             
               
-              <li class="item-toc ">
-                <a href="examples.html" class="sidebar-link ">
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
                   <span>Examples</span>
                 </a>
               </li>
@@ -305,29 +305,23 @@
 <div class="content">
   <div class="content-wrapper">
     <div class="header-content">
-      <h1 class="title-page">Email</h1>
+      <h1 class="title-page">Examples</h1>
       
 
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/email.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/examples.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
           
         </div>
       </div>
     </div>
 
     <div class="document-formatting">
-      <h2 id="customizing-emails">Customizing Emails</h2>
+      <ul>
+<li><a href="http://crater.io" target="_blank" rel="external">Crater.io</a></li>
+<li>More coming soon…</li>
+</ul>
 
-<p>Unlike components, emails don’t use React but Spacebars, a variant of the Handlebars templating language.</p>
-<p>All email templates live in the <code>nova:email-templates</code> package. In order to register a new template or override an existing one, first you must import it as a text asset in your <code>package.js</code> file (or store it in your <code>/public</code> directory):</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api.addAssets([<span class="string">'path/to/template/newReply.handlebars'</span>,], [<span class="string">'server'</span>]);</span><br></pre></td></tr></table></figure>
-<p>You’ll then be able to load the contents of the file in your code with:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assets.getText(<span class="string">"path/to/template/newReply.handlebars"</span>)</span><br></pre></td></tr></table></figure>
-<p>You can add a template with:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Telescope.email.addTemplates(&#123;</span><br><span class="line">  <span class="attr">newReply</span>: Assets.getText(<span class="string">"path/to/template/newReply.handlebars"</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>Or override an existing one with:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Telescope.email.templates.newReply = Assets.getText(<span class="string">"path/to/template/newReply.handlebars"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
     </div>
   </div>
 
@@ -336,17 +330,17 @@
       
       
         <a class="link primary prev"
-          href="callbacks.html">
+          href="learn.html">
           <span class="icon-arrow-left-alt"></span>
           <span class="subtitle-pagination">Previous</span>
-          Callbacks
+          Learn More
         </a>
       
       
         <a class="link primary next"
-          href="groups-permissions.html">
+          href="plugins.html">
           <span class="subtitle-pagination">Next</span>
-          Groups & Permissions
+          Plugins
           <span class="icon-arrow-right-alt"></span>
         </a>
       
@@ -354,7 +348,7 @@
   </div>
 
   <div class="github">
-    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/email.md" target="_blank">
+    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/examples.md" target="_blank">
       <span class="icon-github"></span>Edit on GitHub</a>
   </div>
 

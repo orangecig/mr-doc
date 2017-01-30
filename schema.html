@@ -145,13 +145,6 @@
               </li>
             
               
-              <li class="item-toc ">
-                <a href="custom-fields.html" class="sidebar-link ">
-                  <span>Custom Fields</span>
-                </a>
-              </li>
-            
-              
               <li class="item-toc  current">
                 <a href="" class="sidebar-link  current">
                   <span>Schema</span>
@@ -232,8 +225,36 @@
             
               
               <li class="item-toc ">
+                <a href="examples.html" class="sidebar-link ">
+                  <span>Examples</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
                 <a href="plugins.html" class="sidebar-link ">
                   <span>Plugins</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="themes.html" class="sidebar-link ">
+                  <span>Themes</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="tutorials.html" class="sidebar-link ">
+                  <span>Tutorials</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="videos.html" class="sidebar-link ">
+                  <span>Videos</span>
                 </a>
               </li>
             
@@ -313,6 +334,14 @@
 <h4 id="placeholder"><a href="#placeholder" class="headerlink" title="placeholder"></a><code>placeholder</code></h4><p>A placeholder value for the form field. </p>
 <h4 id="beforeComponent"><a href="#beforeComponent" class="headerlink" title="beforeComponent"></a><code>beforeComponent</code></h4><p>A React component that will be inserted just before the form component itself.</p>
 <h4 id="afterComponent"><a href="#afterComponent" class="headerlink" title="afterComponent"></a><code>afterComponent</code></h4><p>A React component that will be inserted just after the form component itself.</p>
+<h2 id="Custom-Fields"><a href="#Custom-Fields" class="headerlink" title="Custom Fields"></a>Custom Fields</h2><p>Out of the box, Nova has three main collections: <code>Posts</code>, <code>Users</code>, and <code>Comments</code>. Each of them has a pre-set schema, but that schema can also be extended with custom fields.</p>
+<p>For example, this is how the <code>nova:newsletter</code> package extends the <code>Posts</code> schema with a <code>scheduledAt</code> property that keeps track of when a post was sent out as part of an email newsletter:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Posts.addField(&#123;</span><br><span class="line">  <span class="attr">fieldName</span>: <span class="string">'scheduledAt'</span>,</span><br><span class="line">  <span class="attr">fieldSchema</span>: &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="built_in">Date</span>,</span><br><span class="line">    <span class="attr">optional</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>The <code>collection.addField()</code> function takes either a field object, or an array of fields. Each field has a <code>fieldName</code> property, and a <code>fieldSchema</code> property.</p>
+<p>Each field schema supports all of the <a href="https://github.com/aldeed/meteor-simple-schema#schema-rules" target="_blank" rel="external">SimpleSchema properties</a>, such as <code>type</code>, <code>optional</code>, etc.</p>
+<p>A few special properties (<code>insertableIf</code>, <code>editableIf</code>, <code>control</code>, and <code>order</code>) are also supported by the <a href="forms.html">Forms</a> package.</p>
+<p>You can also remove a field by calling <code>collection.removeField(fieldName)</code>. For example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Posts.removeField(<span class="string">'scheduledAt'</span>);</span><br></pre></td></tr></table></figure>
 
     </div>
   </div>
@@ -322,10 +351,10 @@
       
       
         <a class="link primary prev"
-          href="custom-fields.html">
+          href="theming.html">
           <span class="icon-arrow-left-alt"></span>
           <span class="subtitle-pagination">Previous</span>
-          Custom Fields
+          Components & Theming
         </a>
       
       

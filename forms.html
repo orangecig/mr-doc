@@ -146,13 +146,6 @@
             
               
               <li class="item-toc ">
-                <a href="custom-fields.html" class="sidebar-link ">
-                  <span>Custom Fields</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
                 <a href="schema.html" class="sidebar-link ">
                   <span>Schema</span>
                 </a>
@@ -232,8 +225,36 @@
             
               
               <li class="item-toc ">
+                <a href="examples.html" class="sidebar-link ">
+                  <span>Examples</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
                 <a href="plugins.html" class="sidebar-link ">
                   <span>Plugins</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="themes.html" class="sidebar-link ">
+                  <span>Themes</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="tutorials.html" class="sidebar-link ">
+                  <span>Tutorials</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="videos.html" class="sidebar-link ">
+                  <span>Videos</span>
                 </a>
               </li>
             
@@ -296,7 +317,7 @@
     </div>
 
     <div class="document-formatting">
-      <p>The <code>nova:forms</code> package provides a <code>NovaForm</code> component that lets you easily generate new document and edit document forms. </p>
+      <p>The <code>nova:forms</code> package provides a <code>SmartForm</code> component that lets you easily generate new document and edit document forms. </p>
 <h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><p>This package can generate new document and edit document forms from a <a href="https://github.com/aldeed/meteor-simple-schema" target="_blank" rel="external">SimpleSchema</a> schema. Features include:</p>
 <ul>
 <li>Error handling.</li>
@@ -310,12 +331,12 @@
 <h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>Example schema:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> BodyFormControl <span class="keyword">from</span> <span class="string">'./components/BodyFormControl.jsx'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> isLoggedIn = <span class="function">(<span class="params">user</span>) =&gt;</span> !!user;</span><br><span class="line"><span class="keyword">const</span> isOwner = <span class="function">(<span class="params">user, <span class="built_in">document</span></span>) =&gt;</span> user._id === <span class="built_in">document</span>.userId;</span><br><span class="line"><span class="keyword">const</span> isAdmin = <span class="function">(<span class="params">user</span>) =&gt;</span> user.isAdmin;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> PostsSchema = <span class="keyword">new</span> SimpleSchema(&#123;</span><br><span class="line">  <span class="attr">postedAt</span>: &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="built_in">Date</span>,</span><br><span class="line">    <span class="attr">optional</span>: <span class="literal">true</span></span><br><span class="line">    <span class="comment">// no insertableBy or editableBy means this field won't appear in forms</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">title</span>: &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="built_in">String</span>,</span><br><span class="line">    <span class="attr">optional</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">max</span>: <span class="number">500</span>,</span><br><span class="line">    <span class="attr">insertableBy</span>: isLoggedIn,</span><br><span class="line">    <span class="attr">editableBy</span>: isOwner,</span><br><span class="line">    <span class="attr">control</span>: <span class="string">"text"</span>,</span><br><span class="line">    <span class="attr">order</span>: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">body</span>: &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="built_in">String</span>,</span><br><span class="line">    <span class="attr">optional</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">max</span>: <span class="number">3000</span>,</span><br><span class="line">    <span class="attr">insertableBy</span>: isLoggedIn,</span><br><span class="line">    <span class="attr">editableBy</span>: isOwner,</span><br><span class="line">    <span class="attr">control</span>: BodyFormControl,</span><br><span class="line">    <span class="attr">order</span>: <span class="number">2</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">sticky</span>: &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="built_in">Boolean</span>,</span><br><span class="line">    <span class="attr">optional</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">defaultValue</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">insertableBy</span>: isAdmin,</span><br><span class="line">    <span class="attr">editableBy</span>: isAdmin,</span><br><span class="line">    <span class="attr">control</span>: <span class="string">"checkbox"</span>,</span><br><span class="line">    <span class="attr">order</span>: <span class="number">3</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>New document form:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;NovaForm </span><br><span class="line">  collection=&#123;Posts&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;SmartForm </span><br><span class="line">  collection=&#123;Posts&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
 <p>Edit document form:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;NovaForm </span><br><span class="line">  collection=&#123;Posts&#125;</span><br><span class="line">  <span class="built_in">document</span>=&#123;post&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;SmartForm </span><br><span class="line">  collection=&#123;Posts&#125;</span><br><span class="line">  <span class="built_in">document</span>=&#123;post&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><h4 id="collection"><a href="#collection" class="headerlink" title="collection"></a><code>collection</code></h4><p>The collection in which to edit or insert a document.</p>
 <h4 id="fragment"><a href="#fragment" class="headerlink" title="fragment"></a><code>fragment</code></h4><p>A fragment that defines what data you expect back from the mutation. </p>
-<p>If no fragment is passed, NovaForms will only return fields used in the form, but that might lead to discrepancies when compared with documents already loaded on the client (an example would be a <code>createdAt</code> date added automatically on creation even though it’s not part of the actual form).  </p>
+<p>If no fragment is passed, SmartForms will only return fields used in the form, but that might lead to discrepancies when compared with documents already loaded on the client (an example would be a <code>createdAt</code> date added automatically on creation even though it’s not part of the actual form).  </p>
 <h4 id="schema"><a href="#schema" class="headerlink" title="schema"></a><code>schema</code></h4><p>If you prefer, you can also specify a schema instead of a collection.</p>
 <h4 id="documentId"><a href="#documentId" class="headerlink" title="documentId"></a><code>documentId</code></h4><p>If present, the document to edit. If not present, the form will be a “new document” form. </p>
 <h4 id="submitCallback-data"><a href="#submitCallback-data" class="headerlink" title="submitCallback(data)"></a><code>submitCallback(data)</code></h4><p>A callback called on form submission on the form data. Should return the <code>data</code> object as well.</p>
@@ -324,7 +345,7 @@
 <h4 id="cancelCallback"><a href="#cancelCallback" class="headerlink" title="cancelCallback()"></a><code>cancelCallback()</code></h4><p>If provided, will show a “cancel” link next to the form’s submit button. </p>
 <h4 id="labelFunction"><a href="#labelFunction" class="headerlink" title="labelFunction"></a><code>labelFunction</code></h4><p>A function to call on field names to get the label.</p>
 <h4 id="prefilledProps"><a href="#prefilledProps" class="headerlink" title="prefilledProps"></a><code>prefilledProps</code></h4><p>A set of props to prefill for new documents. </p>
-<h2 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h2><p>The main <code>NovaForm</code> components makes the following objects available as context to all its children:</p>
+<h2 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h2><p>The main <code>SmartForm</code> components makes the following objects available as context to all its children:</p>
 <h4 id="autofilledValues"><a href="#autofilledValues" class="headerlink" title="autofilledValues"></a><code>autofilledValues</code></h4><p>An object containing optional autofilled properties. </p>
 <h4 id="addToAutofilledValues-name-value"><a href="#addToAutofilledValues-name-value" class="headerlink" title="addToAutofilledValues({name: value})"></a><code>addToAutofilledValues({name: value})</code></h4><p>A function that takes a property, and adds it to the <code>autofilledValues</code> object. </p>
 <h4 id="throwError-content-type"><a href="#throwError-content-type" class="headerlink" title="throwError({content, type})"></a><code>throwError({content, type})</code></h4><p>A callback function that can be used to throw an error. </p>

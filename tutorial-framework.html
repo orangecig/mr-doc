@@ -146,13 +146,6 @@
             
               
               <li class="item-toc ">
-                <a href="custom-fields.html" class="sidebar-link ">
-                  <span>Custom Fields</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
                 <a href="schema.html" class="sidebar-link ">
                   <span>Schema</span>
                 </a>
@@ -232,8 +225,36 @@
             
               
               <li class="item-toc ">
+                <a href="examples.html" class="sidebar-link ">
+                  <span>Examples</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
                 <a href="plugins.html" class="sidebar-link ">
                   <span>Plugins</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="themes.html" class="sidebar-link ">
+                  <span>Themes</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="tutorials.html" class="sidebar-link ">
+                  <span>Tutorials</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="videos.html" class="sidebar-link ">
+                  <span>Videos</span>
                 </a>
               </li>
             
@@ -299,7 +320,7 @@
       <p>Out of the box, Nova comes with many features such as handling posts and comments, generating a newsletter, and much more. </p>
 <p>But it’s important to understand that you can also use the underlying framework powering these features directly and build a completely different type of app. </p>
 <p>So in this tutorial, we’ll focus on understanding this framework and seeing how to build a simple paginated list of movies. </p>
-<p>The completed code for this tutorial can be found in the <a href="https://github.com/TelescopeJS/Telescope/tree/nova-framework-tutorial/packages/my-package" target="_blank" rel="external">nova-framework-tutorial branch</a>, and you can also check out the <code>framework-demo</code> package in the regular branch for a more full-featured version of the same example. </p>
+<p>The completed code for this tutorial can be found in the <code>framework-demo</code> package.</p>
 <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><iframe width="560" height="315" src="https://www.youtube.com/embed/RzoYVqsD9WI" frameborder="0" allowfullscreen></iframe>
 
 <h2 id="Set-Up"><a href="#Set-Up" class="headerlink" title="Set Up"></a>Set Up</h2><p>First, we’ll make sure we’re only including the Nova features we actually need. We can do that by removing any non-core packages in the <code>.meteor/packages</code> file (don’t worry, this will only make sure these packages are not loaded, and won’t actually remove them from your codebase). </p>
@@ -335,7 +356,7 @@
 <p>And, as we did previously, reference it from <code>modules.js</code>:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'./collection.js'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'./routes.js'</span>;</span><br></pre></td></tr></table></figure>
 <p>It might not look like much has changed, but we now have a functional GraphQL schema! You can see it by opening up the Meteor shell in a terminal window (by typing <code>meteor shell</code> from within your app directory) and typing:</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Telescope <span class="keyword">from</span> <span class="string">'meteor/nova:lib'</span></span><br><span class="line">GraphQLSchema.finalSchema</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Telescope <span class="keyword">from</span> <span class="string">'meteor/nova:lib'</span></span><br><span class="line">GraphQLSchema.finalSchema</span><br></pre></td></tr></table></figure>
 <h2 id="Query-Resolvers"><a href="#Query-Resolvers" class="headerlink" title="Query Resolvers"></a>Query Resolvers</h2><p>Even though we have a schema, we can’t actually query for a document yet because we don’t have any <strong>query resolvers</strong>. Create a new <code>resolvers.js</code> file inside <code>lib</code> and add:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> resolvers = &#123;</span><br><span class="line">  <span class="attr">list</span>: &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">'moviesList'</span>,</span><br><span class="line">    resolver(root, &#123;terms, offset, limit&#125;, context, info) &#123;</span><br><span class="line">      <span class="keyword">const</span> options = &#123;</span><br><span class="line">        <span class="attr">sort</span>: &#123;<span class="attr">createdAt</span>: <span class="number">-1</span>&#125;,</span><br><span class="line">        limit,</span><br><span class="line">        <span class="attr">skip</span>: offset,</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="keyword">return</span> context.Movies.find(&#123;&#125;, options).fetch();</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">total</span>: &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">'moviesTotal'</span>,</span><br><span class="line">    resolver(root, &#123;terms&#125;, context) &#123;</span><br><span class="line">      <span class="keyword">return</span> context.Movies.find().count();</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> resolvers;</span><br></pre></td></tr></table></figure>
 <p>And then import this new file from <code>collection.js</code>:</p>
@@ -400,10 +421,10 @@
       
       
         <a class="link primary prev"
-          href="plugins.html">
+          href="videos.html">
           <span class="icon-arrow-left-alt"></span>
           <span class="subtitle-pagination">Previous</span>
-          Plugins
+          Videos
         </a>
       
       
