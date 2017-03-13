@@ -133,6 +133,50 @@
       
         <li>
           
+            <div class="heading-toc">Data Layer</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="schemas.html" class="sidebar-link ">
+                  <span>Collections & Schemas</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="data-loading.html" class="sidebar-link ">
+                  <span>Data Loading</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="fragments.html" class="sidebar-link ">
+                  <span>Fragments</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="terms-parameters.html" class="sidebar-link ">
+                  <span>Terms & Parameters</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="mutations.html" class="sidebar-link ">
+                  <span>Mutations</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
             <div class="heading-toc">API</div>
           
           <ul class="list-toc">
@@ -141,20 +185,6 @@
               <li class="item-toc ">
                 <a href="theming.html" class="sidebar-link ">
                   <span>Components & Theming</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
-                <a href="schema.html" class="sidebar-link ">
-                  <span>Schema</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
-                <a href="data-layer.html" class="sidebar-link ">
-                  <span>Data Layer</span>
                 </a>
               </li>
             
@@ -318,24 +348,21 @@
 
     <div class="document-formatting">
       <p>Nova uses a system of hooks and callbacks for many of its operations.</p>
-<h2 id="adding-callbacks">Adding Callbacks</h2>
-
-<p>For example, here’s how you would add a callback to <code>posts.edit.sync</code> to give posts an <code>editedAt</code> date every time they are modified:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; addCallback &#125; <span class="keyword">from</span> <span class="string">'meteor/nova:core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setEditedAt</span> (<span class="params">post, user</span>) </span>&#123;</span><br><span class="line">  post.editedAt = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  <span class="keyword">return</span> post;</span><br><span class="line">&#125;</span><br><span class="line">addCallback(<span class="string">"posts.edit.sync"</span>, setEditedAt);</span><br></pre></td></tr></table></figure>
-<p>If the callback function is named (i.e. declared using the <code>function foo () {}</code> syntax), you can also remove it from the callback using:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; removeCallback &#125; <span class="keyword">from</span> <span class="string">'meteor/nova:core'</span>;</span><br><span class="line"></span><br><span class="line">removeCallback(<span class="string">"posts.edit.sync"</span>, <span class="string">"setEditedAt"</span>);</span><br></pre></td></tr></table></figure>
-<p>Methods support three distinct types of callbacks, each with their own hook:</p>
+<h2 id="Adding-Callback-Functions"><a href="#Adding-Callback-Functions" class="headerlink" title="Adding Callback Functions"></a>Adding Callback Functions</h2><p>For example, here’s how you would add a callback to <code>posts.edit.sync</code> to give posts an <code>editedAt</code> date every time they are modified:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; addCallback &#125; <span class="keyword">from</span> <span class="string">'meteor/nova:core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setEditedAt</span> (<span class="params">post, user</span>) </span>&#123;</span><br><span class="line">  post.editedAt = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  <span class="keyword">return</span> post;</span><br><span class="line">&#125;</span><br><span class="line">addCallback(<span class="string">'posts.edit.sync'</span>, setEditedAt);</span><br></pre></td></tr></table></figure>
+<p>Nova’s boilerplate mutations support three distinct types of callback functions, each with their own hook:</p>
 <ul>
 <li><code>validate</code> callbacks are called to decide if an operation should run or not. </li>
 <li><code>sync</code> callbacks are called in a blocking manner before the database operation.</li>
 <li><code>async</code> callbacks are called in a non-blocking manner, after the database operation. </li>
 </ul>
-<h2 id="running-callbacks">Running Callbacks</h2>
-
-<p>Callbacks are run using the <code>Callbacks.runSync</code> and <code>Callbacks.runAsync</code> functions:</p>
+<h2 id="Removing-Callback-Functions"><a href="#Removing-Callback-Functions" class="headerlink" title="Removing Callback Functions"></a>Removing Callback Functions</h2><p>If the callback function is named (i.e. declared using the <code>function foo () {}</code> syntax), you can also remove it from the callback using:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; removeCallback &#125; <span class="keyword">from</span> <span class="string">'meteor/nova:core'</span>;</span><br><span class="line"></span><br><span class="line">removeCallback(<span class="string">'posts.edit.sync'</span>, <span class="string">"setEditedAt"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Running-Callback-Hooks"><a href="#Running-Callback-Hooks" class="headerlink" title="Running Callback Hooks"></a>Running Callback Hooks</h2><p>Callbacks are run using the <code>Callbacks.runSync</code> and <code>Callbacks.runAsync</code> functions:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modifier = Callbacks.run(<span class="string">`movies.edit.sync`</span>, modifier, <span class="built_in">document</span>, currentUser)</span><br></pre></td></tr></table></figure>
 <p>In each case, the <strong>first</strong> argument is the name of the callback hook, the <strong>second</strong> argument is the one iterated on by each callback function on the hook, while any remaining arguments are just passed along from one iteration to the next.</p>
 <p>Note that for <em>sync</em> callbacks, each callback function should return the main argument to pass it on to the next function, while <em>async</em> callbacks don’t need to return anything.</p>
+<h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>Creating new callback hooks is useful to make your own code extendable by other developers, but it’s entirely optional. </p>
 
     </div>
   </div>

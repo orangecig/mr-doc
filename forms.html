@@ -133,6 +133,50 @@
       
         <li>
           
+            <div class="heading-toc">Data Layer</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="schemas.html" class="sidebar-link ">
+                  <span>Collections & Schemas</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="data-loading.html" class="sidebar-link ">
+                  <span>Data Loading</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="fragments.html" class="sidebar-link ">
+                  <span>Fragments</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="terms-parameters.html" class="sidebar-link ">
+                  <span>Terms & Parameters</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="mutations.html" class="sidebar-link ">
+                  <span>Mutations</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
             <div class="heading-toc">API</div>
           
           <ul class="list-toc">
@@ -141,20 +185,6 @@
               <li class="item-toc ">
                 <a href="theming.html" class="sidebar-link ">
                   <span>Components & Theming</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
-                <a href="schema.html" class="sidebar-link ">
-                  <span>Schema</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
-                <a href="data-layer.html" class="sidebar-link ">
-                  <span>Data Layer</span>
                 </a>
               </li>
             
@@ -318,7 +348,7 @@
 
     <div class="document-formatting">
       <p>The <code>nova:forms</code> package provides a <code>SmartForm</code> component that lets you easily generate new document and edit document forms. </p>
-<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><p>This package can generate new document and edit document forms from a <a href="https://github.com/aldeed/meteor-simple-schema" target="_blank" rel="external">SimpleSchema</a> schema. Features include:</p>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><p>This package can generate new document and edit document forms from a <a href="schema.html">schema</a>. Features include:</p>
 <ul>
 <li>Error handling.</li>
 <li>Bootstrap-compatible.</li>
@@ -359,6 +389,7 @@
 <p>The highest-priority value is the user input. If there is no user input, we default to the database value provided by the <code>props</code>. And if that one is empty too, we then look for autofilled values. </p>
 <h2 id="i18n"><a href="#i18n" class="headerlink" title="i18n"></a>i18n</h2><p>This package uses <a href="https://github.com/yahoo/react-intl/" target="_blank" rel="external">React Intl</a> to automatically translate all labels. In order to do so it expects an <code>intl</code> object ot be passed as part of its context. For example, in a parent component: </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getChildContext() &#123;</span><br><span class="line">  <span class="keyword">const</span> intlProvider = <span class="keyword">new</span> IntlProvider(&#123;<span class="attr">locale</span>: myLocale&#125;, myMessages);</span><br><span class="line">  <span class="keyword">const</span> &#123;intl&#125; = intlProvider.getChildContext();</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">intl</span>: intl</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>If you prefer, you can also code your own forms from scratch, either using <code>withNew</code>, <code>withEdit</code>, and <code>withRemove</code>, or with your own custom mutation HoCs. </p>
 
     </div>
   </div>
@@ -368,10 +399,10 @@
       
       
         <a class="link primary prev"
-          href="data-layer.html">
+          href="theming.html">
           <span class="icon-arrow-left-alt"></span>
           <span class="subtitle-pagination">Previous</span>
-          Data Layer
+          Components & Theming
         </a>
       
       

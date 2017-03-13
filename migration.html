@@ -133,6 +133,50 @@
       
         <li>
           
+            <div class="heading-toc">Data Layer</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="schemas.html" class="sidebar-link ">
+                  <span>Collections & Schemas</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="data-loading.html" class="sidebar-link ">
+                  <span>Data Loading</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="fragments.html" class="sidebar-link ">
+                  <span>Fragments</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="terms-parameters.html" class="sidebar-link ">
+                  <span>Terms & Parameters</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="mutations.html" class="sidebar-link ">
+                  <span>Mutations</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
             <div class="heading-toc">API</div>
           
           <ul class="list-toc">
@@ -141,20 +185,6 @@
               <li class="item-toc ">
                 <a href="theming.html" class="sidebar-link ">
                   <span>Components & Theming</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
-                <a href="schema.html" class="sidebar-link ">
-                  <span>Schema</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
-                <a href="data-layer.html" class="sidebar-link ">
-                  <span>Data Layer</span>
                 </a>
               </li>
             
@@ -389,7 +419,7 @@
 <p>You now write:</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="type">Telescope</span>, &#123; getRawComponent &#125; from <span class="symbol">'meteor</span>/nova:core';</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyPostsItem</span> <span class="keyword">extends</span> <span class="title">getRawComponent</span>(<span class="params">'<span class="type">PostsItem</span>'</span>) </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h2><p>Context is not used to access the current user anymore. Instead, use the <code>withCurrentUser</code> HoC. </p>
-<h2 id="Methods-amp-Mutations"><a href="#Methods-amp-Mutations" class="headerlink" title="Methods &amp; Mutations"></a>Methods &amp; Mutations</h2><p>Meteor methods are now replaced with Apollo mutations. Check out the <a href="data-layer.html">data layer</a> section for more info, and make sure to check out the <code>withMutation</code> HoC to take care of simple, one-off mutations. </p>
+<h2 id="Methods-amp-Mutations"><a href="#Methods-amp-Mutations" class="headerlink" title="Methods &amp; Mutations"></a>Methods &amp; Mutations</h2><p>Meteor methods are now replaced with Apollo mutations. Check out the <a href="mutations.html">mutations</a> section for more info, and make sure to check out the <code>withMutation</code> HoC to take care of simple, one-off mutations. </p>
 <h2 id="Forms"><a href="#Forms" class="headerlink" title="Forms"></a>Forms</h2><p>The <code>NovaForms</code> component now takes care of its own data loading, and accepts a different set of properties. </p>
 <p>Also note that the <code>CanDo</code> component used to test for permissions has been replace with <code>ShowIf</code>. </p>
 <h2 id="Other-Changes"><a href="#Other-Changes" class="headerlink" title="Other Changes"></a>Other Changes</h2><h3 id="Callbacks"><a href="#Callbacks" class="headerlink" title="Callbacks"></a>Callbacks</h3><ul>
