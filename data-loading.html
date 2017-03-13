@@ -211,6 +211,13 @@
             
               
               <li class="item-toc ">
+                <a href="users.html" class="sidebar-link ">
+                  <span>Users</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
                 <a href="groups-permissions.html" class="sidebar-link ">
                   <span>Groups & Permissions</span>
                 </a>
@@ -257,6 +264,13 @@
               <li class="item-toc ">
                 <a href="examples.html" class="sidebar-link ">
                   <span>Examples</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="debugging.html" class="sidebar-link ">
+                  <span>Debugging</span>
                 </a>
               </li>
             
@@ -413,7 +427,7 @@
 <li>Removing an item after it’s been edited when it doesn’t match a list’s filters anymore. </li>
 </ul>
 <p>At this time, it’s only possible to benefit from this auto-updating behavior if you’re using the three built-in mutation HoCs, although making <code>withList</code> more flexible towards custom mutations is on the roadmap (PRs welcome!).</p>
-<h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>You can replace any of Nova’s generic HoCs with your own tailor-made HoCs (whether it’s for queries or mutations) using the <code>graphql</code> utility. Note that if you do so, you will need to manually update your queries after each mutation. </p>
+<h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>You can replace any of Nova’s generic HoCs with your own tailor-made HoCs (whether it’s for queries or mutations) using the <code>graphql</code> utility. Note that if you do so, you will need to manually <a href="http://dev.apollodata.com/react/cache-updates.html" target="_blank" rel="external">update your queries</a> after each mutation. </p>
 
     </div>
   </div>

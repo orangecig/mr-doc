@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Architecture | Nova Docs</title>
+    <title>Debugging | Nova Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="https://www.meteor.com/favicon.png" sizes="16x16 32x32 64x64">
@@ -12,12 +12,12 @@
     <!-- Social -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="http://nova-docs.telescopeapp.org">
-    <meta property="og:title" content="Architecture | Nova Docs">
+    <meta property="og:title" content="Debugging | Nova Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Architecture | Nova Docs">
+    <meta name="twitter:title" content="Debugging | Nova Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -122,8 +122,8 @@
               </li>
             
               
-              <li class="item-toc  current">
-                <a href="" class="sidebar-link  current">
+              <li class="item-toc ">
+                <a href="architecture.html" class="sidebar-link ">
                   <span>Architecture</span>
                 </a>
               </li>
@@ -268,8 +268,8 @@
               </li>
             
               
-              <li class="item-toc ">
-                <a href="debugging.html" class="sidebar-link ">
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
                   <span>Debugging</span>
                 </a>
               </li>
@@ -349,91 +349,44 @@
 <div class="content">
   <div class="content-wrapper">
     <div class="header-content">
-      <h1 class="title-page">Architecture</h1>
+      <h1 class="title-page">Debugging</h1>
       
 
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/architecture.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/debugging.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
           
         </div>
       </div>
     </div>
 
     <div class="document-formatting">
-      <h2 id="Nova’s-Building-Blocks"><a href="#Nova’s-Building-Blocks" class="headerlink" title="Nova’s Building Blocks"></a>Nova’s Building Blocks</h2><p>Nova is built on top of three main open-source technologies: React, GraphQL, and Meteor. </p>
+      <p>Sometimes, things just go wrong. Here are a few tips to debug your Nova app. </p>
+<h2 id="Finding-Errors"><a href="#Finding-Errors" class="headerlink" title="Finding Errors"></a>Finding Errors</h2><p>Locating the source of an issue can be trickier than you think. </p>
+<p>First, you’ll find most client-side errors through the browser console (<code>cmd/ctrl + opt + j</code> in Chrome). </p>
+<p>If nothing is showing up in the browser console. or maybe your app isn’t loading at all, make sure you also check the server logs. You’ll find them in the terminal window currently running your app locally, or with <code>mup logs -f</code> if you’ve deployed using Meteor Up.</p>
+<p>It’s also possible that you’ve encountered a GraphQL error, which won’t be shown in either places. One way to track this down is to open your browser devtools’ Network tab and look for any red <code>graphql</code> requests. If you see any failed requests, check their Response tab to view the error message.</p>
+<p>You can also access a query’s error message through the Redux or Apollo devtools. In the Redux devtools, click the State tab, drill down to the affected query, and check its <code>networkError</code> and <code>graphQLErrors</code> properties. </p>
+<h2 id="SSR-Warnings"><a href="#SSR-Warnings" class="headerlink" title="SSR Warnings"></a>SSR Warnings</h2><p>Another common type of problem is server-side rendering (SSR) warnings:</p>
+<blockquote>
+<p> React attempted to reuse markup in a container but the checksum was invalid. This generally means that you are using server rendering and the markup generated on the server was not what the client was expecting. React injected new markup to compensate which works but you have lost many of the benefits of server rendering. Instead, figure out why the markup being generated is different on the client or server:</p>
+</blockquote>
+<p>This means that the HTML content you’ve rendered on the server doesn’t match up with the markup React has generated on the client. For example, maybe the server thinks the current user is logged out, while the client knows they’re logged in. Or maybe the server thinks it’s Tuesday, while the client thinks it’s Wednesday. </p>
+<p>Whatever the cause, these warnings shouldn’t break your app, but they might slow it down a bit. </p>
+<h2 id="Data-Loading"><a href="#Data-Loading" class="headerlink" title="Data Loading"></a>Data Loading</h2><p>If your data doesn’t seem to be loading, this could be due to a few reasons:</p>
 <ul>
-<li><a href="https://facebook.github.io/react/" target="_blank" rel="external">React</a> is Nova’s front-end library.</li>
-<li><a href="http://graphql.org" target="_blank" rel="external">GraphQL</a> is Nova’s API layer, used to load data from the server with <a href="http://apollostack.com" target="_blank" rel="external">Apollo</a>. </li>
-<li><a href="http://meteor.com" target="_blank" rel="external">Meteor</a> is Nova’s back-end layer, used to handle the database as well as server and bundle the app. </li>
+<li><strong>Component issue:</strong> the client is loading your data, but your component is not displaying it. Check that the data is available in the Redux store, and check the value of your component’s <code>props</code> using the React devtools. </li>
+<li><strong>Resolver issue:</strong> if your client isn’t loading any data at all, it might be because the resolver isn’t returning any. In this scenario, <code>console.log</code> will be your best friend. </li>
+<li><strong>Arguments issue:</strong> maybe the resolver itself is fine, but it’s just not receiving the right arguments from the client. Again, adding <code>console.log</code>s to the resolver will usually point you in the right direction.</li>
+<li><strong>Database issue:</strong> sometimes your code works, but the data you expect just isn’t present in your database. You can check this by taking the query being run by the resolver and running it manually in Mongo directly (using <code>meteor mongo</code>).</li>
 </ul>
-<p>Each layer is independent from the other two: you can take your React components and use them with a completely different stack, and – although we’re not quite there yet – ultimately we also hope to make it easy to migrate out of Meteor.</p>
-<p>The goal is to avoid getting stuck: if at any point you outgrow Nova, it should be possible to leave it with minimal refactoring. </p>
-<h2 id="A-Note-About-Apollo"><a href="#A-Note-About-Apollo" class="headerlink" title="A Note About Apollo"></a>A Note About Apollo</h2><p><a href="http://apollostack.com" target="_blank" rel="external">Apollo</a> is the set of tools used to manage the GraphQL layer. It consists of two parts, Apollo server and Apollo client. </p>
+<h2 id="Mutations"><a href="#Mutations" class="headerlink" title="Mutations"></a>Mutations</h2><p>Mutations can fail for a number of reasons:</p>
 <ul>
-<li><strong>Apollo server</strong> is used to create the GraphQL API endpoint on the server.</li>
-<li><strong>Apollo client</strong> (together with the <code>react-apollo</code> package) is used to query that endpoint and load data on the client. </li>
+<li><strong>Component issue:</strong> is your mutation even getting called? Make sure you double-check your event handlers. </li>
+<li><strong>Resolver issue:</strong> just like queries, mutations can also have resolver problems. </li>
+<li><strong>Permissions issue:</strong> it’s also possible that the mutation is failing because you don’t have the proper rights. </li>
 </ul>
-<p>Apollo is still young, but it’s well-documented, evolving quickly, and supported by a great team. </p>
-<h2 id="Code-Architecture"><a href="#Code-Architecture" class="headerlink" title="Code Architecture"></a>Code Architecture</h2><p>In keeping with this idea of flexibility and modularity, Nova’s application structure is a bit different than most other Meteor apps. </p>
-<p>In Nova, each feature has its own distinct <strong>Meteor package</strong> which can be freely added or removed. For example, if your current theme doesn’t use comments, you can get rid of every comments-related back-end feature with:</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meteor <span class="built_in">remove</span> nov<span class="variable">a:comments</span></span><br></pre></td></tr></table></figure>
-<p>Generally speaking, Nova packages fall in one of five categories, and they’re all listed in your <code>.meteor/packages</code> file.</p>
-<h3 id="Core-Packages"><a href="#Core-Packages" class="headerlink" title="Core Packages"></a>Core Packages</h3><p>These are the core packages that make the <a href="tutorial-framework.html">Nova framework</a>:</p>
-<ul>
-<li><code>nova:lib</code></li>
-<li><code>nova:core</code></li>
-<li><code>nova:forms</code></li>
-<li><code>nova:routing</code></li>
-<li><code>nova:email</code></li>
-<li><code>nova:users</code> </li>
-</ul>
-<p>Every Nova app will usually include them, but note that strictly speaking only <code>nova:core</code> (which itself depends on <code>nova:lib</code>) cannot be removed from Nova apps. </p>
-<h3 id="Feature-Packages"><a href="#Feature-Packages" class="headerlink" title="Feature Packages"></a>Feature Packages</h3><p>These includes all the main Nova features:</p>
-<ul>
-<li><code>nova:events</code></li>
-<li><code>nova:settings</code></li>
-<li><code>nova:posts</code></li>
-<li><code>nova:newsletter</code></li>
-<li><code>nova:search</code></li>
-<li><code>nova:notifications</code></li>
-<li><code>nova:getting-started</code></li>
-<li><code>nova:categories</code></li>
-<li><code>nova:voting</code></li>
-<li><code>nova:embedly</code></li>
-<li><code>nova:api</code></li>
-<li><code>nova:rss</code></li>
-<li><code>nova:subscribe</code></li>
-</ul>
-<p>These can all be added and removed, but note that they might have dependencies on each other (for example <code>nova:comments</code> depends on <code>nova:posts</code>).</p>
-<p>Any extra plug-in you install would also fall in this category.</p>
-<h3 id="Theme-Packages"><a href="#Theme-Packages" class="headerlink" title="Theme Packages"></a>Theme Packages</h3><p>These packages are the one that control what your app actually looks and feels like, and they’re the ones you’ll usually want to replace (or more likely, extend).</p>
-<ul>
-<li><code>nova:base-components</code></li>
-<li><code>nova:base-styles</code></li>
-<li><code>nova:email-templates</code></li>
-<li><code>nova:i18n-en-us</code></li>
-</ul>
-<p>Theme packages can include React components, CSS styles, email templates, or just language strings. </p>
-<h3 id="Meteor-Packages"><a href="#Meteor-Packages" class="headerlink" title="Meteor Packages"></a>Meteor Packages</h3><p>Sometimes you’ll also want to include either official or third-party Meteor packages to add extra features to your app. While this is usually done from within a package’s <code>package.js</code> file, you can also add packages directly in your <code>packages</code> file in some instances, such as for controlling user accounts:</p>
-<ul>
-<li><code>accounts-password</code></li>
-<li><code>accounts-twitter</code></li>
-</ul>
-<h3 id="Custom-Packages"><a href="#Custom-Packages" class="headerlink" title="Custom Packages"></a>Custom Packages</h3><p>Finally, any new package you create to extend Nova will fall in the “custom package” category. </p>
-<h2 id="Extend-Don’t-Edit"><a href="#Extend-Don’t-Edit" class="headerlink" title="Extend, Don’t Edit"></a>Extend, Don’t Edit</h2><p>Another key point of Nova’s philosophy is to never edit the core codebase (i.e. what you get from the Nova repo) directly if you can avoid it. </p>
-<p>Editing Nova’s code makes it harder to keep it up to date when things change in the main Nova repo, as your modifications might conflict with a new updated version. </p>
-<p>Instead, Nova includes many hooks and patterns that enable you to tweak and extend core features from your <em>own</em> packages without having to actually modify their code. </p>
-<h2 id="Register-amp-Execute"><a href="#Register-amp-Execute" class="headerlink" title="Register &amp; Execute"></a>Register &amp; Execute</h2><p>Many Nova objects (such as fragments, routes, components, etc.) follow a “register and execute” pattern, in which:</p>
-<ol>
-<li>All items are first registered in a centralized array.</li>
-<li>The items are then all executed at runtime. </li>
-</ol>
-<p>This two-tiered approach has two benefits. First, it means items can be overriden in between registration and execution. For example if a theme registers a component, your custom code can then extend it and the final component object that is created at runtime will be the extended version.</p>
-<p>Second, things like React Router or the app’s GraphQL schema can only be initialized once. By having you register items first, Nova is able to centralize objects from various sources, and then combine them all in a single initialization call. </p>
-<h2 id="The-Nova-Core-Package"><a href="#The-Nova-Core-Package" class="headerlink" title="The Nova Core Package"></a>The Nova Core Package</h2><p>Unless mentioned otherwise, all Nova utilities function are imported from the <code>nova:core</code> Meteor package:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createCollection &#125; <span class="keyword">from</span> <span class="string">'meteor/nova:core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Posts = createCollection(&#123;...&#125;);</span><br></pre></td></tr></table></figure>
-<p>Note that a lot of these utilities actually live in the <code>nova:lib</code> package, but they’re re-exported from <code>nova:core</code> for convenience’s sake. </p>
+<h2 id="Data-Updating"><a href="#Data-Updating" class="headerlink" title="Data Updating"></a>Data Updating</h2><p>If your data isn’t updating properly after a mutation, this can often be due to a fragment mismatch. Make sure that <code>new</code> mutations use the same fragment as the query they’re updating (<code>edit</code> mutations on the other hand can safely return partial fragments).</p>
 
     </div>
   </div>
@@ -443,17 +396,17 @@
       
       
         <a class="link primary prev"
-          href="features.html">
+          href="examples.html">
           <span class="icon-arrow-left-alt"></span>
           <span class="subtitle-pagination">Previous</span>
-          Features
+          Examples
         </a>
       
       
         <a class="link primary next"
-          href="schemas.html">
+          href="plugins.html">
           <span class="subtitle-pagination">Next</span>
-          Collections & Schemas
+          Plugins
           <span class="icon-arrow-right-alt"></span>
         </a>
       
@@ -461,7 +414,7 @@
   </div>
 
   <div class="github">
-    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/architecture.md" target="_blank">
+    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/debugging.md" target="_blank">
       <span class="icon-github"></span>Edit on GitHub</a>
   </div>
 
