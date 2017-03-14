@@ -361,8 +361,7 @@
     </div>
 
     <div class="document-formatting">
-      <h2 id="customizing-emails">Customizing Emails</h2>
-
+      <p>###Customizing Emails###</p>
 <p>Unlike components, emails don’t use React but Spacebars, a variant of the Handlebars templating language.</p>
 <p>All email templates live in the <code>nova:email-templates</code> package. In order to register a new template or override an existing one, first you must import it as a text asset in your <code>package.js</code> file (or store it in your <code>/public</code> directory):</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api.addAssets([<span class="string">'path/to/template/newReply.handlebars'</span>,], [<span class="string">'server'</span>]);</span><br></pre></td></tr></table></figure>
@@ -372,6 +371,54 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> NovaEmail <span class="keyword">from</span> <span class="string">'meteor/nova:email'</span>;</span><br><span class="line"></span><br><span class="line">NovaEmail.addTemplates(&#123;</span><br><span class="line">  <span class="attr">newReply</span>: Assets.getText(<span class="string">"path/to/template/newReply.handlebars"</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Or override an existing one with:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> NovaEmail <span class="keyword">from</span> <span class="string">'meteor/nova:email'</span>;</span><br><span class="line"></span><br><span class="line">NovaEmail.templates.newReply = Assets.getText(<span class="string">"path/to/template/newReply.handlebars"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Email-Stying"><a href="#Email-Stying" class="headerlink" title="Email Stying"></a>Email Stying</h3><p>Some styling of emails can be controlled in <code>settings.json</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>secondaryColor</td>
+<td>‘#444444’</td>
+<td>Background of email header</td>
+</tr>
+<tr>
+<td>accentColor</td>
+<td>‘#DD3416’</td>
+<td>Header and footer text</td>
+</tr>
+<tr>
+<td>siteName</td>
+<td>“Nova”</td>
+<td>Use setting key ‘title’</td>
+</tr>
+<tr>
+<td>tagline</td>
+<td></td>
+</tr>
+<tr>
+<td>footer</td>
+<td></td>
+<td>Footer text</td>
+</tr>
+<tr>
+<td>logoUrl</td>
+<td></td>
+</tr>
+<tr>
+<td>logoHeight</td>
+<td></td>
+</tr>
+<tr>
+<td>logoWidth</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Newsletter"><a href="#Newsletter" class="headerlink" title="Newsletter"></a>Newsletter</h3><p>In your local development environment, you can preview your newsletter at <code>http://localhost:3000/email/newsletter</code></p>
 
     </div>
   </div>
