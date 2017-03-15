@@ -747,11 +747,11 @@ pre {
   text-transform: none;
 }
 .btn.primary {
-  background-color: #532596;
+  background-color: #F44A06;
   color: #fff;
 }
 .btn.primary:hover {
-  background-color: #482082;
+  background-color: #db4205;
 }
 .btn.primary:active {
   box-shadow: rgba(0, 0, 0, 0.3) 0 0px 0px 3em inset;
@@ -759,7 +759,7 @@ pre {
 .btn.primary[disabled],
 .btn.primary[disabled]:hover,
 .btn.primary[disabled]:active {
-  background-color: #7639ce;
+  background-color: #fb7e4c;
   box-shadow: none;
 }
 .btn.secondary {
@@ -923,13 +923,13 @@ pre {
   z-index: 1;
 }
 .btn.progress.primary .progress-bar {
-  background-color: #3c1b6d;
+  background-color: #c23b05;
 }
 .btn.progress.secondary .progress-bar {
   background-color: #44457a;
 }
 .btn.progress.tertiary .progress-bar {
-  background-color: #532596;
+  background-color: #F44A06;
 }
 .btn.progress.progress-active {
   cursor: progress;
@@ -1032,13 +1032,13 @@ pre {
   z-index: 1;
 }
 .btn.loading.primary .loading-bar {
-  background-color: #6a2fbf;
+  background-color: #fa6c33;
 }
 .btn.loading.secondary .loading-bar {
   background-color: #7374b1;
 }
 .btn.loading.tertiary .loading-bar {
-  background-color: #532596;
+  background-color: #F44A06;
 }
 .btn.loading.loading-active {
   cursor: progress;
@@ -1145,8 +1145,8 @@ pre {
   background-color: transparent;
   padding: 0;
   width: 14px;
-  box-shadow: #532596 0 0 0 1px inset;
-  color: #532596;
+  box-shadow: #F44A06 0 0 0 1px inset;
+  color: #F44A06;
   letter-spacing: 0;
   text-indent: 0;
   text-transform: none;
@@ -1160,7 +1160,7 @@ pre {
 }
 .btn.scale.active,
 .btn.scale:active {
-  box-shadow: #532596 0 0 0 3em inset;
+  box-shadow: #F44A06 0 0 0 3em inset;
   color: #fff;
 }
 .btn.scale.disabled {
@@ -1272,7 +1272,7 @@ pre {
 .btn-group.toggle-form input.toggle-form:checked + label {
   background-color: #ffffff;
   box-shadow: rgba(255, 255, 255, 0.7) 0 0 0 3em inset;
-  color: #532596;
+  color: #F44A06;
 }
 .sidebar .algolia-autocomplete {
   width: 100%;
@@ -1347,7 +1347,7 @@ pre {
 }
 .algolia-docsearch-suggestion--highlight {
   font-weight: 600;
-  color: #532596;
+  color: #F44A06;
   background: none;
 }
 .algolia-docsearch-suggestion--category-header .algolia-docsearch-suggestion--highlight {
@@ -1476,7 +1476,7 @@ pre {
 }
 .document-formatting h2 .anchor:hover,
 .document-formatting h3 .anchor:hover {
-  color: #532596 !important;
+  color: #F44A06 !important;
 }
 .document-formatting p {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1491,18 +1491,18 @@ pre {
 }
 .document-formatting p a,
 .document-formatting li a {
-  color: #532596;
+  color: #F44A06;
   font-weight: 400;
 }
 .document-formatting p a:link,
 .document-formatting li a:link,
 .document-formatting p a:visited,
 .document-formatting li a:visited {
-  color: #532596;
+  color: #F44A06;
 }
 .document-formatting p a:active,
 .document-formatting li a:active {
-  color: #482082;
+  color: #db4205;
 }
 .document-formatting figure {
   clear: both;
@@ -1536,7 +1536,7 @@ pre {
   margin-top: 1.5em;
 }
 .document-formatting blockquote {
-  border-left: 2px solid #532596;
+  border-left: 2px solid #F44A06;
   color: #666;
   margin: 1.5em 0;
   padding: .75em 20px .75em 30px;
@@ -2638,7 +2638,7 @@ a:visited,
 .content .objdesc > dt a,
 .algolia-docsearch-suggestion--content.current,
 .aa-cursor .algolia-docsearch-suggestion--content.current {
-  color: #532596;
+  color: #F44A06;
 }
 .link.primary:link,
 .link.primary:visited,
@@ -2648,13 +2648,13 @@ a:visited,
 .algolia-docsearch-suggestion--content.current:visited,
 .aa-cursor .algolia-docsearch-suggestion--content.current:link,
 .aa-cursor .algolia-docsearch-suggestion--content.current:visited {
-  color: #532596;
+  color: #F44A06;
 }
 .link.primary:active,
 .sidebar ul.list-toc a.current:active,
 .algolia-docsearch-suggestion--content.current:active,
 .aa-cursor .algolia-docsearch-suggestion--content.current:active {
-  color: #482082;
+  color: #db4205;
 }
 .link.secondary {
   color: #56579B;
@@ -2939,7 +2939,7 @@ pre .apache .tag,
 pre .apache .cbracket,
 pre .tex .command,
 pre .prompt {
-  color: #532596;
+  color: #F44A06;
 }
 pre .comment,
 pre .java .annotation,
@@ -3141,7 +3141,7 @@ body.sidebar-visible .content {
 }
 .panel .panel-item.active,
 .panel .panel-item:hover {
-  background: #532596;
+  background: #F44A06;
 }
 .panel .panel-item.active a,
 .panel .panel-item:hover a {
@@ -3164,7 +3164,7 @@ body.sidebar-visible .content {
   -o-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
-  background: #532596;
+  background: #F44A06;
 }
 .panel .panel-item a {
   color: #666;
@@ -3300,7 +3300,7 @@ body.sidebar-visible .content {
   -moz-transition: all 250ms ease-out;
   -o-transition: all 250ms ease-out;
   transition: all 250ms ease-out;
-  color: #532596;
+  color: #F44A06;
   margin-top: -0.5em;
   opacity: 0;
   font-family: 'percolate';
@@ -3324,7 +3324,7 @@ body.sidebar-visible .content {
 .sidebar ul.list-toc a.active,
 .algolia-docsearch-suggestion--content.active,
 .aa-cursor .algolia-docsearch-suggestion--content.active {
-  color: #532596 !important;
+  color: #F44A06 !important;
 }
 .sidebar ul.list-toc a.h3,
 .algolia-docsearch-suggestion--content.h3,
@@ -3622,7 +3622,7 @@ body.sidebar-visible .content {
 }
 .nav .nav-item:hover .link,
 .nav .nav-item.active .link {
-  color: #532596;
+  color: #F44A06;
   text-decoration: none;
 }
 .nav .nav-item:hover .link:before,
@@ -3633,7 +3633,7 @@ body.sidebar-visible .content {
   bottom: -0.5rem;
   width: 100%;
   height: 0;
-  border-bottom: 2px solid #532596;
+  border-bottom: 2px solid #F44A06;
 }
 .nav .nav-item.separator {
   margin-left: 2.5rem;
