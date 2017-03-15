@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Introduction | Nova Docs</title>
+    <title>VulcanJS | Nova Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="https://www.meteor.com/favicon.png" sizes="16x16 32x32 64x64">
@@ -12,12 +12,12 @@
     <!-- Social -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="http://nova-docs.telescopeapp.org">
-    <meta property="og:title" content="Introduction | Nova Docs">
+    <meta property="og:title" content="VulcanJS | Nova Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Introduction | Nova Docs">
+    <meta name="twitter:title" content="VulcanJS | Nova Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -99,8 +99,8 @@
           <ul class="list-toc">
             
               
-              <li class="item-toc  current">
-                <a href="" class="sidebar-link  current">
+              <li class="item-toc ">
+                <a href="index.html" class="sidebar-link ">
                   <span>Introduction</span>
                 </a>
               </li>
@@ -129,8 +129,8 @@
               </li>
             
               
-              <li class="item-toc ">
-                <a href="vulcan.html" class="sidebar-link ">
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
                   <span>VulcanJS</span>
                 </a>
               </li>
@@ -356,37 +356,25 @@
 <div class="content">
   <div class="content-wrapper">
     <div class="header-content">
-      <h1 class="title-page">Introduction</h1>
+      <h1 class="title-page">VulcanJS</h1>
       
 
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/index.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/vulcan.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
           
         </div>
       </div>
     </div>
 
     <div class="document-formatting">
-      <h2 id="What’s-Nova"><a href="#What’s-Nova" class="headerlink" title="What’s Nova?"></a>What’s Nova?</h2><p>Nova is a framework that gives you a set of tools for quickly building React-based web applications. Out of the box, it can handle data loading, automatically generate forms, handle email notifications, and much more. </p>
-<p>You can get a good overview of what Nova can do in the <a href="features.html">Features</a> section. </p>
-<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>Install the latest version of Node and NPM. We recommend the usage of <a href="http://nvm.sh" target="_blank" rel="external">NVM</a>.</p>
-<p>You can then install <a href="https://www.meteor.com/install" target="_blank" rel="external">Meteor</a>, which is used as the Nova build tool.</p>
-<p>Clone the <a href="https://github.com/TelescopeJS/Telescope/" target="_blank" rel="external">Nova repo</a> locally, then:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
-<p>And open <code>http://localhost:3000/</code> in your browser.</p>
-<p>Note that you can also start the app with:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># default setting file: sample_settings.json</span></span><br><span class="line">meteor --settings sample_settings.json </span><br><span class="line"></span><br><span class="line"><span class="comment"># 'npm start' will create a copy of the sample settings, 'settings.json', and run `meteor` with this file for you.</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><p>There are two main ways of using Nova: you can use the features it provides out of the box such as posts, comments, a newsletter, and so on. Or, you can use the underlying <em>framework</em> that powers all these features. </p>
-<p>In either case, you should start by reading the <a href="architecture.html">Architecture</a> section to understand how Nova’s codebase is organized. </p>
-<p>Once you’ve done that, depending on which path you’re interested in you can refer to either one of these two tutorials:</p>
-<ol>
-<li><a href="tutorial-customizing.html">Customizing &amp; Extending Nova</a> will take you through the code of the included <code>customization-demo</code> package and show you how to adapt Nova to your needs by tweaking styles, overriding components, and inserting your own logic in Nova’s back-end. </li>
-<li><a href="tutorial-framework.html">Understanding the Nova Framework</a> on the other hand will teach you how to use Nova’s core data management features to display a list of movies, complete with pagination and a data insertion form. </li>
-</ol>
-<p>If you’re not sure which one is for you, I recommend starting with the first tutorial, as the second one covers more advanced concepts.</p>
-<h2 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h2><p>Throughout the documentation, you’ll find “Alternative Approach” sections that explain what a feature does, and how to achieve the same results without using Nova (typically, with standard React and/or Apollo code). This is useful if you’ve hit the limits of what Nova offers, and want to refactor parts of your app to use lower-level APIs. </p>
-<h2 id="Roadmap"><a href="#Roadmap" class="headerlink" title="Roadmap"></a>Roadmap</h2><p>You can find the <a href="https://trello.com/b/dwPR0LTz/nova-roadmap" target="_blank" rel="external">Nova roadmap on Trello</a>.</p>
-<h2 id="Contribute"><a href="#Contribute" class="headerlink" title="Contribute"></a>Contribute</h2><p>We’re looking for contributors! If you’re interested in this project, come say hello in the <a href="http://slack.telescopeapp.org" target="_blank" rel="external">Nova Slack chatroom</a>.</p>
+      <p><strong>VulcanJS</strong> is the name of the next big evolution of the Telescope project. </p>
+<p>Over the years, we’ve realized that Telescope could be used to do a lot more than simply build Product Hunt clones. That’s why we’ve decided to focus our energy on building a more flexible and more generic platform, and we thought this new approach deserved a new name. </p>
+<p>In the near future, this will mean two big changes for Telescope:</p>
+<p>First, all various assets (repo/documentation/homepage/etc.) will progressively transition to the new VulcanJS name and branding. This might be a bit confusing at first, but we’ll get there eventually!</p>
+<p>Second, Vulcan will adopt a new “framework-first” approach. Practically speaking, this means you’ll start new projects with the <code>framework-demo</code> package, and not with the optional <code>nova:posts</code>, <code>nova:comments</code>, etc. feature packages. Of course, these packages will still be available if you choose to use them. We just think it’s important for new users to understand how the underlying framework works before they start using its more advanced capabilities.</p>
+<h3 id="Why-“Vulcan”"><a href="#Why-“Vulcan”" class="headerlink" title="Why “Vulcan”?"></a>Why “Vulcan”?</h3><p><a href="https://en.wikipedia.org/wiki/Vulcan_(mythology" target="_blank" rel="external">Vulcan</a>) is the Roman god of fire and volcanoes. Since Vulcan uses React and Apollo, we thought this was an appropriate name. After all Apollo is a Roman god too, and the React team has used <a href="https://facebook.github.io/react/blog/2016/09/28/our-first-50000-stars.html" target="_blank" rel="external">volcanoes</a> in their imagery before. </p>
+<p>Also, the logo has a hidden reference to Telescope’s original space-themed roots. Can you find it?</p>
 
     </div>
   </div>
@@ -395,11 +383,18 @@
     <div class="content-wrapper">
       
       
+        <a class="link primary prev"
+          href="architecture.html">
+          <span class="icon-arrow-left-alt"></span>
+          <span class="subtitle-pagination">Previous</span>
+          Architecture
+        </a>
+      
       
         <a class="link primary next"
-          href="features.html">
+          href="schemas.html">
           <span class="subtitle-pagination">Next</span>
-          Features
+          Collections & Schemas
           <span class="icon-arrow-right-alt"></span>
         </a>
       
@@ -407,7 +402,7 @@
   </div>
 
   <div class="github">
-    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/index.md" target="_blank">
+    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/vulcan.md" target="_blank">
       <span class="icon-github"></span>Edit on GitHub</a>
   </div>
 
