@@ -4,20 +4,20 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Mutations | Nova Docs</title>
+    <title>Mutations | Vulcan Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="https://www.meteor.com/favicon.png" sizes="16x16 32x32 64x64">
 
     <!-- Social -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="http://nova-docs.telescopeapp.org">
-    <meta property="og:title" content="Mutations | Nova Docs">
+    <meta property="og:url" content="http://docs.vulcanjs.org">
+    <meta property="og:title" content="Mutations | Vulcan Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Mutations | Nova Docs">
+    <meta name="twitter:title" content="Mutations | Vulcan Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -37,8 +37,9 @@
       </span>
     </div>
     <div class="nav-item">
-      <a class="logo-wrapper" href="http://nova-docs.telescopeapp.org/" title="Nova Documentation Nova Documentation"  >
-        Nova Documentation
+      <a class="logo-wrapper" href="http://docs.vulcanjs.org/" title="Vulcan Documentation Vulcan Documentation"  >
+        <img src="/images/vulcan-logo-border-2.svg" alt="Vulcan Documentation" class="logo"/>
+        <span>Vulcan Documentation</span>
       </a>
     </div>
   </div>
@@ -65,8 +66,8 @@
 <div class="sidebar">
   <div class="panel">
     <div class="panel-item">
-      <a class="" href="http://nova-docs.telescopeapp.org/" title="Nova Documentation"  >
-        <span>Nova Documentation Nova Documentation</span>
+      <a class="" href="http://docs.vulcanjs.org/" title="Vulcan Documentation"  >
+        <span>Vulcan Documentation Vulcan Documentation</span>
       </a>
     </div>
     
@@ -86,7 +87,6 @@
 
   <div class="sidebar-content">
     <div class="topcap">
-      <span class="title-sidebar">Nova Docs</span>
       
     </div>
 
@@ -131,7 +131,7 @@
               
               <li class="item-toc ">
                 <a href="vulcan.html" class="sidebar-link ">
-                  <span>VulcanJS</span>
+                  <span>Vulcan</span>
                 </a>
               </li>
             
@@ -321,14 +321,14 @@
               
               <li class="item-toc ">
                 <a href="tutorial-framework.html" class="sidebar-link ">
-                  <span>Understanding the Nova Framework</span>
+                  <span>Understanding the Vulcan Framework</span>
                 </a>
               </li>
             
               
               <li class="item-toc ">
                 <a href="tutorial-customizing.html" class="sidebar-link ">
-                  <span>Customizing & Extending Nova</span>
+                  <span>Customizing & Extending Vulcan</span>
                 </a>
               </li>
             
@@ -393,7 +393,7 @@
 <h4 id="withEdit"><a href="#withEdit" class="headerlink" title="withEdit"></a><code>withEdit</code></h4><p>Same options as <code>withNew</code>. The returned <code>editMutation</code> mutation takes three arguments: <code>documentId</code>, <code>set</code>, and <code>unset</code>. </p>
 <h4 id="withRemove"><a href="#withRemove" class="headerlink" title="withRemove"></a><code>withRemove</code></h4><p>A single <code>collection</code> option. The returned <code>removeMutation</code> mutation takes a single <code>documentId</code> argument. </p>
 <p>Note that when using the <a href="forms.html">Forms</a> module, all three mutation HoCs are automatically added for you. </p>
-<h2 id="Boilerplate-Mutations"><a href="#Boilerplate-Mutations" class="headerlink" title="Boilerplate Mutations"></a>Boilerplate Mutations</h2><p>Nova features three standard <code>newMutation</code>, <code>editMutation</code>, and <code>removeMutation</code> mutations that are in essence thin wrappers around the standard Mongo <code>insert</code>, <code>update</code>, and <code>remove</code>. </p>
+<h2 id="Boilerplate-Mutations"><a href="#Boilerplate-Mutations" class="headerlink" title="Boilerplate Mutations"></a>Boilerplate Mutations</h2><p>Vulcan features three standard <code>newMutation</code>, <code>editMutation</code>, and <code>removeMutation</code> mutations that are in essence thin wrappers around the standard Mongo <code>insert</code>, <code>update</code>, and <code>remove</code>. </p>
 <p>Note that in the context of this section, “mutation” refers to the function that performs the actual server-side database operation, and not to the <a href="mutations.html">GraphQL mutations</a>. </p>
 <p>These mutation functions should be defined <em>outside</em> your GraphQL mutation resolvers, so that you’re able to call them from outside a GraphQL context (for example, to seed your database through a server script).</p>
 <p>They take the following arguments:</p>

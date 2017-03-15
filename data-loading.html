@@ -4,20 +4,20 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Data Loading | Nova Docs</title>
+    <title>Data Loading | Vulcan Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="https://www.meteor.com/favicon.png" sizes="16x16 32x32 64x64">
 
     <!-- Social -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="http://nova-docs.telescopeapp.org">
-    <meta property="og:title" content="Data Loading | Nova Docs">
+    <meta property="og:url" content="http://docs.vulcanjs.org">
+    <meta property="og:title" content="Data Loading | Vulcan Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Data Loading | Nova Docs">
+    <meta name="twitter:title" content="Data Loading | Vulcan Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -37,8 +37,9 @@
       </span>
     </div>
     <div class="nav-item">
-      <a class="logo-wrapper" href="http://nova-docs.telescopeapp.org/" title="Nova Documentation Nova Documentation"  >
-        Nova Documentation
+      <a class="logo-wrapper" href="http://docs.vulcanjs.org/" title="Vulcan Documentation Vulcan Documentation"  >
+        <img src="/images/vulcan-logo-border-2.svg" alt="Vulcan Documentation" class="logo"/>
+        <span>Vulcan Documentation</span>
       </a>
     </div>
   </div>
@@ -65,8 +66,8 @@
 <div class="sidebar">
   <div class="panel">
     <div class="panel-item">
-      <a class="" href="http://nova-docs.telescopeapp.org/" title="Nova Documentation"  >
-        <span>Nova Documentation Nova Documentation</span>
+      <a class="" href="http://docs.vulcanjs.org/" title="Vulcan Documentation"  >
+        <span>Vulcan Documentation Vulcan Documentation</span>
       </a>
     </div>
     
@@ -86,7 +87,6 @@
 
   <div class="sidebar-content">
     <div class="topcap">
-      <span class="title-sidebar">Nova Docs</span>
       
     </div>
 
@@ -131,7 +131,7 @@
               
               <li class="item-toc ">
                 <a href="vulcan.html" class="sidebar-link ">
-                  <span>VulcanJS</span>
+                  <span>Vulcan</span>
                 </a>
               </li>
             
@@ -321,14 +321,14 @@
               
               <li class="item-toc ">
                 <a href="tutorial-framework.html" class="sidebar-link ">
-                  <span>Understanding the Nova Framework</span>
+                  <span>Understanding the Vulcan Framework</span>
                 </a>
               </li>
             
               
               <li class="item-toc ">
                 <a href="tutorial-customizing.html" class="sidebar-link ">
-                  <span>Customizing & Extending Nova</span>
+                  <span>Customizing & Extending Vulcan</span>
                 </a>
               </li>
             
@@ -395,7 +395,7 @@
 <p>Resolvers can be defined on any new or existing type (e.g. <code>Movie</code>).</p>
 <h3 id="Custom-Queries"><a href="#Custom-Queries" class="headerlink" title="Custom Queries"></a>Custom Queries</h3><p>You can also use <code>GraphQLSchema.addQuery</code> to define your own queries:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GraphQLSchema.addQuery(<span class="string">`currentUser: User`</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="Higher-Order-Components"><a href="#Higher-Order-Components" class="headerlink" title="Higher-Order Components"></a>Higher-Order Components</h2><p>To make working with Apollo easier, Nova provides you with a set of higher-order components (HoC). </p>
+<h2 id="Higher-Order-Components"><a href="#Higher-Order-Components" class="headerlink" title="Higher-Order Components"></a>Higher-Order Components</h2><p>To make working with Apollo easier, Vulcan provides you with a set of higher-order components (HoC). </p>
 <p>An HoC is simply a function you can call on a React component to give it additional props.</p>
 <h3 id="withList"><a href="#withList" class="headerlink" title="withList"></a>withList</h3><p>The <code>withList</code> HoC is used to display lists of documents. It takes the following options:</p>
 <ul>
@@ -434,7 +434,7 @@
 <li>Removing an item after it’s been edited when it doesn’t match a list’s filters anymore. </li>
 </ul>
 <p>At this time, it’s only possible to benefit from this auto-updating behavior if you’re using the three built-in mutation HoCs, although making <code>withList</code> more flexible towards custom mutations is on the roadmap (PRs welcome!).</p>
-<h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>You can replace any of Nova’s generic HoCs with your own tailor-made HoCs (whether it’s for queries or mutations) using the <code>graphql</code> utility. Note that if you do so, you will need to manually <a href="http://dev.apollodata.com/react/cache-updates.html" target="_blank" rel="external">update your queries</a> after each mutation. </p>
+<h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>You can replace any of Vulcan’s generic HoCs with your own tailor-made HoCs (whether it’s for queries or mutations) using the <code>graphql</code> utility. Note that if you do so, you will need to manually <a href="http://dev.apollodata.com/react/cache-updates.html" target="_blank" rel="external">update your queries</a> after each mutation. </p>
 
     </div>
   </div>

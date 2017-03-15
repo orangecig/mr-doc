@@ -4,20 +4,20 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Components & Theming | Nova Docs</title>
+    <title>Components & Theming | Vulcan Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="https://www.meteor.com/favicon.png" sizes="16x16 32x32 64x64">
 
     <!-- Social -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="http://nova-docs.telescopeapp.org">
-    <meta property="og:title" content="Components & Theming | Nova Docs">
+    <meta property="og:url" content="http://docs.vulcanjs.org">
+    <meta property="og:title" content="Components & Theming | Vulcan Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Components & Theming | Nova Docs">
+    <meta name="twitter:title" content="Components & Theming | Vulcan Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -37,8 +37,9 @@
       </span>
     </div>
     <div class="nav-item">
-      <a class="logo-wrapper" href="http://nova-docs.telescopeapp.org/" title="Nova Documentation Nova Documentation"  >
-        Nova Documentation
+      <a class="logo-wrapper" href="http://docs.vulcanjs.org/" title="Vulcan Documentation Vulcan Documentation"  >
+        <img src="/images/vulcan-logo-border-2.svg" alt="Vulcan Documentation" class="logo"/>
+        <span>Vulcan Documentation</span>
       </a>
     </div>
   </div>
@@ -65,8 +66,8 @@
 <div class="sidebar">
   <div class="panel">
     <div class="panel-item">
-      <a class="" href="http://nova-docs.telescopeapp.org/" title="Nova Documentation"  >
-        <span>Nova Documentation Nova Documentation</span>
+      <a class="" href="http://docs.vulcanjs.org/" title="Vulcan Documentation"  >
+        <span>Vulcan Documentation Vulcan Documentation</span>
       </a>
     </div>
     
@@ -86,7 +87,6 @@
 
   <div class="sidebar-content">
     <div class="topcap">
-      <span class="title-sidebar">Nova Docs</span>
       
     </div>
 
@@ -131,7 +131,7 @@
               
               <li class="item-toc ">
                 <a href="vulcan.html" class="sidebar-link ">
-                  <span>VulcanJS</span>
+                  <span>Vulcan</span>
                 </a>
               </li>
             
@@ -321,14 +321,14 @@
               
               <li class="item-toc ">
                 <a href="tutorial-framework.html" class="sidebar-link ">
-                  <span>Understanding the Nova Framework</span>
+                  <span>Understanding the Vulcan Framework</span>
                 </a>
               </li>
             
               
               <li class="item-toc ">
                 <a href="tutorial-customizing.html" class="sidebar-link ">
-                  <span>Customizing & Extending Nova</span>
+                  <span>Customizing & Extending Vulcan</span>
                 </a>
               </li>
             
@@ -374,18 +374,18 @@
 <li>Inside a component, you can simply use <code>&lt;Components.Foo/&gt;</code>.</li>
 </ul>
 <p>The advantage of calling the <code>getComponent</code> function instead of using <code>Components.Foo</code> directly, is that you can ensure that the <code>Foo</code> component is only resolved when the function is called, which in turns makes it possible to override them anywhere in your code. </p>
-<h2 id="Registering-Components"><a href="#Registering-Components" class="headerlink" title="Registering Components"></a>Registering Components</h2><p>Nova components are all listed in <code>nova:core</code>‘s <code>Components</code> object. You can add new ones with the ‘registerComponent` method:</p>
+<h2 id="Registering-Components"><a href="#Registering-Components" class="headerlink" title="Registering Components"></a>Registering Components</h2><p>Vulcan components are all listed in <code>nova:core</code>‘s <code>Components</code> object. You can add new ones with the ‘registerComponent` method:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; registerComponent &#125; <span class="keyword">from</span> <span class="string">'meteor/nova:core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Logo = <span class="function"><span class="params">props</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>/* component code */<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line">registerComponent(<span class="string">'Logo'</span>, Logo);</span><br></pre></td></tr></table></figure>
 <p>The first argument of <code>registerComponent</code> is the component’s name, the second is the component itself, and any successive arguments will be interpreted as higher-order components and wrapped around the component:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">registerComponent(<span class="string">'Logo'</span>, Logo, withCurrentUser, withRouter);</span><br></pre></td></tr></table></figure>
 <h2 id="Using-Components-1"><a href="#Using-Components-1" class="headerlink" title="Using Components"></a>Using Components</h2><p>Once a component is registered, you can use it with <code>Components.Foo</code>. For example:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Components &#125; <span class="keyword">from</span> <span class="string">'meteor/nova:core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Header = <span class="function"><span class="params">props</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Components.Logo</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  )</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="Components-amp-HoCs"><a href="#Components-amp-HoCs" class="headerlink" title="Components &amp; HoCs"></a>Components &amp; HoCs</h2><p>To understand how theming works in Nova, it’s important to understand how components and higher-order components (HoCs) interact. </p>
+<h2 id="Components-amp-HoCs"><a href="#Components-amp-HoCs" class="headerlink" title="Components &amp; HoCs"></a>Components &amp; HoCs</h2><p>To understand how theming works in Vulcan, it’s important to understand how components and higher-order components (HoCs) interact. </p>
 <p>A higher-order component’s role is to wrap a regular component to pass it a specific prop (such as a list of posts, the current user, the <code>Router</code> object, etc.). You can think of HoCs as specialized assistants that each hand the component a tool it needs to do its job. </p>
 <p>In practice, to create a higher-order component you call a <strong>factory function</strong> on the component. For example, to give the component access to the current user, you would call:</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">const WrappedComponent</span> = withCurrentUser(MyComponent);</span><br></pre></td></tr></table></figure>
 <p>Which would result a <em>new</em> <code>WrappedComponent</code> component that has <code>MyComponent</code> as a child. This has the consequence that properties and objects you set on <code>MyComponent</code> might not exist on <code>WrappedComponent</code>. </p>
-<p>For that reason, Nova provides a <code>getRawComponent</code> utility that lets you access the unwrapped “raw” component, provided said component has been registered with <code>registerComponent</code>:</p>
+<p>For that reason, Vulcan provides a <code>getRawComponent</code> utility that lets you access the unwrapped “raw” component, provided said component has been registered with <code>registerComponent</code>:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MyComponent.foo = <span class="string">"bar"</span>;</span><br><span class="line"><span class="keyword">const</span> WrappedComponent = registerComponent(MyComponent, withCurrentUser);</span><br><span class="line"><span class="built_in">console</span>.log(WrappedComponent.foo); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(getRawComponent(WrappedComponent).foo); <span class="comment">// "bar"</span></span><br></pre></td></tr></table></figure>
 <p>Try to keep this in mind as you work with components.</p>
 <h3 id="“Delayed”-HoCs"><a href="#“Delayed”-HoCs" class="headerlink" title="“Delayed” HoCs"></a>“Delayed” HoCs</h3><p>In some cases, you don’t want a HoC function to be executed immediately. For example if you write:</p>
@@ -393,7 +393,7 @@
 <p>The <code>withList(options)</code> will be executed immediately, and you will have no way of overriding the <code>options</code> object later on (a common use case being overriding a fragment).</p>
 <p>To delay the execution until the start of the app, you can use the following alternative syntax:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">registerComponent(<span class="string">'PostsList'</span>, PostsList, [withList, options]);</span><br></pre></td></tr></table></figure>
-<h2 id="Replacing-Components"><a href="#Replacing-Components" class="headerlink" title="Replacing Components"></a>Replacing Components</h2><p>Apart from a couple exceptions, almost all React components in Nova live inside the <code>nova:base-components</code> package. </p>
+<h2 id="Replacing-Components"><a href="#Replacing-Components" class="headerlink" title="Replacing Components"></a>Replacing Components</h2><p>Apart from a couple exceptions, almost all React components in Vulcan live inside the <code>nova:base-components</code> package. </p>
 <p>If you only need to modify a single component, you can simply override it with a new one without having to touch the <code>nova:base-components</code> package.</p>
 <p>For example, if you wanted to use your own <code>CustomLogo</code> component you would do:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; replaceComponent &#125; <span class="keyword">from</span> <span class="string">'meteor/nova:core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> CustomLogo = <span class="function"><span class="params">props</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>/* custom component code */<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line">replaceComponent(<span class="string">'Logo'</span>, CustomLogo);</span><br></pre></td></tr></table></figure>
@@ -409,7 +409,7 @@
 <h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>The main purpose behind the components API is to enable extending and replacing components defined in third-party themes and plug-ins. However, if this is not a concern for you, you can use the standard <code>export default Foo</code> and <code>import Foo from &#39;./foo.jsx&#39;</code> approach without any trouble. </p>
 <h2 id="Core-Components"><a href="#Core-Components" class="headerlink" title="Core Components"></a>Core Components</h2><p>In addition to components that are part of a specific theme package (such as <code>nova:base-components</code>), a few components are provided with <code>nova:core</code>.</p>
 <h3 id="App"><a href="#App" class="headerlink" title="App"></a>App</h3><p>The <code>App</code> component takes care of loading data for the current active user and setting up internationalization. Most of the time, you shouldn’t need to worry about it. </p>
-<h3 id="Error404"><a href="#Error404" class="headerlink" title="Error404"></a>Error404</h3><p>This is a default “page not found” error component. This ensures Nova has something to show even when you remove all themes and routes. </p>
+<h3 id="Error404"><a href="#Error404" class="headerlink" title="Error404"></a>Error404</h3><p>This is a default “page not found” error component. This ensures Vulcan has something to show even when you remove all themes and routes. </p>
 <h3 id="Icon"><a href="#Icon" class="headerlink" title="Icon"></a>Icon</h3><p>The icon component is a simple wrapper to display <a href="http://fontawesome.io/" target="_blank" rel="external">Font Awesome</a> icons. If you’d like to use a different icon set, you can just replace it using the usual <code>replaceComponent</code> technique. </p>
 <h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h3><p>This is a default layout. It’ll usually be replaced with each theme’s own custom layout.</p>
 <h3 id="Loading"><a href="#Loading" class="headerlink" title="Loading"></a>Loading</h3><p>A simple loading spinner component you can use to show loading states. Its corresponding styles currently live in the <code>nova:base-styles</code> package. </p>

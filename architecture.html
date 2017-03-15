@@ -4,20 +4,20 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Architecture | Nova Docs</title>
+    <title>Architecture | Vulcan Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="https://www.meteor.com/favicon.png" sizes="16x16 32x32 64x64">
 
     <!-- Social -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="http://nova-docs.telescopeapp.org">
-    <meta property="og:title" content="Architecture | Nova Docs">
+    <meta property="og:url" content="http://docs.vulcanjs.org">
+    <meta property="og:title" content="Architecture | Vulcan Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Architecture | Nova Docs">
+    <meta name="twitter:title" content="Architecture | Vulcan Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -37,8 +37,9 @@
       </span>
     </div>
     <div class="nav-item">
-      <a class="logo-wrapper" href="http://nova-docs.telescopeapp.org/" title="Nova Documentation Nova Documentation"  >
-        Nova Documentation
+      <a class="logo-wrapper" href="http://docs.vulcanjs.org/" title="Vulcan Documentation Vulcan Documentation"  >
+        <img src="/images/vulcan-logo-border-2.svg" alt="Vulcan Documentation" class="logo"/>
+        <span>Vulcan Documentation</span>
       </a>
     </div>
   </div>
@@ -65,8 +66,8 @@
 <div class="sidebar">
   <div class="panel">
     <div class="panel-item">
-      <a class="" href="http://nova-docs.telescopeapp.org/" title="Nova Documentation"  >
-        <span>Nova Documentation Nova Documentation</span>
+      <a class="" href="http://docs.vulcanjs.org/" title="Vulcan Documentation"  >
+        <span>Vulcan Documentation Vulcan Documentation</span>
       </a>
     </div>
     
@@ -86,7 +87,6 @@
 
   <div class="sidebar-content">
     <div class="topcap">
-      <span class="title-sidebar">Nova Docs</span>
       
     </div>
 
@@ -131,7 +131,7 @@
               
               <li class="item-toc ">
                 <a href="vulcan.html" class="sidebar-link ">
-                  <span>VulcanJS</span>
+                  <span>Vulcan</span>
                 </a>
               </li>
             
@@ -321,14 +321,14 @@
               
               <li class="item-toc ">
                 <a href="tutorial-framework.html" class="sidebar-link ">
-                  <span>Understanding the Nova Framework</span>
+                  <span>Understanding the Vulcan Framework</span>
                 </a>
               </li>
             
               
               <li class="item-toc ">
                 <a href="tutorial-customizing.html" class="sidebar-link ">
-                  <span>Customizing & Extending Nova</span>
+                  <span>Customizing & Extending Vulcan</span>
                 </a>
               </li>
             
@@ -368,25 +368,25 @@
     </div>
 
     <div class="document-formatting">
-      <h2 id="Nova’s-Building-Blocks"><a href="#Nova’s-Building-Blocks" class="headerlink" title="Nova’s Building Blocks"></a>Nova’s Building Blocks</h2><p>Nova is built on top of three main open-source technologies: React, GraphQL, and Meteor. </p>
+      <h2 id="Vulcan’s-Building-Blocks"><a href="#Vulcan’s-Building-Blocks" class="headerlink" title="Vulcan’s Building Blocks"></a>Vulcan’s Building Blocks</h2><p>Vulcan is built on top of three main open-source technologies: React, GraphQL, and Meteor. </p>
 <ul>
-<li><a href="https://facebook.github.io/react/" target="_blank" rel="external">React</a> is Nova’s front-end library.</li>
-<li><a href="http://graphql.org" target="_blank" rel="external">GraphQL</a> is Nova’s API layer, used to load data from the server with <a href="http://apollostack.com" target="_blank" rel="external">Apollo</a>. </li>
-<li><a href="http://meteor.com" target="_blank" rel="external">Meteor</a> is Nova’s back-end layer, used to handle the database as well as server and bundle the app. </li>
+<li><a href="https://facebook.github.io/react/" target="_blank" rel="external">React</a> is Vulcan’s front-end library.</li>
+<li><a href="http://graphql.org" target="_blank" rel="external">GraphQL</a> is Vulcan’s API layer, used to load data from the server with <a href="http://apollostack.com" target="_blank" rel="external">Apollo</a>. </li>
+<li><a href="http://meteor.com" target="_blank" rel="external">Meteor</a> is Vulcan’s back-end layer, used to handle the database as well as server and bundle the app. </li>
 </ul>
 <p>Each layer is independent from the other two: you can take your React components and use them with a completely different stack, and – although we’re not quite there yet – ultimately we also hope to make it easy to migrate out of Meteor.</p>
-<p>The goal is to avoid getting stuck: if at any point you outgrow Nova, it should be possible to leave it with minimal refactoring. </p>
+<p>The goal is to avoid getting stuck: if at any point you outgrow Vulcan, it should be possible to leave it with minimal refactoring. </p>
 <h2 id="A-Note-About-Apollo"><a href="#A-Note-About-Apollo" class="headerlink" title="A Note About Apollo"></a>A Note About Apollo</h2><p><a href="http://apollostack.com" target="_blank" rel="external">Apollo</a> is the set of tools used to manage the GraphQL layer. It consists of two parts, Apollo server and Apollo client. </p>
 <ul>
 <li><strong>Apollo server</strong> is used to create the GraphQL API endpoint on the server.</li>
 <li><strong>Apollo client</strong> (together with the <code>react-apollo</code> package) is used to query that endpoint and load data on the client. </li>
 </ul>
 <p>Apollo is still young, but it’s well-documented, evolving quickly, and supported by a great team. </p>
-<h2 id="Code-Architecture"><a href="#Code-Architecture" class="headerlink" title="Code Architecture"></a>Code Architecture</h2><p>In keeping with this idea of flexibility and modularity, Nova’s application structure is a bit different than most other Meteor apps. </p>
-<p>In Nova, each feature has its own distinct <strong>Meteor package</strong> which can be freely added or removed. For example, if your current theme doesn’t use comments, you can get rid of every comments-related back-end feature with:</p>
+<h2 id="Code-Architecture"><a href="#Code-Architecture" class="headerlink" title="Code Architecture"></a>Code Architecture</h2><p>In keeping with this idea of flexibility and modularity, Vulcan’s application structure is a bit different than most other Meteor apps. </p>
+<p>In Vulcan, each feature has its own distinct <strong>Meteor package</strong> which can be freely added or removed. For example, if your current theme doesn’t use comments, you can get rid of every comments-related back-end feature with:</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meteor <span class="built_in">remove</span> nov<span class="variable">a:comments</span></span><br></pre></td></tr></table></figure>
-<p>Generally speaking, Nova packages fall in one of five categories, and they’re all listed in your <code>.meteor/packages</code> file.</p>
-<h3 id="Core-Packages"><a href="#Core-Packages" class="headerlink" title="Core Packages"></a>Core Packages</h3><p>These are the core packages that make the <a href="tutorial-framework.html">Nova framework</a>:</p>
+<p>Generally speaking, Vulcan packages fall in one of five categories, and they’re all listed in your <code>.meteor/packages</code> file.</p>
+<h3 id="Core-Packages"><a href="#Core-Packages" class="headerlink" title="Core Packages"></a>Core Packages</h3><p>These are the core packages that make the <a href="tutorial-framework.html">Vulcan framework</a>:</p>
 <ul>
 <li><code>nova:lib</code></li>
 <li><code>nova:core</code></li>
@@ -395,8 +395,8 @@
 <li><code>nova:email</code></li>
 <li><code>nova:users</code> </li>
 </ul>
-<p>Every Nova app will usually include them, but note that strictly speaking only <code>nova:core</code> (which itself depends on <code>nova:lib</code>) cannot be removed from Nova apps. </p>
-<h3 id="Feature-Packages"><a href="#Feature-Packages" class="headerlink" title="Feature Packages"></a>Feature Packages</h3><p>These includes all the main Nova features:</p>
+<p>Every Vulcan app will usually include them, but note that strictly speaking only <code>nova:core</code> (which itself depends on <code>nova:lib</code>) cannot be removed from Vulcan apps. </p>
+<h3 id="Feature-Packages"><a href="#Feature-Packages" class="headerlink" title="Feature Packages"></a>Feature Packages</h3><p>These includes all the main Vulcan features:</p>
 <ul>
 <li><code>nova:events</code></li>
 <li><code>nova:settings</code></li>
@@ -427,18 +427,18 @@
 <li><code>accounts-password</code></li>
 <li><code>accounts-twitter</code></li>
 </ul>
-<h3 id="Custom-Packages"><a href="#Custom-Packages" class="headerlink" title="Custom Packages"></a>Custom Packages</h3><p>Finally, any new package you create to extend Nova will fall in the “custom package” category. </p>
-<h2 id="Extend-Don’t-Edit"><a href="#Extend-Don’t-Edit" class="headerlink" title="Extend, Don’t Edit"></a>Extend, Don’t Edit</h2><p>Another key point of Nova’s philosophy is to never edit the core codebase (i.e. what you get from the Nova repo) directly if you can avoid it. </p>
-<p>Editing Nova’s code makes it harder to keep it up to date when things change in the main Nova repo, as your modifications might conflict with a new updated version. </p>
-<p>Instead, Nova includes many hooks and patterns that enable you to tweak and extend core features from your <em>own</em> packages without having to actually modify their code. </p>
-<h2 id="Register-amp-Execute"><a href="#Register-amp-Execute" class="headerlink" title="Register &amp; Execute"></a>Register &amp; Execute</h2><p>Many Nova objects (such as fragments, routes, components, etc.) follow a “register and execute” pattern, in which:</p>
+<h3 id="Custom-Packages"><a href="#Custom-Packages" class="headerlink" title="Custom Packages"></a>Custom Packages</h3><p>Finally, any new package you create to extend Vulcan will fall in the “custom package” category. </p>
+<h2 id="Extend-Don’t-Edit"><a href="#Extend-Don’t-Edit" class="headerlink" title="Extend, Don’t Edit"></a>Extend, Don’t Edit</h2><p>Another key point of Vulcan’s philosophy is to never edit the core codebase (i.e. what you get from the Vulcan repo) directly if you can avoid it. </p>
+<p>Editing Vulcan’s code makes it harder to keep it up to date when things change in the main Vulcan repo, as your modifications might conflict with a new updated version. </p>
+<p>Instead, Vulcan includes many hooks and patterns that enable you to tweak and extend core features from your <em>own</em> packages without having to actually modify their code. </p>
+<h2 id="Register-amp-Execute"><a href="#Register-amp-Execute" class="headerlink" title="Register &amp; Execute"></a>Register &amp; Execute</h2><p>Many Vulcan objects (such as fragments, routes, components, etc.) follow a “register and execute” pattern, in which:</p>
 <ol>
 <li>All items are first registered in a centralized array.</li>
 <li>The items are then all executed at runtime. </li>
 </ol>
 <p>This two-tiered approach has two benefits. First, it means items can be overriden in between registration and execution. For example if a theme registers a component, your custom code can then extend it and the final component object that is created at runtime will be the extended version.</p>
-<p>Second, things like React Router or the app’s GraphQL schema can only be initialized once. By having you register items first, Nova is able to centralize objects from various sources, and then combine them all in a single initialization call. </p>
-<h2 id="The-Nova-Core-Package"><a href="#The-Nova-Core-Package" class="headerlink" title="The Nova Core Package"></a>The Nova Core Package</h2><p>Unless mentioned otherwise, all Nova utilities function are imported from the <code>nova:core</code> Meteor package:</p>
+<p>Second, things like React Router or the app’s GraphQL schema can only be initialized once. By having you register items first, Vulcan is able to centralize objects from various sources, and then combine them all in a single initialization call. </p>
+<h2 id="The-Vulcan-Core-Package"><a href="#The-Vulcan-Core-Package" class="headerlink" title="The Vulcan Core Package"></a>The Vulcan Core Package</h2><p>Unless mentioned otherwise, all Vulcan utilities function are imported from the <code>nova:core</code> Meteor package:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createCollection &#125; <span class="keyword">from</span> <span class="string">'meteor/nova:core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Posts = createCollection(&#123;...&#125;);</span><br></pre></td></tr></table></figure>
 <p>Note that a lot of these utilities actually live in the <code>nova:lib</code> package, but they’re re-exported from <code>nova:core</code> for convenience’s sake. </p>
 
@@ -460,7 +460,7 @@
         <a class="link primary next"
           href="vulcan.html">
           <span class="subtitle-pagination">Next</span>
-          VulcanJS
+          Vulcan
           <span class="icon-arrow-right-alt"></span>
         </a>
       

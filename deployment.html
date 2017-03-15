@@ -4,20 +4,20 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Deployment Guide | Nova Docs</title>
+    <title>Deployment Guide | Vulcan Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="https://www.meteor.com/favicon.png" sizes="16x16 32x32 64x64">
 
     <!-- Social -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="http://nova-docs.telescopeapp.org">
-    <meta property="og:title" content="Deployment Guide | Nova Docs">
+    <meta property="og:url" content="http://docs.vulcanjs.org">
+    <meta property="og:title" content="Deployment Guide | Vulcan Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Deployment Guide | Nova Docs">
+    <meta name="twitter:title" content="Deployment Guide | Vulcan Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -37,8 +37,9 @@
       </span>
     </div>
     <div class="nav-item">
-      <a class="logo-wrapper" href="http://nova-docs.telescopeapp.org/" title="Nova Documentation Nova Documentation"  >
-        Nova Documentation
+      <a class="logo-wrapper" href="http://docs.vulcanjs.org/" title="Vulcan Documentation Vulcan Documentation"  >
+        <img src="/images/vulcan-logo-border-2.svg" alt="Vulcan Documentation" class="logo"/>
+        <span>Vulcan Documentation</span>
       </a>
     </div>
   </div>
@@ -65,8 +66,8 @@
 <div class="sidebar">
   <div class="panel">
     <div class="panel-item">
-      <a class="" href="http://nova-docs.telescopeapp.org/" title="Nova Documentation"  >
-        <span>Nova Documentation Nova Documentation</span>
+      <a class="" href="http://docs.vulcanjs.org/" title="Vulcan Documentation"  >
+        <span>Vulcan Documentation Vulcan Documentation</span>
       </a>
     </div>
     
@@ -86,7 +87,6 @@
 
   <div class="sidebar-content">
     <div class="topcap">
-      <span class="title-sidebar">Nova Docs</span>
       
     </div>
 
@@ -131,7 +131,7 @@
               
               <li class="item-toc ">
                 <a href="vulcan.html" class="sidebar-link ">
-                  <span>VulcanJS</span>
+                  <span>Vulcan</span>
                 </a>
               </li>
             
@@ -321,14 +321,14 @@
               
               <li class="item-toc ">
                 <a href="tutorial-framework.html" class="sidebar-link ">
-                  <span>Understanding the Nova Framework</span>
+                  <span>Understanding the Vulcan Framework</span>
                 </a>
               </li>
             
               
               <li class="item-toc ">
                 <a href="tutorial-customizing.html" class="sidebar-link ">
-                  <span>Customizing & Extending Nova</span>
+                  <span>Customizing & Extending Vulcan</span>
                 </a>
               </li>
             
@@ -368,7 +368,7 @@
     </div>
 
     <div class="document-formatting">
-      <h2 id="Meteor-Up"><a href="#Meteor-Up" class="headerlink" title="Meteor Up"></a>Meteor Up</h2><p>The recommended way to deploy Nova is by using <a href="https://github.com/zodern/meteor-up" target="_blank" rel="external">Meteor Up</a>.</p>
+      <h2 id="Meteor-Up"><a href="#Meteor-Up" class="headerlink" title="Meteor Up"></a>Meteor Up</h2><p>The recommended way to deploy Vulcan is by using <a href="https://github.com/zodern/meteor-up" target="_blank" rel="external">Meteor Up</a>.</p>
 <h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><p>You should have a Linux server online, for instance <a href="https://www.digitalocean.com" target="_blank" rel="external">a Digital Ocean droplet running with Ubuntu</a>.</p>
 <p>On your local development machine, install globally the latest <code>kadirahq/meteor-up</code>.</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> -g mup</span><br></pre></td></tr></table></figure>
@@ -389,7 +389,7 @@
 <li>Increase <code>deployCheckWaitTime</code>.</li>
 </ul>
 <h2 id="PM2"><a href="#PM2" class="headerlink" title="PM2"></a>PM2</h2><p>Contributed by <a href="https://github.com/TelescopeJS/Telescope/issues/1552#issuecomment-276948862" target="_blank" rel="external">adalidda</a>.</p>
-<p>Deploy Nova GraphQL/Apollo version with PM2</p>
+<p>Deploy Vulcan GraphQL/Apollo version with PM2</p>
 <h3 id="Server-Setup"><a href="#Server-Setup" class="headerlink" title="Server Setup"></a>Server Setup</h3><p>On Ubuntu 14 or better.</p>
 <h4 id="Install-nvm"><a href="#Install-nvm" class="headerlink" title="Install nvm"></a>Install nvm</h4><p>Run the following command</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">sudo apt-<span class="built_in">get</span> install build-essential libssl-dev</span><br><span class="line">curl -sL http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/creationix/nvm/v0.<span class="number">31.0</span>/install.<span class="keyword">sh</span> -<span class="keyword">o</span> install_nvm.<span class="keyword">sh</span></span><br><span class="line">bash install_nvm.<span class="keyword">sh</span></span><br><span class="line"><span class="keyword">source</span> ~/.<span class="keyword">profile</span></span><br><span class="line">nvm install <span class="number">4.7</span>.<span class="number">3</span></span><br><span class="line">nvm alias default <span class="number">4.7</span>.<span class="number">3</span></span><br></pre></td></tr></table></figure>
@@ -408,7 +408,7 @@
 <p>pm2-meteor will then create a file <code>pm2-meteor.json</code>.</p>
 <p>Edit your <code>pm2-meteor.json</code> with your own parameters.</p>
 <p>Below is my pm2-meteor.json given as reference.</p>
-<p>You note that I use the <code>nvm</code> command in my <code>pm2-meteor.json</code>, because without using the nvm command, pm2 will use Node version on your server that may be not compatible with the one required by Nova GraphQL/Apollo (which is node version 4.7.0 or 4.7.3) and in this case pm2 will generate high use of your CPU around 100% !</p>
+<p>You note that I use the <code>nvm</code> command in my <code>pm2-meteor.json</code>, because without using the nvm command, pm2 will use Node version on your server that may be not compatible with the one required by Vulcan GraphQL/Apollo (which is node version 4.7.0 or 4.7.3) and in this case pm2 will generate high use of your CPU around 100% !</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"appName"</span>: <span class="string">"myappname"</span>,</span><br><span class="line">  <span class="attr">"appLocation"</span>: &#123;</span><br><span class="line">    <span class="attr">"local"</span>: <span class="string">"~/myappfolder"</span>,</span><br><span class="line">    <span class="attr">"branch"</span>: <span class="string">"myappbranch"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"meteorSettingsLocation"</span>: <span class="string">"~/myappfolder/mysettings.json"</span>,</span><br><span class="line">  <span class="attr">"meteorSettingsInRepo"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"prebuildScript"</span>: <span class="string">"meteor add mycustompackage"</span>,</span><br><span class="line">  <span class="attr">"meteorBuildFlags"</span>: <span class="string">"--architecture os.linux.x86_64"</span>,</span><br><span class="line">  <span class="attr">"env"</span>: &#123;</span><br><span class="line">    <span class="attr">"ROOT_URL"</span>: <span class="string">"https://myurl"</span>,</span><br><span class="line">    <span class="attr">"PORT"</span>: myport,</span><br><span class="line">    <span class="attr">"MONGO_URL"</span>: <span class="string">"mongodb://username:password@ip1:port1,ip2:port2/dbname?authSource=admin&amp;replicaSet=replicasetname"</span>,</span><br><span class="line">    <span class="attr">"MONGO_OPLOG_URL"</span>: <span class="string">"mongodb://user:password@ip1:port1,ip2:port2/local?authSource=admin&amp;replicaSet=replicasetname"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"server"</span>: &#123;</span><br><span class="line">    <span class="attr">"host"</span>: <span class="string">"myserverip"</span>,</span><br><span class="line">    <span class="attr">"username"</span>: <span class="string">"username"</span>,</span><br><span class="line">    <span class="attr">"password"</span>: <span class="string">"mypassword"</span>,</span><br><span class="line">    <span class="attr">"deploymentDir"</span>: <span class="string">"/opt/pm2-meteor"</span>,</span><br><span class="line">    <span class="attr">"loadProfile"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="attr">"nvm"</span>: &#123;</span><br><span class="line">      <span class="attr">"bin"</span>: <span class="string">"~/.nvm/nvm.sh"</span>,</span><br><span class="line">      <span class="attr">"use"</span>: <span class="string">"4.7.2"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"exec_mode"</span>: <span class="string">"cluster_mode"</span>,</span><br><span class="line">    <span class="attr">"instances"</span>: <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Deploy-your-app-to-the-host-server"><a href="#Deploy-your-app-to-the-host-server" class="headerlink" title="Deploy your app to the host server"></a>Deploy your app to the host server</h4><p>Type the following command</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> deploy</span><br><span class="line">pm2-meteor deploy</span><br></pre></td></tr></table></figure>

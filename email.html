@@ -4,20 +4,20 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Email | Nova Docs</title>
+    <title>Email | Vulcan Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="https://www.meteor.com/favicon.png" sizes="16x16 32x32 64x64">
 
     <!-- Social -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="http://nova-docs.telescopeapp.org">
-    <meta property="og:title" content="Email | Nova Docs">
+    <meta property="og:url" content="http://docs.vulcanjs.org">
+    <meta property="og:title" content="Email | Vulcan Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Email | Nova Docs">
+    <meta name="twitter:title" content="Email | Vulcan Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -37,8 +37,9 @@
       </span>
     </div>
     <div class="nav-item">
-      <a class="logo-wrapper" href="http://nova-docs.telescopeapp.org/" title="Nova Documentation Nova Documentation"  >
-        Nova Documentation
+      <a class="logo-wrapper" href="http://docs.vulcanjs.org/" title="Vulcan Documentation Vulcan Documentation"  >
+        <img src="/images/vulcan-logo-border-2.svg" alt="Vulcan Documentation" class="logo"/>
+        <span>Vulcan Documentation</span>
       </a>
     </div>
   </div>
@@ -65,8 +66,8 @@
 <div class="sidebar">
   <div class="panel">
     <div class="panel-item">
-      <a class="" href="http://nova-docs.telescopeapp.org/" title="Nova Documentation"  >
-        <span>Nova Documentation Nova Documentation</span>
+      <a class="" href="http://docs.vulcanjs.org/" title="Vulcan Documentation"  >
+        <span>Vulcan Documentation Vulcan Documentation</span>
       </a>
     </div>
     
@@ -86,7 +87,6 @@
 
   <div class="sidebar-content">
     <div class="topcap">
-      <span class="title-sidebar">Nova Docs</span>
       
     </div>
 
@@ -131,7 +131,7 @@
               
               <li class="item-toc ">
                 <a href="vulcan.html" class="sidebar-link ">
-                  <span>VulcanJS</span>
+                  <span>Vulcan</span>
                 </a>
               </li>
             
@@ -321,14 +321,14 @@
               
               <li class="item-toc ">
                 <a href="tutorial-framework.html" class="sidebar-link ">
-                  <span>Understanding the Nova Framework</span>
+                  <span>Understanding the Vulcan Framework</span>
                 </a>
               </li>
             
               
               <li class="item-toc ">
                 <a href="tutorial-customizing.html" class="sidebar-link ">
-                  <span>Customizing & Extending Nova</span>
+                  <span>Customizing & Extending Vulcan</span>
                 </a>
               </li>
             
@@ -375,9 +375,9 @@
 <p>You’ll then be able to load the contents of the file in your code with:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assets.getText(<span class="string">"path/to/template/newReply.handlebars"</span>)</span><br></pre></td></tr></table></figure>
 <p>You can add a template with:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> NovaEmail <span class="keyword">from</span> <span class="string">'meteor/nova:email'</span>;</span><br><span class="line"></span><br><span class="line">NovaEmail.addTemplates(&#123;</span><br><span class="line">  <span class="attr">newReply</span>: Assets.getText(<span class="string">"path/to/template/newReply.handlebars"</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VulcanEmail <span class="keyword">from</span> <span class="string">'meteor/nova:email'</span>;</span><br><span class="line"></span><br><span class="line">VulcanEmail.addTemplates(&#123;</span><br><span class="line">  <span class="attr">newReply</span>: Assets.getText(<span class="string">"path/to/template/newReply.handlebars"</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Or override an existing one with:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> NovaEmail <span class="keyword">from</span> <span class="string">'meteor/nova:email'</span>;</span><br><span class="line"></span><br><span class="line">NovaEmail.templates.newReply = Assets.getText(<span class="string">"path/to/template/newReply.handlebars"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VulcanEmail <span class="keyword">from</span> <span class="string">'meteor/nova:email'</span>;</span><br><span class="line"></span><br><span class="line">VulcanEmail.templates.newReply = Assets.getText(<span class="string">"path/to/template/newReply.handlebars"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="Email-Stying"><a href="#Email-Stying" class="headerlink" title="Email Stying"></a>Email Stying</h3><p>Some styling of emails can be controlled in <code>settings.json</code>:</p>
 <table>
 <thead>
@@ -400,7 +400,7 @@
 </tr>
 <tr>
 <td>siteName</td>
-<td>“Nova”</td>
+<td>“Vulcan”</td>
 <td>Use setting key ‘title’</td>
 </tr>
 <tr>

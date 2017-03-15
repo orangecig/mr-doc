@@ -4,20 +4,20 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Collections & Schemas | Nova Docs</title>
+    <title>Collections & Schemas | Vulcan Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="https://www.meteor.com/favicon.png" sizes="16x16 32x32 64x64">
 
     <!-- Social -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="http://nova-docs.telescopeapp.org">
-    <meta property="og:title" content="Collections & Schemas | Nova Docs">
+    <meta property="og:url" content="http://docs.vulcanjs.org">
+    <meta property="og:title" content="Collections & Schemas | Vulcan Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Collections & Schemas | Nova Docs">
+    <meta name="twitter:title" content="Collections & Schemas | Vulcan Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -37,8 +37,9 @@
       </span>
     </div>
     <div class="nav-item">
-      <a class="logo-wrapper" href="http://nova-docs.telescopeapp.org/" title="Nova Documentation Nova Documentation"  >
-        Nova Documentation
+      <a class="logo-wrapper" href="http://docs.vulcanjs.org/" title="Vulcan Documentation Vulcan Documentation"  >
+        <img src="/images/vulcan-logo-border-2.svg" alt="Vulcan Documentation" class="logo"/>
+        <span>Vulcan Documentation</span>
       </a>
     </div>
   </div>
@@ -65,8 +66,8 @@
 <div class="sidebar">
   <div class="panel">
     <div class="panel-item">
-      <a class="" href="http://nova-docs.telescopeapp.org/" title="Nova Documentation"  >
-        <span>Nova Documentation Nova Documentation</span>
+      <a class="" href="http://docs.vulcanjs.org/" title="Vulcan Documentation"  >
+        <span>Vulcan Documentation Vulcan Documentation</span>
       </a>
     </div>
     
@@ -86,7 +87,6 @@
 
   <div class="sidebar-content">
     <div class="topcap">
-      <span class="title-sidebar">Nova Docs</span>
       
     </div>
 
@@ -131,7 +131,7 @@
               
               <li class="item-toc ">
                 <a href="vulcan.html" class="sidebar-link ">
-                  <span>VulcanJS</span>
+                  <span>Vulcan</span>
                 </a>
               </li>
             
@@ -321,14 +321,14 @@
               
               <li class="item-toc ">
                 <a href="tutorial-framework.html" class="sidebar-link ">
-                  <span>Understanding the Nova Framework</span>
+                  <span>Understanding the Vulcan Framework</span>
                 </a>
               </li>
             
               
               <li class="item-toc ">
                 <a href="tutorial-customizing.html" class="sidebar-link ">
-                  <span>Customizing & Extending Nova</span>
+                  <span>Customizing & Extending Vulcan</span>
                 </a>
               </li>
             
@@ -368,7 +368,7 @@
     </div>
 
     <div class="document-formatting">
-      <h2 id="Creating-Collections"><a href="#Creating-Collections" class="headerlink" title="Creating Collections"></a>Creating Collections</h2><p>Nova features a number of helpers to make setting up your layer faster, most of which are initialized through the <code>createCollection</code> function:</p>
+      <h2 id="Creating-Collections"><a href="#Creating-Collections" class="headerlink" title="Creating Collections"></a>Creating Collections</h2><p>Vulcan features a number of helpers to make setting up your layer faster, most of which are initialized through the <code>createCollection</code> function:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Movies = createCollection(&#123;</span><br><span class="line"></span><br><span class="line">  <span class="attr">collectionName</span>: <span class="string">'movies'</span>,</span><br><span class="line"></span><br><span class="line">  <span class="attr">typeName</span>: <span class="string">'Movie'</span>,</span><br><span class="line"></span><br><span class="line">  schema,</span><br><span class="line">  </span><br><span class="line">  resolvers,</span><br><span class="line"></span><br><span class="line">  mutations,</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>The function takes the following arguments:</p>
 <ul>
@@ -377,9 +377,9 @@
 <li><code>schema</code>, <code>resolvers</code>, <code>mutations</code>: see below.</li>
 <li><code>generateGraphQLSchema</code>: whether to use the objects passed above to automatically generate the GraphQL schema or not (defaults to <code>true</code>). </li>
 </ul>
-<h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>Passing a schema, resolvers, and mutations to <code>createCollection</code> enables a lot of Nova’s internal synergy. That being said, you can also set <code>generateGraphQLSchema</code> to <code>false</code> and use the custom schemas, custom resolvers, and custom mutations utilities documented below to bypass this if you prefer. </p>
+<h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>Passing a schema, resolvers, and mutations to <code>createCollection</code> enables a lot of Vulcan’s internal synergy. That being said, you can also set <code>generateGraphQLSchema</code> to <code>false</code> and use the custom schemas, custom resolvers, and custom mutations utilities documented below to bypass this if you prefer. </p>
 <h2 id="Schemas"><a href="#Schemas" class="headerlink" title="Schemas"></a>Schemas</h2><p>The first piece of any GraphQL API is the <strong>schema</strong>, which defines what data is made available to the client. </p>
-<p>In Nova, this GraphQL schema can be generated automatically from your collection’s JSON schema, so you don’t have to type things twice. Just pass a <a href="https://github.com/aldeed/meteor-simple-schema" target="_blank" rel="external">SimpleSchema</a>-compatible JSON schema as <code>createCollection</code>‘s <code>schema</code> property.</p>
+<p>In Vulcan, this GraphQL schema can be generated automatically from your collection’s JSON schema, so you don’t have to type things twice. Just pass a <a href="https://github.com/aldeed/meteor-simple-schema" target="_blank" rel="external">SimpleSchema</a>-compatible JSON schema as <code>createCollection</code>‘s <code>schema</code> property.</p>
 <h3 id="Custom-Schemas"><a href="#Custom-Schemas" class="headerlink" title="Custom Schemas"></a>Custom Schemas</h3><p>If you need to manually add a schema, you can also do so using the <code>GraphQLSchema.addSchema</code> function:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> customSchema = <span class="string">`</span><br><span class="line">  input Custom &#123;</span><br><span class="line">    _id: String</span><br><span class="line">    userId: String</span><br><span class="line">    title: String</span><br><span class="line">  &#125;</span><br><span class="line">`</span>;</span><br><span class="line">GraphQLSchema.addSchema(customSchema);</span><br></pre></td></tr></table></figure>
 <h2 id="Schema-Properties"><a href="#Schema-Properties" class="headerlink" title="Schema Properties"></a>Schema Properties</h2><h3 id="Default-Properties"><a href="#Default-Properties" class="headerlink" title="Default Properties"></a>Default Properties</h3><p>See the <a href="https://github.com/aldeed/meteor-simple-schema#schema-rules" target="_blank" rel="external">SimpleSchema documentation</a>.</p>
@@ -389,7 +389,7 @@
 <p>If it’s a function, it’ll be called on the <code>user</code> performing the operation, and should return <code>true</code> or <code>false</code>. When generating a form for inserting new documents, the form will contain all the fields that return <code>true</code> for the current user.</p>
 <h4 id="editableBy"><a href="#editableBy" class="headerlink" title="editableBy"></a><code>editableBy</code></h4><p>Can either be an array of group names or a function.</p>
 <p>If it’s a function, it’ll be called on the <code>user</code> performing the operation, and the <code>document</code> being operated on, and should return <code>true</code> or <code>false</code>. When generating a form for editing existing documents, the form will contain all the fields that return <code>true</code> for the current user.</p>
-<h4 id="resolveAs"><a href="#resolveAs" class="headerlink" title="resolveAs"></a><code>resolveAs</code></h4><p>Although Nova uses your SimpleSchema JSON schema to generate your GraphQL schema, it’s important to understand that the two can be different. </p>
+<h4 id="resolveAs"><a href="#resolveAs" class="headerlink" title="resolveAs"></a><code>resolveAs</code></h4><p>Although Vulcan uses your SimpleSchema JSON schema to generate your GraphQL schema, it’s important to understand that the two can be different. </p>
 <p>For example, you might have a <code>userId</code> property in your <code>Posts</code> schema, but want this property to <em>resolve</em> as a <code>user</code> object in your GraphQL schema (and in turn, in your client store). You can use <code>resolveAs</code> to accomplish this:</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">resolveAs:</span> <span class="string">'user: User'</span></span><br></pre></td></tr></table></figure>
 <p>Note that in this case the <code>User</code> GraphQL type is generated automatically out of the box since <code>Users</code> is created using <code>createCollection</code>, but you could also add it manually:</p>
@@ -417,7 +417,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.context.updateCurrentValues(&#123;<span class="attr">foo</span>: <span class="string">'bar'</span>&#125;);</span><br></pre></td></tr></table></figure>
 <p>As long as a value is in this.state.currentValues it should be submitted with the form, no matter whether there is an actual form item or not.</p>
 <h3 id="Other-Properties"><a href="#Other-Properties" class="headerlink" title="Other Properties"></a>Other Properties</h3><h4 id="required-Users-only"><a href="#required-Users-only" class="headerlink" title="required (Users only)"></a><code>required</code> (<code>Users</code> only)</h4><p>You can mark a field as <code>required: true</code> to indicate that it should be completed when the user signs up. If you’re using the <code>nova:base-components</code> theme, a form will then pop up prompting the user to complete their profile with the missing fields. </p>
-<h2 id="Custom-Fields"><a href="#Custom-Fields" class="headerlink" title="Custom Fields"></a>Custom Fields</h2><p>Out of the box, Nova has three main collections: <code>Posts</code>, <code>Users</code>, and <code>Comments</code>. Each of them has a pre-set schema, but that schema can also be extended with custom fields.</p>
+<h2 id="Custom-Fields"><a href="#Custom-Fields" class="headerlink" title="Custom Fields"></a>Custom Fields</h2><p>Out of the box, Vulcan has three main collections: <code>Posts</code>, <code>Users</code>, and <code>Comments</code>. Each of them has a pre-set schema, but that schema can also be extended with custom fields.</p>
 <p>For example, this is how the <code>nova:newsletter</code> package extends the <code>Posts</code> schema with a <code>scheduledAt</code> property that keeps track of when a post was sent out as part of an email newsletter:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Posts.addField(&#123;</span><br><span class="line">  <span class="attr">fieldName</span>: <span class="string">'scheduledAt'</span>,</span><br><span class="line">  <span class="attr">fieldSchema</span>: &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="built_in">Date</span>,</span><br><span class="line">    <span class="attr">optional</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>The <code>collection.addField()</code> function takes either a field object, or an array of fields. Each field has a <code>fieldName</code> property, and a <code>fieldSchema</code> property.</p>
@@ -436,7 +436,7 @@
           href="vulcan.html">
           <span class="icon-arrow-left-alt"></span>
           <span class="subtitle-pagination">Previous</span>
-          VulcanJS
+          Vulcan
         </a>
       
       
