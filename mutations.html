@@ -251,6 +251,13 @@
                 </a>
               </li>
             
+              
+              <li class="item-toc ">
+                <a href="optional-packages.html" class="sidebar-link ">
+                  <span>Optional Packages</span>
+                </a>
+              </li>
+            
           </ul>
         </li>
       
@@ -374,13 +381,15 @@
 <li><code>check</code>: a function that takes the current user and (optionally) the document being operated on, and return <code>true</code> or <code>false</code> based on whether the user can perform the operation.</li>
 <li><code>mutation</code>: the mutation function.</li>
 </ul>
-<h3 id="New-Mutation"><a href="#New-Mutation" class="headerlink" title="New Mutation"></a>New Mutation</h3><p>Takes a single <code>document</code> argument.</p>
-<h3 id="Edit-Mutation"><a href="#Edit-Mutation" class="headerlink" title="Edit Mutation"></a>Edit Mutation</h3><p>Takes three arguments:</p>
+<h3 id="New-Mutation"><a href="#New-Mutation" class="headerlink" title="New Mutation"></a>New Mutation</h3><p>Takes an object as argument with a single <code>document</code> property and returns a promise:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">this</span><span class="selector-class">.props</span><span class="selector-class">.newMutation</span>(&#123;</span><br><span class="line">  <span class="attribute">document</span>: document</span><br><span class="line">&#125;)<span class="selector-class">.then</span>(<span class="comment">/* success */</span>)<span class="selector-class">.catch</span>(<span class="comment">/* error */</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="Edit-Mutation"><a href="#Edit-Mutation" class="headerlink" title="Edit Mutation"></a>Edit Mutation</h3><p>Takes an object with three properties as argument:</p>
 <ul>
 <li><code>documentId</code>: the document to modify.</li>
 <li><code>set</code>: the fields to modify (as a list of field name/value pairs, e.g.<code>{title: &#39;My New Title&#39;, body: &#39;My new body&#39;}</code>).</li>
 <li><code>unset</code>: the fields to remove (as a list of field names/booleans, e.g. <code>{title: true, body: true}</code>).</li>
 </ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">this</span><span class="selector-class">.props</span><span class="selector-class">.editMutation</span>(&#123;</span><br><span class="line">  <span class="attribute">documentId</span>: document._id, </span><br><span class="line">  set: set, </span><br><span class="line">  unset: unset</span><br><span class="line">&#125;)<span class="selector-class">.then</span>(<span class="comment">/* success */</span>)<span class="selector-class">.catch</span>(<span class="comment">/* error */</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="Remove-Mutation"><a href="#Remove-Mutation" class="headerlink" title="Remove Mutation"></a>Remove Mutation</h3><p>Takes a single <code>documentId</code> argument.</p>
 <h3 id="Custom-Mutations"><a href="#Custom-Mutations" class="headerlink" title="Custom Mutations"></a>Custom Mutations</h3><p>You can also add your own mutations using <code>GraphQLSchema.addMutation</code> and <code>GraphQLSchema.addResolvers</code>:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GraphQLSchema.addMutation(<span class="string">'postsVote(documentId: String, voteType: String) : Post'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> voteResolver = &#123;</span><br><span class="line">  <span class="attr">Mutation</span>: &#123;</span><br><span class="line">    postsVote(root, &#123;documentId, voteType&#125;, context) &#123;</span><br><span class="line">      <span class="comment">// do mutation</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">GraphQLSchema.addResolvers(voteResolver);</span><br></pre></td></tr></table></figure>
