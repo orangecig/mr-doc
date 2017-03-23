@@ -135,6 +135,20 @@
                 </a>
               </li>
             
+              
+              <li class="item-toc ">
+                <a href="packages.html" class="sidebar-link ">
+                  <span>Packages</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="features-packages.html" class="sidebar-link ">
+                  <span>Features Packages</span>
+                </a>
+              </li>
+            
           </ul>
         </li>
       
@@ -248,13 +262,6 @@
               <li class="item-toc ">
                 <a href="settings.html" class="sidebar-link ">
                   <span>Settings</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
-                <a href="optional-packages.html" class="sidebar-link ">
-                  <span>Optional Packages</span>
                 </a>
               </li>
             
@@ -384,7 +391,7 @@
 <h3 id="Update-Callbacks"><a href="#Update-Callbacks" class="headerlink" title="Update Callbacks"></a>Update Callbacks</h3><p>A common pattern with React Router is running callbacks after the route update (to enable things like custom scrolling behavior, for example).</p>
 <p>You can use the <code>router.onUpdate</code> callback hook to add your own callbacks:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addCallback(<span class="string">'router.onUpdate'</span>, sendGoogleAnalyticsRequest);</span><br></pre></td></tr></table></figure>
-<h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>React Router is initialized in the <code>nova:routing</code> package, and the routing API lets you add routes without having to modify the package’s code. However, for more complex router customizations you can also disable the <code>nova:routing</code> package altogether and replace it with your own React Router code. </p>
+<h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>React Router is initialized in the <code>vulcan:routing</code> package, and the routing API lets you add routes without having to modify the package’s code. However, for more complex router customizations you can also disable the <code>vulcan:routing</code> package altogether and replace it with your own React Router code. </p>
 <h3 id="Using-React-Router-In-Your-Components"><a href="#Using-React-Router-In-Your-Components" class="headerlink" title="Using React Router In Your Components"></a>Using React Router In Your Components</h3><p>If you need to access router properties (such as the current route, path, or query parameters) inside a component, you’ll need to wrap that component with the <code>withRouter</code> HoC (higher-order component):</p>
 <pre><code class="js"><span class="keyword">import</span> React, { PropTypes, Component } <span class="keyword">from</span> <span class="string">'react'</span>;
 <span class="keyword">import</span> { withRouter } <span class="keyword">from</span> <span class="string">'react-router'</span>
