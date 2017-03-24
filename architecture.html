@@ -411,6 +411,7 @@
 <h2 id="The-Vulcan-Core-Package"><a href="#The-Vulcan-Core-Package" class="headerlink" title="The Vulcan Core Package"></a>The Vulcan Core Package</h2><p>Unless mentioned otherwise, all Vulcan utilities function are imported from the <code>vulcan:core</code> Meteor package:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createCollection &#125; <span class="keyword">from</span> <span class="string">'meteor/vulcan:core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Posts = createCollection(&#123;...&#125;);</span><br></pre></td></tr></table></figure>
 <p>Note that a lot of these utilities actually live in the <code>vulcan:lib</code> package, but they’re re-exported from <code>vulcan:core</code> for convenience’s sake. </p>
+<h2 id="Alternative-Approaches"><a href="#Alternative-Approaches" class="headerlink" title="Alternative Approaches"></a>Alternative Approaches</h2><p>Throughout the documentation, you’ll find “Alternative Approach” sections that explain what a feature does, and how to achieve the same results without using Vulcan (typically, with standard React and/or Apollo code). This is useful if you’ve hit the limits of what Vulcan offers, and want to refactor parts of your app to use lower-level APIs. </p>
 
     </div>
   </div>
