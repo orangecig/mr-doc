@@ -398,15 +398,7 @@
     </div>
 
     <div class="document-formatting">
-      <h2 id="Vulcan’s-Building-Blocks"><a href="#Vulcan’s-Building-Blocks" class="headerlink" title="Vulcan’s Building Blocks"></a>Vulcan’s Building Blocks</h2><p>Vulcan is built on top of three main open-source technologies: React, GraphQL, and Meteor. </p>
-<ul>
-<li><a href="https://facebook.github.io/react/" target="_blank" rel="external">React</a> is Vulcan’s front-end library.</li>
-<li><a href="http://graphql.org" target="_blank" rel="external">GraphQL</a> is Vulcan’s API layer, used to load data from the server with <a href="http://apollostack.com" target="_blank" rel="external">Apollo</a>. </li>
-<li><a href="http://meteor.com" target="_blank" rel="external">Meteor</a> is Vulcan’s back-end layer, used to handle the database as well as server and bundle the app. </li>
-</ul>
-<p>Each layer is independent from the other two: you can take your React components and use them with a completely different stack, and – although we’re not quite there yet – ultimately we also hope to make it easy to migrate out of Meteor.</p>
-<p>The goal is to avoid getting stuck: if at any point you outgrow Vulcan, it should be possible to leave it with minimal refactoring. </p>
-<h2 id="A-Note-About-Apollo"><a href="#A-Note-About-Apollo" class="headerlink" title="A Note About Apollo"></a>A Note About Apollo</h2><p><a href="http://apollostack.com" target="_blank" rel="external">Apollo</a> is the set of tools used to manage the GraphQL layer. It consists of two parts, Apollo server and Apollo client. </p>
+      <h2 id="Apollo"><a href="#Apollo" class="headerlink" title="Apollo"></a>Apollo</h2><p><a href="http://apollostack.com" target="_blank" rel="external">Apollo</a> is the set of tools used to manage the GraphQL layer. It consists of two parts, Apollo server and Apollo client. </p>
 <ul>
 <li><strong>Apollo server</strong> is used to create the GraphQL API endpoint on the server.</li>
 <li><strong>Apollo client</strong> (together with the <code>react-apollo</code> package) is used to query that endpoint and load data on the client. </li>
