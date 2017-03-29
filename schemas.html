@@ -131,7 +131,7 @@
               
               <li class="item-toc ">
                 <a href="vulcan.html" class="sidebar-link ">
-                  <span>Vulcan</span>
+                  <span>From Telescope to Vulcan</span>
                 </a>
               </li>
             
@@ -139,13 +139,6 @@
               <li class="item-toc ">
                 <a href="packages.html" class="sidebar-link ">
                   <span>Packages</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
-                <a href="features-packages.html" class="sidebar-link ">
-                  <span>Features Packages</span>
                 </a>
               </li>
             
@@ -283,15 +276,22 @@
             
               
               <li class="item-toc ">
-                <a href="example-customization.html" class="sidebar-link ">
-                  <span>Customization Example</span>
+                <a href="example-instagram.html" class="sidebar-link ">
+                  <span>Instagram Example</span>
                 </a>
               </li>
             
               
               <li class="item-toc ">
-                <a href="example-instagram.html" class="sidebar-link ">
-                  <span>Instagram Example</span>
+                <a href="example-forum.html" class="sidebar-link ">
+                  <span>Forum Example</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="example-customization.html" class="sidebar-link ">
+                  <span>Customization Example</span>
                 </a>
               </li>
             
@@ -402,7 +402,8 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Movies = createCollection(&#123;</span><br><span class="line"></span><br><span class="line">  <span class="attr">collectionName</span>: <span class="string">'movies'</span>,</span><br><span class="line"></span><br><span class="line">  <span class="attr">typeName</span>: <span class="string">'Movie'</span>,</span><br><span class="line"></span><br><span class="line">  schema,</span><br><span class="line">  </span><br><span class="line">  resolvers,</span><br><span class="line"></span><br><span class="line">  mutations,</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>The function takes the following arguments:</p>
 <ul>
-<li><code>collectionName</code>: the name of the collection in your MongoDB database.</li>
+<li><code>collectionName</code>: the name of the collection throughout your app (will be lowercased in your MongoDB database).</li>
+<li><code>dbCollectionName</code>: if you want to use a different name in your database you can specify it here.</li>
 <li><code>typeName</code>: the name of the GraphQL type that will be generated for the collection.</li>
 <li><code>schema</code>, <code>resolvers</code>, <code>mutations</code>: see below.</li>
 <li><code>generateGraphQLSchema</code>: whether to use the objects passed above to automatically generate the GraphQL schema or not (defaults to <code>true</code>). </li>
@@ -463,10 +464,10 @@
       
       
         <a class="link primary prev"
-          href="features-packages.html">
+          href="packages.html">
           <span class="icon-arrow-left-alt"></span>
           <span class="subtitle-pagination">Previous</span>
-          Features Packages
+          Packages
         </a>
       
       
