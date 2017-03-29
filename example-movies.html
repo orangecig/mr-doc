@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Understanding the Vulcan Framework | Vulcan Docs</title>
+    <title>Movies Example | Vulcan Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="images/favicon.ico" sizes="16x16 32x32 64x64">
@@ -12,12 +12,12 @@
     <!-- Social -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="http://docs.vulcanjs.org">
-    <meta property="og:title" content="Understanding the Vulcan Framework | Vulcan Docs">
+    <meta property="og:title" content="Movies Example | Vulcan Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Understanding the Vulcan Framework | Vulcan Docs">
+    <meta name="twitter:title" content="Movies Example | Vulcan Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -270,6 +270,59 @@
       
         <li>
           
+            <div class="heading-toc">Examples</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
+                  <span>Movies Example</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="example-customization.html" class="sidebar-link ">
+                  <span>Customization Example</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="example-instagram.html" class="sidebar-link ">
+                  <span>Instagram Example</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Tutorials</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="deployment.html" class="sidebar-link ">
+                  <span>Deployment Guide</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="migration.html" class="sidebar-link ">
+                  <span>Migration Guide</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
             <div class="heading-toc">Resources</div>
           
           <ul class="list-toc">
@@ -326,43 +379,6 @@
           </ul>
         </li>
       
-        <li>
-          
-            <div class="heading-toc">Tutorials</div>
-          
-          <ul class="list-toc">
-            
-              
-              <li class="item-toc  current">
-                <a href="" class="sidebar-link  current">
-                  <span>Understanding the Vulcan Framework</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
-                <a href="tutorial-customizing.html" class="sidebar-link ">
-                  <span>Customizing & Extending Vulcan</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
-                <a href="migration.html" class="sidebar-link ">
-                  <span>Migration Guide</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
-                <a href="deployment.html" class="sidebar-link ">
-                  <span>Deployment Guide</span>
-                </a>
-              </li>
-            
-          </ul>
-        </li>
-      
     </ul>
   </div>
 </div>
@@ -370,12 +386,12 @@
 <div class="content">
   <div class="content-wrapper">
     <div class="header-content">
-      <h1 class="title-page">Understanding the Vulcan Framework</h1>
+      <h1 class="title-page">Movies Example</h1>
       
 
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/tutorial-framework.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/example-movies.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
           
         </div>
       </div>
@@ -385,7 +401,7 @@
       <p>Out of the box, Vulcan comes with many features such as handling posts and comments, generating a newsletter, and much more. </p>
 <p>But it’s important to understand that you can also use the underlying framework powering these features directly and build a completely different type of app. </p>
 <p>So in this tutorial, we’ll focus on understanding this framework and seeing how to build a simple paginated list of movies. </p>
-<p>The completed code for this tutorial can be found in the <code>example-movies</code> package.</p>
+<p>The completed code for this tutorial can be found in <a href="https://github.com/TelescopeJS/Telescope/tree/master/packages/example-movies" target="_blank" rel="external">the <code>example-movies</code> package</a>.</p>
 <h2 id="What-We’re-Building"><a href="#What-We’re-Building" class="headerlink" title="What We’re Building"></a>What We’re Building</h2><iframe width="560" height="315" src="https://www.youtube.com/embed/RzoYVqsD9WI" frameborder="0" allowfullscreen></iframe>
 
 <h2 id="Set-Up"><a href="#Set-Up" class="headerlink" title="Set Up"></a>Set Up</h2><p>First, make sure you’re only including the packages you need. This means everything in your <code>.meteor/packages</code> file should be commented out except for the core packages, a language package, and an accounts package.</p>
@@ -436,7 +452,7 @@
 <p>As we did previously with <code>routes.js</code>, import <code>collection.js</code> from <code>index.js</code>:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The Movies collection</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./movies/collection.js'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Routes</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./routes.js'</span>;</span><br></pre></td></tr></table></figure>
 <p>At this point it might not look like much has changed, but we now have a functional GraphQL schema! You can see it by opening up the Meteor shell in a terminal window (by typing <code>meteor shell</code> from within your app directory) and typing:</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;GraphQLSchema&#125; <span class="keyword">from</span> <span class="string">'meteor/vulcan:lib'</span></span><br><span class="line">GraphQLSchema.finalSchema</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;GraphQLSchema&#125; <span class="keyword">from</span> <span class="string">'meteor/vulcan:lib'</span></span><br><span class="line">GraphQLSchema.finalSchema</span><br></pre></td></tr></table></figure>
 <h2 id="Query-Resolvers"><a href="#Query-Resolvers" class="headerlink" title="Query Resolvers"></a>Query Resolvers</h2><p>Even though we have a schema, we can’t actually query for a document yet because we don’t have any <strong>query resolvers</strong>. In a nutshell, a resolver tells the server how to respond to a specific GraphQL query, and you can learn more about them in the <a href="/data-loading.html">Data Loading</a> section. </p>
 <p>Let’s start simple. Create a new <code>resolvers.js</code> file inside <code>modules</code> and add:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> resolvers = &#123;</span><br><span class="line"></span><br><span class="line">  <span class="attr">list</span>: &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attr">name</span>: <span class="string">'moviesList'</span>,</span><br><span class="line"></span><br><span class="line">    resolver(root, args, context) &#123;</span><br><span class="line">      <span class="keyword">return</span> context.Movies.find().fetch();</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> resolvers;</span><br></pre></td></tr></table></figure>
@@ -531,17 +547,17 @@
       
       
         <a class="link primary prev"
-          href="videos.html">
+          href="settings.html">
           <span class="icon-arrow-left-alt"></span>
           <span class="subtitle-pagination">Previous</span>
-          Videos
+          Settings
         </a>
       
       
         <a class="link primary next"
-          href="tutorial-customizing.html">
+          href="example-customization.html">
           <span class="subtitle-pagination">Next</span>
-          Customizing & Extending Vulcan
+          Customization Example
           <span class="icon-arrow-right-alt"></span>
         </a>
       
@@ -549,7 +565,7 @@
   </div>
 
   <div class="github">
-    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/tutorial-framework.md" target="_blank">
+    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/example-movies.md" target="_blank">
       <span class="icon-github"></span>Edit on GitHub</a>
   </div>
 
