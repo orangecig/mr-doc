@@ -263,6 +263,22 @@
       
         <li>
           
+            <div class="heading-toc">Packages</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="newsletter.html" class="sidebar-link ">
+                  <span>Newsletter</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
             <div class="heading-toc">Examples</div>
           
           <ul class="list-toc">
@@ -426,6 +442,16 @@
 <h4 id="withEdit"><a href="#withEdit" class="headerlink" title="withEdit"></a><code>withEdit</code></h4><p>Same options as <code>withNew</code>. The returned <code>editMutation</code> mutation takes three arguments: <code>documentId</code>, <code>set</code>, and <code>unset</code>. </p>
 <h4 id="withRemove"><a href="#withRemove" class="headerlink" title="withRemove"></a><code>withRemove</code></h4><p>A single <code>collection</code> option. The returned <code>removeMutation</code> mutation takes a single <code>documentId</code> argument. </p>
 <p>Note that when using the <a href="forms.html">Forms</a> module, all three mutation HoCs are automatically added for you. </p>
+<h4 id="withMutation"><a href="#withMutation" class="headerlink" title="withMutation"></a><code>withMutation</code></h4><p>The <code>withMutation</code> HoC provides an easy way to call a specific mutation on the server by letting you create ad-hoc mutation containers. </p>
+<p>It takes two options: </p>
+<ul>
+<li><code>name</code>: the name of the mutation to call on the server (will also be the name of the prop passed to the component).</li>
+<li><code>args</code>: (optional) an object containing the mutation’s arguments and types. </li>
+</ul>
+<p>For example, here’s how to wrap the <code>MyComponent</code> component to pass it an <code>addEmailNewsletter</code> function as prop: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mutationOptions = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">'addEmailNewsletter'</span>,</span><br><span class="line">  <span class="attr">args</span>: &#123;<span class="attr">email</span>: <span class="string">'String'</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line">withMutation(mutationOptions)(MyComponent)</span><br></pre></td></tr></table></figure>
+<p>You would then call the function with:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">this</span><span class="selector-class">.props</span><span class="selector-class">.addEmailNewsletter</span>(&#123;<span class="attribute">email</span>: <span class="string">'foo@bar.com'</span>&#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="Boilerplate-Mutations"><a href="#Boilerplate-Mutations" class="headerlink" title="Boilerplate Mutations"></a>Boilerplate Mutations</h2><p>Vulcan features three standard <code>newMutation</code>, <code>editMutation</code>, and <code>removeMutation</code> mutations that are in essence thin wrappers around the standard Mongo <code>insert</code>, <code>update</code>, and <code>remove</code>. </p>
 <p>Note that in the context of this section, “mutation” refers to the function that performs the actual server-side database operation, and not to the <a href="mutations.html">GraphQL mutations</a>. </p>
 <p>These mutation functions should be defined <em>outside</em> your GraphQL mutation resolvers, so that you’re able to call them from outside a GraphQL context (for example, to seed your database through a server script).</p>

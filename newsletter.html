@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Forum Packages | Vulcan Docs</title>
+    <title>Newsletter | Vulcan Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="images/favicon.ico" sizes="16x16 32x32 64x64">
@@ -12,12 +12,12 @@
     <!-- Social -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="http://docs.vulcanjs.org">
-    <meta property="og:title" content="Forum Packages | Vulcan Docs">
+    <meta property="og:title" content="Newsletter | Vulcan Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Forum Packages | Vulcan Docs">
+    <meta name="twitter:title" content="Newsletter | Vulcan Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -268,8 +268,8 @@
           <ul class="list-toc">
             
               
-              <li class="item-toc ">
-                <a href="newsletter.html" class="sidebar-link ">
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
                   <span>Newsletter</span>
                 </a>
               </li>
@@ -402,42 +402,79 @@
 <div class="content">
   <div class="content-wrapper">
     <div class="header-content">
-      <h1 class="title-page">Forum Packages</h1>
+      <h1 class="title-page">Newsletter</h1>
       
 
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/features-packages.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/newsletter.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
           
         </div>
       </div>
     </div>
 
     <div class="document-formatting">
-      <p>Here’s an overview of the various features packages included with Vulcan.</p>
-<h2 id="Forms"><a href="#Forms" class="headerlink" title="Forms"></a>Forms</h2><ul>
-<li>Dependencies: <code>vulcan:core</code></li>
+      <p>This package automatically generates and sends a newsletter for posts and comments on a predefined schedule. </p>
+<p><img src="http://f.cl.ly/items/0V0F351k1R1i3L1k1D0J/telescope-newsletter.png" alt="Newsletter"></p>
+<p>Every <code>x</code> days, it builds a digest consisting of the top <code>y</code> items posted in the past <code>x</code> days that haven’t yet been sent out in a newsletter. It then sends the campaign, and sends you a confirmation email.</p>
+<p>Note: this package requires using a third-party email provider (<a href="http://mailchimp.com" target="_blank" rel="external">MailChimp</a> and <a href="http://sendy.co" target="_blank" rel="external">Sendy</a> are currently supported). </p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p><code>meteor add vulcan:newsletter</code></p>
+<h2 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h2><h4 id="Vulcan-Dependencies"><a href="#Vulcan-Dependencies" class="headerlink" title="Vulcan Dependencies"></a>Vulcan Dependencies</h4><ul>
+<li>vulcan:core</li>
+<li>vulcan:posts</li>
+<li>vulcan:comments</li>
+<li>vulcan:categories</li>
+<li>vulcan:email</li>
 </ul>
-<h2 id="Accounts"><a href="#Accounts" class="headerlink" title="Accounts"></a>Accounts</h2><ul>
-<li>Dependencies: <code>vulcan:core</code></li>
+<h4 id="NPM-Dependencies"><a href="#NPM-Dependencies" class="headerlink" title="NPM Dependencies"></a>NPM Dependencies</h4><ul>
+<li><a href="https://github.com/gomfunkel/node-mailchimp" target="_blank" rel="external">mailchimp</a></li>
+<li><a href="https://github.com/igord/sendy-api" target="_blank" rel="external">sendy-api</a></li>
 </ul>
-<h2 id="Email"><a href="#Email" class="headerlink" title="Email"></a>Email</h2><ul>
-<li>Dependencies: <code>vulcan:core</code></li>
-<li>NPM Dependencies: <code>handlebars</code></li>
+<h2 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h2><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"enableNewsletter"</span>:false,</span><br><span class="line"><span class="string">"enableNewsletterInDev"</span>:false,</span><br><span class="line"><span class="string">"newsletterFrequency"</span>: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>],</span><br><span class="line"><span class="string">"newsletterTime"</span>: <span class="string">"07:55"</span>,</span><br><span class="line"><span class="string">"newsletterProvider"</span>: <span class="string">"sendy"</span>,</span><br><span class="line"><span class="string">"sendy"</span>: &#123;</span><br><span class="line">  <span class="string">"server"</span>: <span class="string">"http://sendy.myapp.com/"</span>,</span><br><span class="line">  <span class="string">"apiKey"</span>: <span class="string">"123foo"</span>,</span><br><span class="line">  <span class="string">"listId"</span>: <span class="string">"456bar"</span>,</span><br><span class="line">  <span class="string">"fromName"</span>: <span class="string">"Bruce Willis"</span>,</span><br><span class="line">  <span class="string">"fromEmail"</span>: <span class="string">"hello@myapp.com"</span>,</span><br><span class="line">  <span class="string">"replyTo"</span>: <span class="string">"hello@myapp.com"</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">"mailchimp"</span>: &#123;</span><br><span class="line">  <span class="string">"apiKey"</span>: <span class="string">"123foo"</span>,</span><br><span class="line">  <span class="string">"listId"</span>: <span class="string">"456bar"</span>,</span><br><span class="line">  <span class="string">"fromName"</span>: <span class="string">"hello@myapp.com"</span>,</span><br><span class="line">  <span class="string">"fromEmail"</span>: <span class="string">"hello@myapp.com"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>enableNewsletter</code>: enable/disable automated newsletter sending.</li>
+<li><code>enableNewsletterInDev</code>: enable/disable newsletter while in development mode. </li>
+<li><code>newsletterFrequency</code>: which days the newsletter should go out. <code>1</code> is Monday, <code>2</code> is Tuesday, etc.</li>
+<li><code>newsletterTime</code>: what time the newsletter should go out.</li>
+<li><code>newsletterProvider</code>: the name of your newsletter provider.</li>
 </ul>
-<p>Email package. </p>
-<h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><ul>
-<li>Dependencies: <code>vulcan:core</code></li>
-<li>NPM Dependencies: <code>analytics-node</code></li>
+<h4 id="Sendy-Settings"><a href="#Sendy-Settings" class="headerlink" title="Sendy Settings"></a>Sendy Settings</h4><ul>
+<li><code>server</code>: The URL to your self-hosted Sendy server (including trailing <code>/</code>).</li>
+<li><code>apiKey</code>: Your API key.</li>
+<li><code>listId</code>: List ID.</li>
+<li><code>fromName</code>: “From” name.</li>
+<li><code>fromEmail</code>: “From” email.</li>
+<li><code>replyTo</code>: “Reply to” email.</li>
 </ul>
-<p>Simple internal event tracking. </p>
-<h4 id="sendGoogleAnalyticsRequest"><a href="#sendGoogleAnalyticsRequest" class="headerlink" title="sendGoogleAnalyticsRequest()"></a><code>sendGoogleAnalyticsRequest()</code></h4><p>Log a Google Analytics request for the current page. </p>
-<h4 id="requestAnalyticsAsync-hook-document-user"><a href="#requestAnalyticsAsync-hook-document-user" class="headerlink" title="requestAnalyticsAsync(hook, document, user)"></a><code>requestAnalyticsAsync(hook, document, user)</code></h4><p>Log a Segment request. </p>
-<h2 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h2><ul>
-<li>Dependencies: <code>vulcan:core</code>, <code>vulcan:posts</code>, <code>vulcan:comments</code>, <code>vulcan:email</code></li>
+<h4 id="MailChimp-Settings"><a href="#MailChimp-Settings" class="headerlink" title="MailChimp Settings"></a>MailChimp Settings</h4><ul>
+<li><code>apiKey</code>: Your API key.</li>
+<li><code>listId</code>: List ID.</li>
 </ul>
-<p>Add some special debugging routes. </p>
-<h2 id="Forms-Tags"><a href="#Forms-Tags" class="headerlink" title="Forms-Tags"></a>Forms-Tags</h2><h2 id="Forms-Upload"><a href="#Forms-Upload" class="headerlink" title="Forms-Upload"></a>Forms-Upload</h2><h2 id="Kadira"><a href="#Kadira" class="headerlink" title="Kadira"></a>Kadira</h2>
+<h2 id="Test-Routes"><a href="#Test-Routes" class="headerlink" title="Test Routes"></a>Test Routes</h2><p>If you want to preview your email templates, you can do so at the following routes: </p>
+<ul>
+<li><strong>Campaign</strong>: <a href="http://localhost:3000/email/campaign" target="_blank" rel="external">http://localhost:3000/email/campaign</a></li>
+<li><strong>Confirmation</strong>: <a href="http://localhost:3000/email/digest-confirmation" target="_blank" rel="external">http://localhost:3000/email/digest-confirmation</a></li>
+</ul>
+<p>(Replace <code>http://localhost:3000</code> with your app’s URL)</p>
+<h2 id="Mutations"><a href="#Mutations" class="headerlink" title="Mutations"></a>Mutations</h2><p>The package exposes the following GraphQL mutations:</p>
+<ul>
+<li><code>sendNewsletter</code>: generate and send the next newsletter.</li>
+<li><code>testNewsletter</code>: same as <code>sendNewsletter</code>, but without marking posts as sent. </li>
+<li><code>addUserNewsletter(userId: String)</code>: add a user to your subscriber list.</li>
+<li><code>addEmailNewsletter(email: String)</code>: add an email to your subscriber list.</li>
+<li><code>removeUserNewsletter(userId: String)</code>: remove a user from your subscriber list. </li>
+</ul>
+<p>You can call these mutations from any React component using the <a href="mutations.html#Higher-Order-Components"><code>withMutation</code> HoC</a>:</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; PropTypes, Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; withMutation &#125; <span class="keyword">from</span> <span class="string">'meteor/vulcan:core'</span>;</span><br><span class="line"></span><br><span class="line">const SendButton = <span class="function"><span class="params">(&#123; sendNewsletter &#125;)</span> =&gt;</span> &lt;button onClick=&#123;sendNewsletter&#125;&gt;Send Newsletter&lt;/button&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> withMutation(&#123;name: <span class="string">'sendNewsletter'</span>&#125;)(SendButton);</span><br></pre></td></tr></table></figure>
+<h2 id="Providers"><a href="#Providers" class="headerlink" title="Providers"></a>Providers</h2><p>To add a provider, you can start from the <code>sample.js</code> template included in the package. </p>
+<p>Any new provider must implement the following methods: </p>
+<ul>
+<li><code>Newsletters.providerName.subscribe(email)</code>: subscribe an email to your list.</li>
+<li><code>Newsletters.providerName.unsubscribe(email)</code>: unsubscribe an email from your list.</li>
+<li><code>Newsletters.providerName.send({ title, subject, text, html, isTest})</code>: send a newsletter. </li>
+</ul>
+<h2 id="NewsletterSubscribe-Component"><a href="#NewsletterSubscribe-Component" class="headerlink" title="NewsletterSubscribe Component"></a>NewsletterSubscribe Component</h2><p>This package also exports a <code>NewsletterSubscribe</code> custom form field component used to add a subscribe/unsubscribe button to the user account page. </p>
+
     </div>
   </div>
 
@@ -445,11 +482,18 @@
     <div class="content-wrapper">
       
       
+        <a class="link primary prev"
+          href="settings.html">
+          <span class="icon-arrow-left-alt"></span>
+          <span class="subtitle-pagination">Previous</span>
+          Settings
+        </a>
+      
       
         <a class="link primary next"
-          href="index.html">
+          href="example-movies.html">
           <span class="subtitle-pagination">Next</span>
-          Introduction
+          Movies Example
           <span class="icon-arrow-right-alt"></span>
         </a>
       
@@ -457,7 +501,7 @@
   </div>
 
   <div class="github">
-    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/features-packages.md" target="_blank">
+    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/newsletter.md" target="_blank">
       <span class="icon-github"></span>Edit on GitHub</a>
   </div>
 

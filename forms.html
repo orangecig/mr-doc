@@ -263,6 +263,22 @@
       
         <li>
           
+            <div class="heading-toc">Packages</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="newsletter.html" class="sidebar-link ">
+                  <span>Newsletter</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
             <div class="heading-toc">Examples</div>
           
           <ul class="list-toc">
@@ -441,6 +457,9 @@
 <h2 id="i18n"><a href="#i18n" class="headerlink" title="i18n"></a>i18n</h2><p>This package uses <a href="https://github.com/yahoo/react-intl/" target="_blank" rel="external">React Intl</a> to automatically translate all labels. In order to do so it expects an <code>intl</code> object ot be passed as part of its context. For example, in a parent component: </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getChildContext() &#123;</span><br><span class="line">  <span class="keyword">const</span> intlProvider = <span class="keyword">new</span> IntlProvider(&#123;<span class="attr">locale</span>: myLocale&#125;, myMessages);</span><br><span class="line">  <span class="keyword">const</span> &#123;intl&#125; = intlProvider.getChildContext();</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">intl</span>: intl</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>If you prefer, you can also code your own forms from scratch, either using <code>withNew</code>, <code>withEdit</code>, and <code>withRemove</code>, or with your own custom mutation HoCs. </p>
+<h2 id="Form-Components"><a href="#Form-Components" class="headerlink" title="Form Components"></a>Form Components</h2><ul>
+<li><a href="forms-upload.html">Upload</a></li>
+</ul>
 
     </div>
   </div>
