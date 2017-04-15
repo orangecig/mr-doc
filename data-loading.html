@@ -441,6 +441,23 @@
 <p>Resolvers can be defined on any new or existing type (e.g. <code>Movie</code>).</p>
 <h3 id="Custom-Queries"><a href="#Custom-Queries" class="headerlink" title="Custom Queries"></a>Custom Queries</h3><p>You can also use <code>GraphQLSchema.addQuery</code> to define your own queries:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GraphQLSchema.addQuery(<span class="string">`currentUser: User`</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="Caching-amp-Batching"><a href="#Caching-amp-Batching" class="headerlink" title="Caching &amp; Batching"></a>Caching &amp; Batching</h3><p>You can optionally use <a href="https://github.com/facebook/dataloader" target="_blank" rel="external">Dataloader</a> inside your resolvers to get server-side better performance through caching and batching.</p>
+<p>To understand how this works, let’s suppose you’re displaying five posts on your homepage, each of which has an author. </p>
+<p>Without batching, this would result in one database call to fetch the five posts, then one call per post to fetch the author as each <code>Post.author</code> resolver is called, for a total of six database queries. </p>
+<p>With batching enabled, these five calls to the <code>users</code> collection are batched together, for a total of two database calls. </p>
+<p>Additionally, with caching enabled, any queries for the same documents (for example, your posts also have <code>commenters</code>) won’t hit the database at all but instead load data from Dataloader’s cache. </p>
+<p>Note that the cache is <strong>per-request</strong>, meaning that it will not persist across multiple reloads or different users (which would otherwise lead to outdated data).</p>
+<p>To load data from Dataloader instead of the database, you can use the following two functions:</p>
+<ul>
+<li><code>collection.loader.load(_id)</code>: takes the <code>_id</code> of a document.</li>
+<li><code>collection.loader.loadMany(_ids)</code>: takes an array of <code>_id</code>s. </li>
+</ul>
+<p>If the documents requested are not present in the cache, Dataloader will automatically query the database for them. </p>
+<p>Aditionally, you can also manually add documents to the cache with:</p>
+<ul>
+<li><code>collection.loader.prime(_id, document)</code></li>
+</ul>
+<p>Finally, note that <code>load</code> and <code>loadMany</code> can only take <code>_id</code>s, and Mongo selectors. In those cases, you can simply keep querying the database directly with <code>collection.find()</code> and   <code>collection.findOne()</code>. </p>
 <h2 id="Higher-Order-Components"><a href="#Higher-Order-Components" class="headerlink" title="Higher-Order Components"></a>Higher-Order Components</h2><p>To make working with Apollo easier, Vulcan provides you with a set of higher-order components (HoC). </p>
 <p>An HoC is simply a function you can call on a React component to give it additional props.</p>
 <h3 id="withList"><a href="#withList" class="headerlink" title="withList"></a>withList</h3><p>The <code>withList</code> HoC is used to display lists of documents. It takes the following options:</p>
