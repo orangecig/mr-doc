@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Fragments | Vulcan Docs</title>
+    <title>Using Redux | Vulcan Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="images/favicon.ico" sizes="16x16 32x32 64x64">
@@ -12,12 +12,12 @@
     <!-- Social -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="http://docs.vulcanjs.org">
-    <meta property="og:title" content="Fragments | Vulcan Docs">
+    <meta property="og:title" content="Using Redux | Vulcan Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content="Fragments | Vulcan Docs">
+    <meta name="twitter:title" content="Using Redux | Vulcan Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -166,8 +166,8 @@
               </li>
             
               
-              <li class="item-toc  current">
-                <a href="" class="sidebar-link  current">
+              <li class="item-toc ">
+                <a href="fragments.html" class="sidebar-link ">
                   <span>Fragments</span>
                 </a>
               </li>
@@ -187,8 +187,8 @@
               </li>
             
               
-              <li class="item-toc ">
-                <a href="redux.html" class="sidebar-link ">
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
                   <span>Using Redux</span>
                 </a>
               </li>
@@ -409,33 +409,30 @@
 <div class="content">
   <div class="content-wrapper">
     <div class="header-content">
-      <h1 class="title-page">Fragments</h1>
+      <h1 class="title-page">Using Redux</h1>
       
 
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/fragments.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/redux.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
           
         </div>
       </div>
     </div>
 
     <div class="document-formatting">
-      <p>A fragment is a piece of schema, usually used to define what data you want to query for. </p>
-<h3 id="Registering-Fragments"><a href="#Registering-Fragments" class="headerlink" title="Registering Fragments"></a>Registering Fragments</h3><p>You can register fragments by passing the fragment string to <code>registerFragment</code>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; registerFragment &#125; <span class="keyword">from</span> <span class="string">'meteor/vulcan:core'</span>;</span><br><span class="line"></span><br><span class="line">registerFragment(<span class="string">`</span><br><span class="line">  fragment PostsList on Post &#123;</span><br><span class="line">    _id</span><br><span class="line">    title</span><br><span class="line">    url</span><br><span class="line">    slug</span><br><span class="line">  &#125;</span><br><span class="line">`</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="Using-Fragments"><a href="#Using-Fragments" class="headerlink" title="Using Fragments"></a>Using Fragments</h3><p>You can get a fragment with:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; getFragment &#125; <span class="keyword">from</span> <span class="string">'meteor/vulcan:lib'</span>;</span><br><span class="line"></span><br><span class="line">getFragment(<span class="string">'PostsList'</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="Sub-Fragments"><a href="#Sub-Fragments" class="headerlink" title="Sub-Fragments"></a>Sub-Fragments</h3><p>When registering a fragment, you’ll often want to use sub-fragments to avoid repeating frequently used properties. For example, the <code>PostsList</code> fragment uses the <code>UserMinimumInfo</code> fragment:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">registerFragment(<span class="string">`</span><br><span class="line">  fragment PostsList on Post &#123;</span><br><span class="line">    # vulcan:posts</span><br><span class="line">    _id</span><br><span class="line">    title</span><br><span class="line">    url</span><br><span class="line">    slug</span><br><span class="line">    user &#123;</span><br><span class="line">      ...UsersMinimumInfo</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">`</span>);</span><br></pre></td></tr></table></figure>
-<p>Note that in “regular” Apollo code, you need to include any sub-fragment used by a fragment <a href="http://dev.apollodata.com/react/fragments.html#reusing-fragments" target="_blank" rel="external">as tagged template literal</a>, but Vulcan takes care of this for you (provided you’ve previously registered any sub-fragment using <code>registerFragment</code>).</p>
-<h3 id="Extending-Fragments"><a href="#Extending-Fragments" class="headerlink" title="Extending Fragments"></a>Extending Fragments</h3><p>You often need to add one or more properties to a fragment without modifying its existing properties. You can do this with <code>extendFragment</code>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; extendFragment &#125; <span class="keyword">from</span> <span class="string">'meteor/vulcan:lib'</span>;</span><br><span class="line"></span><br><span class="line">extendFragment(<span class="string">'PostsList'</span>, <span class="string">`</span><br><span class="line">  color # new custom property!</span><br><span class="line">`</span>);</span><br></pre></td></tr></table></figure>
-<p>This is the same as registering the entire <code>PostsList</code> fragment with <code>color</code> tacked on at the end. </p>
-<h3 id="Replacing-Fragments"><a href="#Replacing-Fragments" class="headerlink" title="Replacing Fragments"></a>Replacing Fragments</h3><p>To replace a fragment completely, you can just register it again under the same name. </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; registerFragment &#125; <span class="keyword">from</span> <span class="string">'meteor/vulcan:lib'</span>;</span><br><span class="line"></span><br><span class="line">registerFragment(<span class="string">`</span><br><span class="line">  fragment UsersMinimumInfo on User &#123;</span><br><span class="line">    _id</span><br><span class="line">    slug</span><br><span class="line">    username</span><br><span class="line">    # displayName # remove this</span><br><span class="line">    # emailHash # and this</span><br><span class="line">    mySuperCustomProperty # but add this</span><br><span class="line">  &#125;</span><br><span class="line">`</span>);</span><br></pre></td></tr></table></figure>
-<p>Note that you can replace both “regular” fragments and sub-fragments.</p>
-<h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>You can use standard Apollo fragments at any point in your Vulcan app (passing them as <code>fragment</code> instead of <code>fragmentName</code>), but be aware that you will lose the ability to extend and replace fragments. You will also need to  <a href="http://dev.apollodata.com/react/fragments.html#reusing-fragments" target="_blank" rel="external">manually specify</a> sub-fragments. </p>
+      <p>Redux is used transparently by Apollo to cache your data on the client, and it’s perfectly fine to use Vulcan without ever worrying about it. </p>
+<p>That being said, if you need to manage state at an application-wide level (for example, you might want to track if a sidebar is open or closed), using Redux explicitely can be very useful. </p>
+<h2 id="A-Redux-Higher-Order-Component"><a href="#A-Redux-Higher-Order-Component" class="headerlink" title="A Redux Higher-Order Component"></a>A Redux Higher-Order Component</h2><p>Vulcan doesn’t come with any built-in Redux HoCs, but it’s not too hard to build one. For example, here’s how to create a HoC to manage a sidebar’s shown/hidden state.</p>
+<p>First, we’ll create a new action and a new reducer in a new <code>redux.js</code> file. The action defines a specific type of event that can happen inside your app; while the reducer defines what to do when that action happens.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; addAction, addReducer &#125; <span class="keyword">from</span> <span class="string">'meteor/vulcan:core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// register messages actions</span></span><br><span class="line">addAction(&#123;</span><br><span class="line">  <span class="attr">ui</span>: &#123;</span><br><span class="line">    toggleSidebar() &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="attr">type</span>: <span class="string">'TOGGLESIDEBAR'</span>,</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// register messages reducer</span></span><br><span class="line">addReducer(&#123;</span><br><span class="line">  <span class="attr">ui</span>: <span class="function">(<span class="params">state = &#123;showSidebar: <span class="literal">false</span>&#125;, action</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'TOGGLESIDEBAR'</span>:</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">          ...state,</span><br><span class="line">          <span class="attr">showSidebar</span>: !state.showSidebar</span><br><span class="line">        &#125;;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span> state;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Next, let’s create our higher-order component in a separate <code>withUI.js</code> file:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; getActions,&#125; <span class="keyword">from</span> <span class="string">'meteor/vulcan:lib'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; bindActionCreators &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> mapStateToProps = <span class="function"><span class="params">state</span> =&gt;</span> (&#123; <span class="attr">ui</span>: state.ui, &#125;);</span><br><span class="line"><span class="keyword">const</span> mapDispatchToProps = <span class="function"><span class="params">dispatch</span> =&gt;</span> bindActionCreators(getActions().ui, dispatch);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> withUI = <span class="function">(<span class="params">component</span>) =&gt;</span> connect(mapStateToProps, mapDispatchToProps)(component);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> withUI;</span><br></pre></td></tr></table></figure>
+<p>Once we wrap a component with <code>withUI</code>, the following props will be available to it:</p>
+<ul>
+<li><code>this.props.ui.showSidebar</code>: a boolean that indicates if the sidebar is shown or not.</li>
+<li><code>this.props.toggleSidebar</code>: a function that toggles the sidebar on and off. </li>
+</ul>
 
     </div>
   </div>
@@ -445,17 +442,17 @@
       
       
         <a class="link primary prev"
-          href="data-loading.html">
+          href="mutations.html">
           <span class="icon-arrow-left-alt"></span>
           <span class="subtitle-pagination">Previous</span>
-          Data Loading
+          Mutations
         </a>
       
       
         <a class="link primary next"
-          href="terms-parameters.html">
+          href="theming.html">
           <span class="subtitle-pagination">Next</span>
-          Terms & Parameters
+          Components & Theming
           <span class="icon-arrow-right-alt"></span>
         </a>
       
@@ -463,7 +460,7 @@
   </div>
 
   <div class="github">
-    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/fragments.md" target="_blank">
+    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/redux.md" target="_blank">
       <span class="icon-github"></span>Edit on GitHub</a>
   </div>
 

@@ -186,6 +186,13 @@
                 </a>
               </li>
             
+              
+              <li class="item-toc ">
+                <a href="redux.html" class="sidebar-link ">
+                  <span>Using Redux</span>
+                </a>
+              </li>
+            
           </ul>
         </li>
       
@@ -420,6 +427,8 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">addRoute(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">'foo'</span>,</span><br><span class="line">  <span class="attr">path</span>: <span class="string">'/'</span>,</span><br><span class="line">  <span class="attr">componentName</span>: <span class="string">'Foo'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Finally, to change the index (<code>/</code>) route, you can just do:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">addRoute(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">'foo'</span>,</span><br><span class="line">  <span class="attr">path</span>: <span class="string">'/'</span>,</span><br><span class="line">  <span class="attr">component</span>: Foo</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Child-Routes"><a href="#Child-Routes" class="headerlink" title="Child Routes"></a>Child Routes</h3><p>You can declare a new route as a child of an existing one using the following syntax:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">addRoute(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">'foo'</span>,</span><br><span class="line">  <span class="attr">path</span>: <span class="string">'/'</span>,</span><br><span class="line">  <span class="attr">component</span>: Foo</span><br><span class="line">&#125;, <span class="string">'nameOfParentRoute'</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="Update-Callbacks"><a href="#Update-Callbacks" class="headerlink" title="Update Callbacks"></a>Update Callbacks</h3><p>A common pattern with React Router is running callbacks after the route update (to enable things like custom scrolling behavior, for example).</p>
 <p>You can use the <code>router.onUpdate</code> callback hook to add your own callbacks:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addCallback(<span class="string">'router.onUpdate'</span>, sendGoogleAnalyticsRequest);</span><br></pre></td></tr></table></figure>
