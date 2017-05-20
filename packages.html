@@ -48,7 +48,7 @@
     
       
       <div class="nav-item show-desktop false ">
-        <a class="link" href="https://github.com/telescopejs/telescope"  >
+        <a class="link" href="https://github.com/vulcanjs/vulcan"  >
           <span>GitHub</span>
         </a>
       </div>
@@ -72,7 +72,7 @@
     </div>
     
       <div class="panel-item "">
-        <a class="" href="https://github.com/telescopejs/telescope"  >
+        <a class="" href="https://github.com/vulcanjs/vulcan"  >
           <span>GitHub</span>
         </a>
       </div>
@@ -421,7 +421,7 @@
 
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn tertiary small round lowercase" href="https://github.com/telescopejs/nova-docs/tree/master/source/packages.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          <a class="btn tertiary small round lowercase" href="https://github.com/vulcanjs/nova-docs/tree/master/source/packages.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
           
         </div>
       </div>
@@ -468,6 +468,8 @@
 <p>For example, the <code>example-movies</code> package depends on <code>vulcan:core</code>, so adding <code>example-movies</code> will automatically add <code>vulcan:core</code> as well. This is why <code>vulcan:core</code> is not listed in your <code>.meteor/packages</code> file. </p>
 <p>But although <code>example-movies</code> can use the English text strings stored in <code>vulcan:i18n-en-us</code>, it doesn’t <em>depend</em> on it. This means you can (for example) swap out <code>vulcan:i18n-en-us</code> for <code>vulcan:i18n-fr-fr</code> in <code>.meteor/packages</code> to get French strings. </p>
 <p>A complete list of all Meteor packages currently loaded is stored in the <code>.meteor/versions</code> file. </p>
+<p>Note that Meteor packages may be added even if they are not located within the Vulcan root directory, by setting the <code>METEOR_PACKAGE_DIRS</code> environment variable. For example, the following commands will allow you to modify your <code>.profile</code> file to add any package located in the <code>packages</code> subdirectory of your home directory:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="meta">&gt;&gt; </span>$HOME/.profile</span><br><span class="line">export METEOR_PACKAGE_DIRS=$HOME/packages</span><br></pre></td></tr></table></figure>
 
     </div>
   </div>
@@ -495,7 +497,7 @@
   </div>
 
   <div class="github">
-    <a class="link tertiary " href="https://github.com/telescopejs/nova-docs/tree/master/source/packages.md" target="_blank">
+    <a class="link tertiary " href="https://github.com/vulcanjs/nova-docs/tree/master/source/packages.md" target="_blank">
       <span class="icon-github"></span>Edit on GitHub</a>
   </div>
 
