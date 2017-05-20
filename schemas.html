@@ -450,6 +450,12 @@
 <p>If it’s a function, it’ll be called on the <code>user</code> performing the operation, and should return <code>true</code> or <code>false</code>. When generating a form for inserting new documents, the form will contain all the fields that return <code>true</code> for the current user.</p>
 <h4 id="editableBy"><a href="#editableBy" class="headerlink" title="editableBy"></a><code>editableBy</code></h4><p>Can either be an array of group names or a function.</p>
 <p>If it’s a function, it’ll be called on the <code>user</code> performing the operation, and the <code>document</code> being operated on, and should return <code>true</code> or <code>false</code>. When generating a form for editing existing documents, the form will contain all the fields that return <code>true</code> for the current user.</p>
+<h4 id="onInsert-onEdit-onRemove"><a href="#onInsert-onEdit-onRemove" class="headerlink" title="onInsert, onEdit, onRemove"></a><code>onInsert</code>, <code>onEdit</code>, <code>onRemove</code></h4><p>These three properties can take a callback function that will run during the corresponding operation. </p>
+<ul>
+<li><code>onInsert(document, currentUser)</code></li>
+<li><code>onEdit(modifier, document, currentUser)</code></li>
+<li><code>onRemove(document, currentUser)</code></li>
+</ul>
 <h4 id="resolveAs"><a href="#resolveAs" class="headerlink" title="resolveAs"></a><code>resolveAs</code></h4><p>Although Vulcan uses your SimpleSchema JSON schema to generate your GraphQL schema, it’s important to understand that the two can be different. </p>
 <p>For example, you might have a <code>userId</code> property in your <code>Posts</code> schema, but want this property to <em>resolve</em> as a <code>user</code> object in your GraphQL schema (and in turn, in your client store). You can use <code>resolveAs</code> to accomplish this:</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">resolveAs:</span> <span class="string">'user: User'</span></span><br></pre></td></tr></table></figure>
