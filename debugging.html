@@ -434,6 +434,10 @@
 <p>If nothing is showing up in the browser console. or maybe your app isn’t loading at all, make sure you also check the server logs. You’ll find them in the terminal window currently running your app locally, or with <code>mup logs -f</code> if you’ve deployed using Meteor Up.</p>
 <p>It’s also possible that you’ve encountered a GraphQL error, which won’t be shown in either places. One way to track this down is to open your browser devtools’ Network tab and look for any red <code>graphql</code> requests. If you see any failed requests, check their Response tab to view the error message.</p>
 <p>You can also access a query’s error message through the Redux or Apollo devtools. In the Redux devtools, click the State tab, drill down to the affected query, and check its <code>networkError</code> and <code>graphQLErrors</code> properties. </p>
+<h2 id="GraphQL-Schema-Issues"><a href="#GraphQL-Schema-Issues" class="headerlink" title="GraphQL Schema Issues"></a>GraphQL Schema Issues</h2><p>Although Vulcan includes features for generating your GraphQL schema automatically from your JSON schema, sometimes you’ll run into issues and need to take a look under the hood. </p>
+<p>You can review your final generated schema by opening the Meteor shell with <code>meteor shell</code> and then typing:</p>
+<pre><code>Vulcan.getGraphQLSchema()
+</code></pre><p>You’ll probably want to paste in the output in a text editor and replace <code>\n</code> with actual line breaks for better formatting. </p>
 <h2 id="SSR-Warnings"><a href="#SSR-Warnings" class="headerlink" title="SSR Warnings"></a>SSR Warnings</h2><p>Another common type of problem is server-side rendering (SSR) warnings:</p>
 <blockquote>
 <p> React attempted to reuse markup in a container but the checksum was invalid. This generally means that you are using server rendering and the markup generated on the server was not what the client was expecting. React injected new markup to compensate which works but you have lost many of the benefits of server rendering. Instead, figure out why the markup being generated is different on the client or server:</p>
