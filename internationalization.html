@@ -281,6 +281,13 @@
                 </a>
               </li>
             
+              
+              <li class="item-toc ">
+                <a href="payments.html" class="sidebar-link ">
+                  <span>Payments</span>
+                </a>
+              </li>
+            
           </ul>
         </li>
       
@@ -426,15 +433,16 @@
     </div>
 
     <div class="document-formatting">
-      <p>Vulcan is internationalized using <a href="https://github.com/yahoo/react-intl/" target="_blank" rel="external">react-intl</a>. To add a new language, you need to:</p>
+      <p>All packages included in the main Vulcan repo are ready for internationalization and come with English strings. </p>
+<h2 id="Adding-Languages"><a href="#Adding-Languages" class="headerlink" title="Adding Languages"></a>Adding Languages</h2><p>To add a new language, you need to:</p>
 <ol>
 <li>Create a new package containing the internationalized strings (you can use <code>vulcan:i18n-en-us</code> as a model).</li>
-<li>Publish that package to Atmosphere and then add it to your app using `meteor add username:packagename.</li>
+<li>Publish that package to <a href="https://atmospherejs.com/" target="_blank" rel="external">Atmosphere</a> and then add it to your app using <code>meteor add username:packagename</code>, or else keep it in your repo as a local package.</li>
 <li>Set <code>locale</code> to the locale name (<code>fr</code>, <code>en</code>, <code>ru</code>, etc.) in your settings.</li>
 </ol>
 <p>Note: make sure the locale you set matches the language package you’re adding.</p>
 <p>If you create a new internationalization package, let us know so we can add it here!</p>
-<ul>
+<h2 id="Available-Languages"><a href="#Available-Languages" class="headerlink" title="Available Languages"></a>Available Languages</h2><ul>
 <li><a href="https://github.com/VulcanJS/nova-i18n-fr-fr" target="_blank" rel="external">fr-FR</a></li>
 <li><a href="https://atmospherejs.com/fcallem/nova-i18n-es-es" target="_blank" rel="external">es-ES</a></li>
 <li><a href="https://atmospherejs.com/lusch/nova-i18n-pl-pl" target="_blank" rel="external">pl-PL</a></li>
@@ -444,6 +452,19 @@
 <li><a href="https://github.com/qge/nova-i18n-zh-cn" target="_blank" rel="external">zh-CN</a></li>
 <li><a href="https://github.com/pal-pinter/vulcan-i18n-hu-hu" target="_blank" rel="external">hu-HU</a></li>
 </ul>
+<h2 id="Using-react-intl"><a href="#Using-react-intl" class="headerlink" title="Using react:intl"></a>Using react:intl</h2><p>By default, Vulcan uses the <code>vulcan:i18n</code> package for internationalization. It supports an extremely limited set of i18n features by design in order to keep the Vulcan bundle size low, but all <code>vulcan:i18n</code> APIs are 100% compatible with the <a href="https://github.com/yahoo/react-intl" target="_blank" rel="external">react-intl</a> package. </p>
+<p>If you do need all of react-intl’s features, here’s how to enable them:</p>
+<ol>
+<li><p>Create a new <code>_vulcan-i18n</code> package directory</p>
+</li>
+<li><p>Inside, create the following <code>package.js</code> file:</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Package.describe(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">'vulcan:i18n'</span>,</span><br><span class="line">  <span class="attr">summary</span>: <span class="string">"Use react-intl instead of vulcan:i18n"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Package.onUse(<span class="function"><span class="keyword">function</span> (<span class="params">api</span>) </span>&#123;</span><br><span class="line">  api.use([<span class="string">'vulcan:lib'</span>]);</span><br><span class="line">  api.mainModule(<span class="string">'i18n.js'</span>, <span class="string">'server'</span>);</span><br><span class="line">  api.mainModule(<span class="string">'i18n.js'</span>, <span class="string">'client'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>And the following <code>i18n.js</code> file:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> * <span class="keyword">from</span> <span class="string">'react-intl'</span>;</span><br></pre></td></tr></table></figure>
+<p>You’ll now have two packages named <code>vulcan:i18n</code>, but because your newly created <code>_vulcan-i18n</code> directory starts with <code>_</code>, it will take alphabetical precedence over the default <code>vulcan-i18n</code> and be used by your app instead. </p>
+<p>You can keep importing from <code>vulcan:i18n</code> as usual, except <code>vulcan:i18n</code> will now simply be a clone of <code>react-intl</code>. </p>
 
     </div>
   </div>

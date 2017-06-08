@@ -281,6 +281,13 @@
                 </a>
               </li>
             
+              
+              <li class="item-toc ">
+                <a href="payments.html" class="sidebar-link ">
+                  <span>Payments</span>
+                </a>
+              </li>
+            
           </ul>
         </li>
       
@@ -439,6 +446,7 @@
 <li><code>name</code>: the resolver’s name.</li>
 <li><code>resolver</code>: the resolver function.</li>
 </ul>
+<p>Note that if your collections include private data, you’ll have to implement your own security layer inside each resolver to prevent unwanted access. Check out the <a href="/groups-permissions.html#Controlling-Viewing">Controlling Viewing</a> section for more details. </p>
 <h3 id="List-Resolver"><a href="#List-Resolver" class="headerlink" title="List Resolver"></a>List Resolver</h3><p>The <code>list</code> resolver is used to display lists of documents. It takes the following arguments:</p>
 <ul>
 <li><code>terms</code>: a JSON object containing a list of terms used to filter and sort the list.</li>
