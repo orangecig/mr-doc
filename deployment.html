@@ -260,6 +260,13 @@
             
               
               <li class="item-toc ">
+                <a href="head-tags.html" class="sidebar-link ">
+                  <span>Head Tags</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
                 <a href="settings.html" class="sidebar-link ">
                   <span>Settings</span>
                 </a>
@@ -460,6 +467,19 @@
 <li><code>meteor npm install --save bcrypt</code>.</li>
 <li>Increase <code>deployCheckWaitTime</code>.</li>
 </ul>
+<h2 id="Meteor-Now"><a href="#Meteor-Now" class="headerlink" title="Meteor Now"></a>Meteor Now</h2><p>Another simple option to get your app live for no cost is by using <a href="https://github.com/jkrup/meteor-now" target="_blank" rel="external">Meteor Now</a>.<br>Meteor-now is a tool to let you instantly deploy your Meteor apps with one command using ZEIT’s <a href="http://zeit.co/now" target="_blank" rel="external">▲now</a> service.</p>
+<h3 id="Configuration-1"><a href="#Configuration-1" class="headerlink" title="Configuration"></a>Configuration</h3><p>Install the <code>now</code> and <code>meteor-now</code> packages:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> -g <span class="keyword">now</span> meteor-<span class="keyword">now</span></span><br></pre></td></tr></table></figure>
+<p>Create now account</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ now <span class="comment">--login</span></span><br><span class="line">&gt; Enter your email: &lt;your email&gt;</span><br><span class="line">&gt; Please follow <span class="keyword">the</span> link sent <span class="built_in">to</span> &lt;your email&gt; <span class="built_in">to</span> <span class="built_in">log</span> <span class="keyword">in</span>.</span><br><span class="line">&gt; Verify that <span class="keyword">the</span> provided security code <span class="keyword">in</span> <span class="keyword">the</span> email matches Pragmatic Manta Ray.</span><br><span class="line"></span><br><span class="line">✔ Confirmed email address!</span><br><span class="line"></span><br><span class="line">&gt; Logged <span class="keyword">in</span> successfully. Token saved <span class="keyword">in</span> ~/.now.json</span><br></pre></td></tr></table></figure>
+<h3 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h3><p>Now on your root folder, run the following command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meteor-now <span class="_">-d</span> <span class="_">-e</span> ROOT_URL=https://mydomain.now.sh <span class="_">-e</span> NODE_ENV=production`</span><br></pre></td></tr></table></figure>
+<p>Change <code>mydomain</code> with your custom domain name.</p>
+<p>You can also add <code>-e MONGO_URL=mongodb://&lt;username&gt;:&lt;pass&gt;@....</code> for persistance storage of data. We recommend you using a service like <a href="https://mlab.com/" target="_blank" rel="external">mlab</a>.</p>
+<p>After your deployment is done, create an alias to the domain you just specified. Just copy the hashed link provided by the now deployment. It should be copied to your clipboad. It usually follows this format: <code>https://xxxxxxxxx.now.sh</code>.</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">now alias <span class="keyword">set</span> http<span class="variable">s:</span>//xxxxxxxxx.now.<span class="keyword">sh</span> http<span class="variable">s:</span>//mydomain.now.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
+<p>That’s it! now visit <code>https://mydomain.now.sh</code>.</p>
+<p>For more info, for how to get a custom domain name run <code>now -h</code>. You may need a premium <a href="http://zeit.co/now" target="_blank" rel="external">now</a>account. </p>
 <h2 id="PM2"><a href="#PM2" class="headerlink" title="PM2"></a>PM2</h2><p>Contributed by <a href="https://github.com/VulcanJS/Vulcan/issues/1552#issuecomment-276948862" target="_blank" rel="external">adalidda</a>.</p>
 <p>Deploy Vulcan GraphQL/Apollo version with PM2</p>
 <h3 id="Server-Setup"><a href="#Server-Setup" class="headerlink" title="Server Setup"></a>Server Setup</h3><p>On Ubuntu 14 or better.</p>

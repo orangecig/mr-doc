@@ -260,6 +260,13 @@
             
               
               <li class="item-toc ">
+                <a href="head-tags.html" class="sidebar-link ">
+                  <span>Head Tags</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
                 <a href="settings.html" class="sidebar-link ">
                   <span>Settings</span>
                 </a>
@@ -452,7 +459,7 @@
 </ul>
 <h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>Passing a schema, resolvers, and mutations to <code>createCollection</code> enables a lot of Vulcan’s internal synergy. That being said, you can also set <code>generateGraphQLSchema</code> to <code>false</code> and use the custom schemas, custom resolvers, and custom mutations utilities documented below to bypass this if you prefer. </p>
 <h2 id="Schemas"><a href="#Schemas" class="headerlink" title="Schemas"></a>Schemas</h2><p>The first piece of any GraphQL API is the <strong>schema</strong>, which defines what data is made available to the client. </p>
-<p>In Vulcan, this GraphQL schema can be generated automatically from your collection’s JSON schema, so you don’t have to type things twice. Just pass a <a href="https://github.com/aldeed/meteor-simple-schema" target="_blank" rel="external">SimpleSchema</a>-compatible JSON schema as <code>createCollection</code>‘s <code>schema</code> property.</p>
+<p>In Vulcan, this GraphQL schema can be generated automatically from your collection’s JSON schema, so you don’t have to type things twice. Just pass a <a href="https://github.com/aldeed/node-simple-schema" target="_blank" rel="external">SimpleSchema</a>-compatible JSON schema as <code>createCollection</code>‘s <code>schema</code> property.</p>
 <h3 id="Custom-Schemas"><a href="#Custom-Schemas" class="headerlink" title="Custom Schemas"></a>Custom Schemas</h3><p>If you need to manually add a schema, you can also do so using the <code>GraphQLSchema.addSchema</code> function:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> customSchema = <span class="string">`</span><br><span class="line">  input Custom &#123;</span><br><span class="line">    _id: String</span><br><span class="line">    userId: String</span><br><span class="line">    title: String</span><br><span class="line">  &#125;</span><br><span class="line">`</span>;</span><br><span class="line">GraphQLSchema.addSchema(customSchema);</span><br></pre></td></tr></table></figure>
 <h2 id="Schema-Properties"><a href="#Schema-Properties" class="headerlink" title="Schema Properties"></a>Schema Properties</h2><h3 id="Default-Properties"><a href="#Default-Properties" class="headerlink" title="Default Properties"></a>Default Properties</h3><p>See the <a href="https://github.com/aldeed/meteor-simple-schema#schema-rules" target="_blank" rel="external">SimpleSchema documentation</a>.</p>
@@ -492,6 +499,7 @@
 <p>A few special properties (<code>viewableBy</code>, <code>insertableBy</code>, <code>editableBy</code>, <code>control</code>, and <code>order</code>) are also supported by the <a href="forms.html">Forms</a> package.</p>
 <p>You can also remove a field by calling <code>collection.removeField(fieldName)</code>. For example:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Posts.removeField(<span class="string">'scheduledAt'</span>);</span><br></pre></td></tr></table></figure>
+
     </div>
   </div>
 

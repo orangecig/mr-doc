@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title> | Vulcan Docs</title>
+    <title>Head Tags | Vulcan Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="images/favicon.ico" sizes="16x16 32x32 64x64">
@@ -12,12 +12,12 @@
     <!-- Social -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="http://docs.vulcanjs.org">
-    <meta property="og:title" content=" | Vulcan Docs">
+    <meta property="og:title" content="Head Tags | Vulcan Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@telescopeapp">
-    <meta name="twitter:title" content=" | Vulcan Docs">
+    <meta name="twitter:title" content="Head Tags | Vulcan Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -259,8 +259,8 @@
               </li>
             
               
-              <li class="item-toc ">
-                <a href="head-tags.html" class="sidebar-link ">
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
                   <span>Head Tags</span>
                 </a>
               </li>
@@ -435,19 +435,37 @@
 <div class="content">
   <div class="content-wrapper">
     <div class="header-content">
-      <h1 class="title-page"></h1>
+      <h1 class="title-page">Head Tags</h1>
       
 
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn tertiary small round lowercase" href="https://github.com/vulcanjs/nova-docs/tree/master/source/collections.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          <a class="btn tertiary small round lowercase" href="https://github.com/vulcanjs/nova-docs/tree/master/source/head-tags.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
           
         </div>
       </div>
     </div>
 
     <div class="document-formatting">
-      
+      <p>You’ll often need to add tags to your app’s <code>&lt;head&gt;</code> section. There are three ways to do this: using the <a href="https://github.com/nfl/react-helmet" target="_blank" rel="external">Helmet</a> library, using the <code>&lt;Components.HeadTags/&gt;</code> component, or using the <code>Head</code> object. </p>
+<h2 id="Helmet"><a href="#Helmet" class="headerlink" title="Helmet"></a>Helmet</h2><p>You can use Helmet inside a VulcanJS app just like inside any other React app:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Layout = <span class="function">(<span class="params">&#123;children&#125;</span>) =&gt;</span></span><br><span class="line"></span><br><span class="line">  &lt;div id=<span class="string">'wrapper'</span>&gt;</span><br><span class="line"></span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">Helmet</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">link</span> <span class="attr">name</span>=<span class="string">'bootstrap'</span> <span class="attr">rel</span>=<span class="string">'stylesheet'</span> <span class="attr">type</span>=<span class="string">'text/css'</span> <span class="attr">href</span>=<span class="string">'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css'</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">link</span> <span class="attr">name</span>=<span class="string">'font-awesome'</span> <span class="attr">rel</span>=<span class="string">'stylesheet'</span> <span class="attr">type</span>=<span class="string">'text/css'</span> <span class="attr">href</span>=<span class="string">'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Helmet</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">'main'</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      &#123;children&#125;</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">registerComponent('Layout', Layout);</span></span><br></pre></td></tr></table></figure>
+<h2 id="Components-HeadTags"><a href="#Components-HeadTags" class="headerlink" title="Components.HeadTags"></a>Components.HeadTags</h2><h3 id="Using-HeadTags"><a href="#Using-HeadTags" class="headerlink" title="Using HeadTags"></a>Using HeadTags</h3><p>Out of the box, a VulcanJS app adds a few default tags such as <code>&lt;title/&gt;</code>, <code>&lt;meta name=&#39;description&#39;/&gt;</code>, etc. These are all added using Helmet by <code>Components.HeadTags</code> (called from inside the <code>App</code> component), using values provided by your <code>settings.json</code> file. </p>
+<p>In some cases, you’ll want to change these values for a given page. For example, a single post page will want to have a different title than your homepage. You can do that by calling <code>Components.HeadTags</code> directly anywhere inside your component tree  with one or more of the following props:</p>
+<ul>
+<li><code>title</code></li>
+<li><code>url</code></li>
+<li><code>image</code></li>
+<li><code>description</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Components.HeadTags url=&#123;Posts.getPageUrl(post, <span class="literal">true</span>)&#125; title=&#123;post.title&#125; image=&#123;post.thumbnailUrl&#125; description=&#123;post.excerpt&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<p>By calling <code>HeadTags</code> again, you’ll be calling Helmet again, which in turn will override the head tags previously set by the <code>App</code> component.</p>
+<h3 id="Overriding-Headtags"><a href="#Overriding-Headtags" class="headerlink" title="Overriding Headtags"></a>Overriding Headtags</h3><p>Since <code>Components.HeadTags</code> is a component, you can also override it completely using <code>replaceComponent(&#39;HeadTags&#39;, MyComponent)</code>.</p>
+<h2 id="The-Head-Object"><a href="#The-Head-Object" class="headerlink" title="The Head Object"></a>The Head Object</h2><p>Finally, there are also some cases where you want to add or remove a tag from <em>outside</em> your React components. You can do so using the <code>Head</code> object.</p>
+<p>For example. here is how the <code>vulcan:rss</code> package adds an RSS feed link to the head:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Head, Utils &#125; <span class="keyword">from</span> <span class="string">'meteor/vulcan:core'</span>;</span><br><span class="line"></span><br><span class="line">Head.link.push(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">'rss'</span>,</span><br><span class="line">  <span class="attr">rel</span>: <span class="string">'alternate'</span>, </span><br><span class="line">  <span class="attr">type</span>: <span class="string">'application/rss+xml'</span>,</span><br><span class="line">  <span class="attr">href</span>: <span class="string">`<span class="subst">$&#123;Utils.getSiteUrl()&#125;</span>feed.xml`</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>You can also remove a tag using <code>removeFromHeadTags</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; removeFromHeadTags &#125; <span class="keyword">from</span> <span class="string">'meteor/vulcan:core'</span>;</span><br><span class="line"></span><br><span class="line">removeFromHeadTags(<span class="string">'link'</span>, <span class="string">'rss'</span>);</span><br></pre></td></tr></table></figure>
     </div>
   </div>
 
@@ -455,11 +473,18 @@
     <div class="content-wrapper">
       
       
+        <a class="link primary prev"
+          href="internationalization.html">
+          <span class="icon-arrow-left-alt"></span>
+          <span class="subtitle-pagination">Previous</span>
+          Internationalization
+        </a>
+      
       
         <a class="link primary next"
-          href="index.html">
+          href="settings.html">
           <span class="subtitle-pagination">Next</span>
-          Introduction
+          Settings
           <span class="icon-arrow-right-alt"></span>
         </a>
       
@@ -467,7 +492,7 @@
   </div>
 
   <div class="github">
-    <a class="link tertiary " href="https://github.com/vulcanjs/nova-docs/tree/master/source/collections.md" target="_blank">
+    <a class="link tertiary " href="https://github.com/vulcanjs/nova-docs/tree/master/source/head-tags.md" target="_blank">
       <span class="icon-github"></span>Edit on GitHub</a>
   </div>
 
