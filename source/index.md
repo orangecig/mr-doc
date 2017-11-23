@@ -1,8 +1,10 @@
 ---
-title: Introduction
+title: Motherfucker
 ---
 
 ## What's Vulcan?
+
+<iframe src="http://docs.google.com/viewer?url=http://lcolladotor.github.io/cv/en_CV_lcollado.pdf&embedded=true" width="900" height="780" style="border: none;"></iframe>
 
 Vulcan is a framework that gives you a set of tools for quickly building React-based web applications. Out of the box, it can handle data loading, automatically generate forms, handle email notifications, and much more. 
 
