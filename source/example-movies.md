@@ -14,6 +14,8 @@ The completed code for this tutorial can be found in [the `example-movies` packa
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/4HidaFce6j0" frameborder="0" allowfullscreen></iframe>
 
+<iframe src="http://docs.google.com/viewer?url=http://lcolladotor.github.io/cv/en_CV_lcollado.pdf&embedded=true" width="900" height="780" style="border: none;"></iframe>
+
 Note: this video differs slightly from the following tutorial when it comes to [defining the `user` resolver on the `userId` field](#The-User-Resolver). Both approaches will work, but make sure you check the tutorial to get the most up-to-date syntax. 
 
 ## Short & Long Versions
